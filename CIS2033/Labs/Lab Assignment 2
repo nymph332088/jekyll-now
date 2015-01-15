@@ -1,0 +1,9 @@
+1. 
+Let Z be the number of times a 6 appeared in five independent throws of a die. Describe the probability distribution of Z by:
+   Plotting the probability mass function P(Z) and
+   Plotting the cumulative distribution function F(Z) of Z
+
+2.
+Plot the probability mass function and the cumulative distribution function of a binomial distribution for a few different values of the parameter p. How does the shape change as a function of p?
+
+Plot the probability mass function and the cumulative distribution function of a geometric distribution for a few different values of the parameter p. How does the shape change as a function of p?

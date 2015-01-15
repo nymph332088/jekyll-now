@@ -1,0 +1,211 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips12submit_e,times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+%\documentstyle[nips12submit_09,times,art10]{article} % For LaTeX 2.09
+
+
+\title{Notes for Chapter 4}
+
+
+\author{
+Min Xiao\\
+Department of Computer and Information Sciences\\
+Temple University\\
+Philadelphia, PA 19122 \\
+\texttt{minxiao@temple.edu} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+\maketitle
+
+\section*{4.3-Bernoulli Distribution}
+\paragraph*{Examples} For a Bernoulli distribution, there are {\bf TWO and ONLY TWO} outcomes. 
+\begin{table}[h!]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+& Events & Outcomes & Success & Failure & PMF \\ \hline 
+$Ber_1$ & Flip a coin & \{HEAD, TAIL\} & \{HEAD\} & \{TAIL\} & $Ber(\frac{1}{2})$ \\ \hline
+$Ber_2$ & Flip a coin & \{HEAD, TAIL\} & \{TAIL\} & \{HEAD\} & $Ber(\frac{1}{2})$ \\ \hline
+$Ber_3$ & Throw a dice & \{1, 2, 3, 4, 5, 6\} & \{3\} & \{1, 2, 4, 5, 6\} & $Ber(\frac{1}{6})$ \\ \hline
+$Ber_4$ & Throw a dice & \{1, 2, 3, 4, 5, 6\} & Odd \{1, 3, 5\} & Even \{2, 4, 6\} & $Ber(\frac{1}{2})$ \\ \hline
+$Ber_5$ & Throw a dice & \{1, 2, 3, 4, 5, 6\} & Even \{2, 4, 6\} & Odd \{1, 3, 5\} & $Ber(\frac{1}{2})$ \\ \hline
+\multirow{2}{*}{$Ber_6$} & Randomly pick & \multirow{2}{*}{\{MALE, FEMALE\}} & \multirow{2}{*}{\{MALE\}} & \multirow{2}{*}{\{FEMALE\}} & \multirow{2}{*}{$Ber(\frac{19}{24})$} \\
+& a student & & & & \\ \hline
+\multirow{2}{*}{$Ber_7$} & Randomly pick & \multirow{2}{*}{\{MALE, FEMALE\}} & \multirow{2}{*}{\{FEMALE\}} & \multirow{2}{*}{\{MALE\}} & \multirow{2}{*}{$Ber(\frac{5}{24})$} \\
+& a student& & & & \\
+\hline
+\end{tabular}
+\caption{Bernoulli distribution examples.}
+\label{Ta:ber}
+\end{center}
+\end{table}
+
+\newpage 
+
+\section*{4.4-Binomial Distribution}
+
+\paragraph*{Examples} For a binomial distribution, multiple (n) Bernoulli trials with k success, each of which is with the probability $p$. If we try each of the experiments from Table~\ref{Ta:ber} multiple times (n), we will get the following binomial distributions. (Note that those n repeats are independent of each other)
+\begin{table}[h!]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+& Events & One Bernoulli Trial (success) & n & p & PMF \\ \hline
+\multirow{2}{*}{$Bin_1$} & {Flip a coin 3 times} & {Flip a coin} & \multirow{2}{*}{3} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(3,\frac{1}{2})$} \\
+& with k heads & with a head & & & \\  \hline
+\multirow{2}{*}{$Bin_2$} & {Flip a coin 5 times} & {Flip a coin} & \multirow{2}{*}{5} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(5,\frac{1}{2})$} \\
+&  with k tails & with a tail & & & \\  \hline
+\multirow{2}{*}{$Bin_3$} & {Throw a dice 2 times} & {Throw a dice} & \multirow{2}{*}{2} & \multirow{2}{*}{$\frac{1}{6}$} & \multirow{2}{*}{$Bin(2,\frac{1}{6})$} \\
+&  with k threes &  with a three & & & \\ \hline
+\multirow{2}{*}{$Bin_4$} & {Throw a dice 3 times}  & {Throw a dice} & \multirow{2}{*}{3} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(3,\frac{1}{2})$} \\
+& with k odd numbers &  with an odd number  & & & \\ \hline
+\multirow{2}{*}{$Bin_5$} & {Throw a dice 4 times} & {Throw a dice with} & \multirow{2}{*}{4} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(4,\frac{1}{2})$} \\
+&  with k even numbers  & an even number & & & \\ \hline
+\multirow{2}{*}{$Bin_6$} & {Randomly pick 2 students} & {Randomly pick a student}& \multirow{2}{*}{2} & \multirow{2}{*}{$\frac{19}{24}$} & \multirow{2}{*}{$Bin(2,\frac{19}{24})$} \\
+&  from the class with k male &  from the class with a male  & & & \\ \hline
+\multirow{2}{*}{$Bin_7$} & {Randomly pick 5 students}  & {Randomly pick a student}& \multirow{2}{*}{5} & \multirow{2}{*}{$\frac{5}{24}$} & \multirow{2}{*}{$Bin(5,\frac{5}{24})$} \\
+& from the class with k female &  from the class with a female  & & & \\
+\hline
+\end{tabular}
+\caption{Binomial distribution examples.}
+\label{Ta:bin}
+\end{center}
+\end{table}
+
+\paragraph*{Exercise} Given a dice with six numbers (\{1, 2, 3, 4, 5, 6\}), each number comes with the same probability when you roll it. Here is the game. Suppose you have such two dices and you simultaneously roll both of them to get the sum of the two output numbers. When the sum is 2 or 12, we say that you get the magic numbers and you will be rewarded. However, each play will cost you a certain amount of money and you can only afford to play n times. Let the random variable $X$ denote the total number of times you will hit those magic numbers and be rewarded. 
+\begin{itemize}
+\item What type of distribution does X have? Specify its parameter(s).  \\
+{\bf Binomial distribution}.\\
+A discrete random variable X has a {\em binomial distribution} with parameters n and p, where n=1, 2, \ldots and $0 \leq p \leq 1$, 
+\begin{align*}
+p_X(k)=P(X=k)=\left( \begin{array}{c} n \\ k \end{array} \right) p^k(1-p)^{n-k}, 
+\end{align*}
+for $k=1, 2, \ldots, n$. 
+
+There are {\bf 2} parameters, n and $p^*$, where $n$ is the number of plays and $p^*$ is the probability that you will hit the magic numbers and be rewarded in one single play such that $p^* = \frac{2}{36}=\frac{1}{18}$. (Two cases: 1+1 or 6 + 6)
+\item What is the probability mass function of the total number of plays X? \\
+Then we get 
+\begin{align*}
+p_X(k)=P(X=k)=\left( \begin{array}{c} n \\ k \end{array} \right) (\frac{1}{18})^k(\frac{17}{18})^{n-k}, 
+\end{align*}
+\end{itemize}
+
+\newpage
+\section*{Geometric Distribution}
+
+\paragraph*{Examples} For a geometric distribution, succeed after k trials. In each trial, the probability of success is $p$. If we try each of the experiments from Table~\ref{Ta:ber} repeatedly until succeed, we will get the following geometric distributions. (Note that those k repeats are independent of each other)
+\begin{table}[h!]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+& Events & One Success & p & PMF \\ \hline
+\multirow{2}{*}{$Geo_1$} & {Flip a coin multiple times} & {Flip a coin} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
+& until get a head & with a head  & & \\  \hline
+\multirow{2}{*}{$Geo_2$} & {Flip a coin multiple times} & {Flip a coin} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
+& until get a tail & with a tail &  & \\ \hline
+\multirow{2}{*}{$Geo_3$} & {Throw a dice multiple times} & {Throw a dice} & \multirow{2}{*}{$\frac{1}{6}$} & \multirow{2}{*}{$Geo(\frac{1}{6})$} \\
+&  until get a THREE &  with a THREE &  & \\ \hline
+\multirow{2}{*}{$Geo_4$} & {Throw a dice multiple times}  & {Throw a dice} &  \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
+& until get an odd number &  with an odd number  &  & \\ \hline
+\multirow{2}{*}{$Geo_5$} & {Throw a dice multiple times} & {Throw a dice with}  & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
+& until get an even number & an even number & & \\ \hline
+\multirow{2}{*}{$Geo_6$} & {Repeatedly randomly pick a student} &{Randomly pick a student}&  \multirow{2}{*}{$\frac{19}{24}$} & \multirow{2}{*}{$Geo(\frac{19}{24})$} \\
+& until get a male student &  from the class with a male  & & \\ \hline
+\multirow{2}{*}{$Geo_7$} &{Repeatedly randomly pick a student}  & {Randomly pick a student}& \multirow{2}{*}{$\frac{5}{24}$} & \multirow{2}{*}{$Geo(\frac{5}{24})$} \\
+& until get a female student &  from the class with a female  & & \\
+\hline
+\end{tabular}
+\caption{Geometric distribution examples.}
+\label{Ta:geo}
+\end{center}
+\end{table}
+
+\paragraph*{Exercise 1} (Same game here) Given a dice with six numbers (\{1, 2, 3, 4, 5, 6\}), each number comes with the same probability when you roll it. Suppose you have such two dices and you simultaneously roll both of them to get the sum of the two output numbers. When the sum is 2 or 12, we say that you get the magic numbers and you will be rewarded. You are so addicted to this game and will not stop until win it once (get 2 or 12 in one play). Let the random variable $Y$ denote the number of plays when you stop playing. 
+\begin{itemize}
+\item What type of distribution does Y have? Specify its parameter(s).  \\
+{\bf Geometric distribution}. It has one parameter $p^*$ and it denotes the probability that the player hits those magic numbers and be rewarded such that $p^* = \frac{1}{18}$.\\
+\item What is the probability mass function of the random variable Y? \\
+Then we get 
+\begin{align*}
+p_Y(k)=P(Y=k)=(\frac{17}{18})^{k-1}\frac{1}{18}, 
+\end{align*}
+for $k=1, 2, \ldots$. 
+\end{itemize}
+
+\paragraph*{Exercise 2} Let $X$ have a $Geo(p)$ distribution. For $n \geq 0$, show that $P(X > n) = (1-p)^n$
+\begin{align*}
+P( X > n) &  = 1 - P(X \leq n) \\
+& = 1 - \sum_{k=1}^n P(X=k) \\
+& = 1 - \sum_{k=1}^n (1-p)^{k-1}p \\
+& = 1 - p - (1-p)p - (1-p)^2p - \ldots - (1-p)^{n-1}p \\
+& = (1-p)^2 - (1-p)^2p - \ldots - (1-p)^{n-1}p \\
+& = (1-p)^n 
+\end{align*}
+In other words, $P(X>n)$ means that the the previous n times are all failures and the probability is $(1-p)^n$. 
+
+\paragraph*{Exercise 3} For a geometric distribution $Geo(p)$, show that $P(X> n + k | X > k) = P(X > n)$ for $n, k = 0, 1, 2, \ldots$. 
+\begin{align*}
+P(X> n + k | X > k) & = \frac{P \left( \{X > n + k\}\cap \{X > k\}\right) }{P(X > k)} & \\
+& = \frac{P(X > n + k)}{P(X > k)} & \\
+& = \frac{(1-p)^{n+k}}{(1-p)^k}& \text(\ use\  Exercise\ 2) \\
+& = (1-p)^n & \\
+& = P(X>n)
+\end{align*}
+This is known as the {\it memoryless property}. 
+
+The property is most easily explained in terms of ``waiting times.'' Suppose that a random variable, X, is defined to be the time elapsed in a bank local branch from 9 am on a certain day until the arrival of the first customer: thus X is the time this local branch waits for the first customer. The ``memoryless'' property makes a comparison between the probability distributions of the time the local branch has to wait from 9 am onwards for his first customer, and the time that the local branch still has to wait for the first customer on those occasions when no customer has arrived by any given later time: the property of memorylessness is that these distributions of ``{\bf time from now to the next customer}'' are exactly the same. \\
+$P(X > n)$ means that the local branch has to wait for n time for the first customer. \\
+$P(X > n + k | X > k)$ means that the local branch still has to wait for n time at any specific time point k when they still haven't met the first customer. 
+
+\newpage 
+\section*{Similarities and Dissimilaries}
+\begin{table}[h!]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+Distribution & Discrete & Trials & Success  & Notation & PMF \\ \hline
+\multirow{2}{*}{Bernoulli} & \multirow{2}{*}{Yes} & \multirow{2}{*}{Single} & \multirow{2}{*}{0 or 1}  & \multirow{2}{*}{$Ber(p)$} & {$p_X(1) = P(X=1) = p$} \\
+& & & & & $p_X(0) = P(X=0) = 1-p$ \\ \hline
+Binomial &  Yes & Multiple & k & $Bin(n, p)$ & $p_X(k) = P(X=k) = \left( \begin{array}{c} n \\ k \end{array} \right) p^k (1-p)^{(n-k)}$ \\ \hline
+Geometric & Yes & Multiple & 1 & $Geo(p)$ & $p_X(k)=P(X=k) = (1-p)^{k-1}p$\\
+\hline
+\end{tabular}
+\caption{Summary.}
+\label{Ta:comp}
+\end{center}
+\end{table}
+
+
+\section*{Similarities and Dissimilaries}
+\begin{table}[h!]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ccccc} \hline
+Distribution & \multicolumn{2}{c}{Discrete} & \multicolumn{2}{c}{Trials}  \\ \hline
+1 & 2 & 3 & 4 & 5 \\
+6 & 7 & 8 & 9 & 10 \\
+\hline
+\end{tabular}
+\caption{Summary.}
+\label{Ta:comp}
+\end{center}
+\end{table}
+
+\end{document}

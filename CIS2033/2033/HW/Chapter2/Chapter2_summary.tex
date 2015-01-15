@@ -1,0 +1,89 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips12submit_e,times}
+%\documentstyle[nips12submit_09,times,art10]{article} % For LaTeX 2.09
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+
+\title{Chapter 2\\Outcomes, Events and Probability}
+
+
+\author{
+%Department of Computer and Information Science\\
+%Temple University\\
+%Philadelphia, PA 19122 \\
+%\texttt{minxiao@temple.edu} 
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+
+\maketitle
+
+\section{Summary}
+
+\begin{itemize}
+\item
+\begin{itemize}
+\item A {\em sample space} ($\Omega$) is a set of all the outcomes for a certain experiment.  
+\item A {\em event} is a subset of the sample space. 
+\end{itemize}
+\item 
+\begin{itemize}
+\item The {\em intersection} of event $A$ and event $B$ ($A \cap B$) is a set containing all the outcomes when both $A$ and $B$ occur. 
+\item The {\em union} of event $A$ and $B$  ($A \cup B$) is a set containing all the outcomes when $A$ or $B$ occurs. 
+\item The {\em complement} of event $A$, $A^c = \{\omega \in \Omega: \omega \notin A\}$, is a set containing all the outcomes when $A$ does not occur.
+\end{itemize}
+\item 
+\begin{itemize}
+\item The event $A$ and event $B$ are {\em disjoint} or {\em mutually exclusive} if $A \cap B = \emptyset$.
+\item The event $A$ implies the event $B$ if $A \subset B$. 
+\end{itemize}
+\item {\em DeMorgan's Laws}\\
+For any two events $A$ and $B$, we have 
+\begin{itemize}
+\item $(A \cup B)^c = A^c \cap B^c$ and 
+\item $(A \cap B)^c = A^c \cup B^c$. 
+\end{itemize}
+\item 
+\begin{itemize}
+\item A {\em probability function} P on a finite sample space $\Omega$ assigns to each event $A$ in $\Omega$ a number $P(A)$ in [0,1] such that
+\begin{itemize}
+\item $P(\Omega) = 1$, and
+\item $P(A\cup B) = P(A) + P(B)$ if A and B are disjoint. 
+\end{itemize}
+The number P(A) is called the probability that A occurs. 
+\item A probability function on an infinite (or finite) sample space $\Omega$ assings to each event $A$ in $\Omega$ a number $P(A)$ in [0,1] such that
+\begin{itemize}
+\item $P(\Omega)$ = 1, and
+\item $P\left(A_1 \cup A_2 \cup A_3 \cup \cdots \right) = P(A_1) + P(A_2) + P(A_3) + \cdots$ if $A_1, A_2, A_3, \ldots$ are disjoint events. 
+\end{itemize}
+\end{itemize}
+\item
+\begin{itemize}
+\item $P(A) = P(A \cap B) + P(A \cap B^c)$.
+\item $P(A \cup B) = P(B) + P(A \cap B^c)$. 
+\item $P(A^c) = 1 - P(A)$.
+\end{itemize}
+\item The probability of union.\\
+For any two events A and B we have \\$P(A \cup B) = P(A) + P(B) - P(A \cap B)$. \\
+For any three events A and B and C we have \\$P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)$.
+\item Products of sample spaces\\
+When we perform an experiment $n$ times, then the correponding sample space is $\Omega = \Omega_1 \times \Omega_2 \times \cdots \Omega_n$, where $\Omega_i$ for $i=1, \ldots, n$ is a copy of the sample space of the original experiment. Moreover, the probability of the outcomes $(\omega_1, \omega_2, \ldots, \omega_n)$ is $P\left((\omega_1, \omega_2, \ldots, \omega_n)\right) = p_1 \cdot p_2 \cdots p_n$ if each $\omega_i$ has probability $p_i$.  
+\end{itemize}
+
+\end{document}
