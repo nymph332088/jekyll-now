@@ -4,7 +4,17 @@
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-box-pack:center;
-	width: 2000px;
+
+	display: -ms-box;
+	-ms-box-orient: vertical;
+	-ms-box-pack:center;
+ 	
+	display: -moz-box;
+	-moz-box-orient: vertical;
+	-moz-box-pack:center;
+ 	display: box;
+ 	box-orient: vertical;
+ 	box-pack: center;
 	margin: 0 auto;
 	font-family: Lucida Grande, Tahoma, Arial, Helvetica, sans-serif; /* Lucida Grande for the Macs, Tahoma for the PCs */;
 	font-size: 20px;
@@ -25,6 +35,16 @@
 	display: -webkit-box;
 	-webkit-box-orient: horizontal;
 	-webkit-box-pack:center;
+
+	display: -ms-box;
+	-ms-box-orient: horizontal;
+	-ms-box-pack:center;
+	display: -moz-box;
+	-moz-box-orient: horizontal;
+	-moz-box-pack:center;
+ 	display: box;
+ 	box-orient: horizontal;
+ 	box-pack: center;
 	width: 100%;
 	height: 1000px;
 }
@@ -32,13 +52,25 @@
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-box-pack: start;
+	
+	display: -ms-box;
+	-ms-box-orient: vertical;
+	-ms-box-pack:start;
+
+	display: -moz-box;
+	-moz-box-orient: vertical;
+	-moz-box-pack:start;
+ 	display: box;
+ 	box-orient: vertical;
+ 	box-pack: start;
+
 	width: 15%;
 	height: 80%;
 	background-color: #F5F5F5;
 }
 
 #content2 {
-	width: 1500px;
+	width: 1000px;
 	height: 80%;
 	margin-left: 30px;
 	/*margin-right:5px;*/
