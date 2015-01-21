@@ -1,5 +1,6 @@
 #container {
 	width: 1000px;
+	height: 200px;
 	margin: 0 auto;
 	font-family: Lucida Grande, Tahoma, Arial, Helvetica, sans-serif; /* Lucida Grande for the Macs, Tahoma for the PCs */;
 	font-size: 12px;
