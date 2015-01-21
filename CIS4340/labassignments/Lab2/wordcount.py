@@ -7,7 +7,8 @@ Created on Sun Jan 11 18:39:41 2015
 import sys
 
 def print_dict(d):
-	pass
+    for key in d:
+        print("%s %d" % (key, d[key]))
 	
 def top_k(k, wordcount):
     topK = {}
