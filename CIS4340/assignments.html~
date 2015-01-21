@@ -63,7 +63,7 @@
 
       <h2 dir="ltr">Lab Assignment 2 <span style="color:red;">(Due on Jan. 27 11:59 PM)</span></h2>
       <p>Description: "Crawl Data using API". In this lab, you will know what are REST APIs, how to use a typical REST API that requires authentication. Download <a href="labassignments/Lab2/Lab2.pdf">Lab2.pdf</a>. Follow the instructions step by step.</p>
-      <p>Scripts: <a href="labassignments/Lab2/twitter_stream_api.py">twitter_stream_api.py</a>, <a href="labassignments/Lab2/wordcount.py">wordcount.py</a>, <a href="labassignments/Lab2/twitter_data.txt">twitter_data.txt</a>.</p>
+      <p>Scripts: <a href="labassignments/Lab2/twitter_stream_api.py">twitter_stream_api.py</a>, <a href="labassignments/Lab2/wordcount.py">wordcount.py</a>, <a href="labassignments/Lab2/twitter_data.txt">twitter_data.txt</a></p>
       <p>Reference: <a href="http://www.codecademy.com/en/tracks/apis-python">Introduction to Python APIs</a>,  <a href="https://dev.twitter.com/streaming/overview">Twitter Stream API Documentation </a>.
       <p>Other public data APIs: <a href="http://openweathermap.org/API">Free Weather Data</a>, <a href="http://www.data.gov/developers/">US Government Open Data </a>, <a href="http://data.nasa.gov/api-info/"> Space Science Data from NASA</a>. Go to <a href="resources.html">Resources</a> page for more options.</p>
       <p>
