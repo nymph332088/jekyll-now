@@ -4,7 +4,6 @@ Created on Mon Jan 26 10:37:52 2015
 
 @author: shanshan
 """
-
 ################################################### Preprocessing ################################################
 
 ''' Import packages '''
@@ -58,7 +57,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 #import plotly as py
 
-''' Initial Plotting Ref: http://bikulov.org/blog/2013/10/03/creation-of-paper-ready-plots-with-matlotlib/'''
+''' Initial Plotting Parameters'''
+plt.rcParams
 rcDef = plt.rcParams
 plt.rcParams.update(plt.rcParamsDefault)
 
