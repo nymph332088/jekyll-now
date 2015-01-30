@@ -1,0 +1,116 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+\usepackage{amsmath}
+\usepackage{amssymb}
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Homework based on Chapter 4\\
+Computational Probability and Statistics \\
+CIS 2033, Section 002}
+\author{Due: 9:00 AM, Friday, Feb. 06, 2014}
+\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\paragraph*{\bf Question 1}
+Let $X$ be a discrete random variable with Probability Mass Function $p$ is given by: \\
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{c|cccc} \hline
+a & -1 & 0 & 1 & 2 \\ \hline
+p(a) & $\frac{1}{6}$ & $\frac{1}{6}$ & $\frac{1}{3}$ & $\frac{1}{3}$ \\ \hline
+\end{tabular}
+%\caption{The probability mass function of X}
+\label{ta1}
+\end{center}
+\end{table}
+\\ and p(a)=0 for all other a. 
+
+\subparagraph*{a.} Let the random variable Y be defined by $Y=X^2$, i.e., if X = 2, then Y = 4. Calculate the probability mass function of Y. 
+\subparagraph*{b.} Calculate the value of the distribution function of X and Y in a = 1, a = $\frac{3}{4}$, and $a=\pi - 3$. 
+
+
+\paragraph*{\bf Question 2}
+Suppose that the distribution function of a discrete random variable X is given by 
+\begin{align*}
+F(a) = \left\{ 
+\begin{array}{rcl}
+0 & \mbox{for} & a < 0\\
+\frac{1}{3} & \mbox{for} & 0 \leq a < \frac{1}{2} \\
+\frac{2}{3} & \mbox{for} & \frac{1}{2} \leq a < \frac{3}{4} \\
+1 & \mbox{for} & a \geq \frac{3}{4}.
+\end{array} \right.
+\end{align*}
+Determine the probability mass function of X. 
+
+\vspace{8em}
+\paragraph*{\bf Question 3}
+You toss n coins, each showing heads with probability p, independently of the other tosses. Each coin that shows tails is tossed again once. Let X be the total number of heads. 
+
+\subparagraph*{a.} What type of distribution does X have? Specify its parameter(s). 
+\subparagraph*{b.} What is the probability mass function of the total number of heads X?
+
+\paragraph*{\bf Question 4}
+You decide to play monthly in two different lotteries, and you stop playing as soon as you win a prize in one (or both) lotteries of
+at least one million dollars. Suppose that every time you participate in these lotteries, the probability to win at least one million dollars is $p_1$ for one of the lotteries and $p_2$ for the other. Let $M$ be the number of times you participate in these lotteries until winning at least one prize. What kind of distribution does $M$ have, and what is its parameter?
+
+\paragraph*{\bf Question 5}
+We throw a coin until a head turns up for the second time, where $p$ is the probability that a throw results in a head and we assume
+that the outcome of each throw is independent of the previous outcomes. Let $X$ be the number of times we have thrown the coin.
+\subparagraph*{a.} Determine $P(X = 2), P(X = 3)$, and $P(X = 4)$.
+\subparagraph*{b.} Show that $P(X = n) = (n - 1)p^2(1-p)^{n-2},$ for $n \ge 2.$
+
+
+\end{document}
