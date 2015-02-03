@@ -1,0 +1,267 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,amssymb,amscd,amsthm}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{booktabs}
+\usepackage[OT1]{fontenc}
+\usepackage[]{natbib}
+\usepackage{pdfsync}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = red %Colour of citations
+}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+\setlength{\topmargin}{-0.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.5in}
+\setlength{\footskip}{0.2in}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+
+\newcommand{\thmref}[1]{Theorem~\ref{#1}}
+\newcommand{\propref}[1]{Proposition~\ref{#1}}
+\newcommand{\corref}[1]{Corollary~\ref{#1}}
+\newcommand{\lemref}[1]{Lemma~\ref{#1}}
+\newcommand{\secref}[1]{\S\ref{#1}}
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+
+
+\newcommand{\wt}{\widetilde}
+
+\newcommand{\fdp}{\textsc{fdp}}
+\newcommand{\fdr}{\textsc{fdr}}
+\newcommand{\fnr}{\textsc{fnr}}
+\newcommand{\fnp}{\textsc{fnp}}
+\newcommand{\mfdr}{m\textsc{fdr}}
+\newcommand{\mfnr}{m\textsc{fnr}}
+
+\newcommand{\sor}{\textsc{or}}
+
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Cor}{\mathrm{Cor}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\sgn}{\mathrm{sgn}}
+
+\newcommand{\normal}{\mathrm{N}}
+
+\newcommand{\etc}{\textit{etc}.}
+%\newcommand{\etal}{\textit{et al}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\iid}{\textit{i.i.d}}
+\newcommand{\vs}{\textit{vs.}}
+
+\newcommand{\trans}{\mathrm{T}}
+\newcommand{\ud}{\,\mathrm{d}}
+\newcommand{\uH}{\,\mathrm{H}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Or}{\mathcal{O}}
+\newcommand{\Ir}{\mathcal{I}}
+\newcommand{\Ar}{\mathcal{A}}
+\newcommand{\Br}{\mathcal{B}}
+\newcommand{\Cr}{\mathcal{C}}
+\newcommand{\Dr}{\mathcal{D}}
+\newcommand{\Er}{\mathcal{E}}
+\newcommand{\Mr}{\mathcal{M}}
+\renewcommand{\Or}{\mathcal{O}}
+\renewcommand{\Pr}{\mathcal{P}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Ur}{\mathcal{U}}
+\newcommand{\Vr}{\mathcal{V}}
+\newcommand{\Sr}{\mathcal{S}}
+\newcommand{\Cf}{\mathfrak{C}}
+\newcommand{\Sf}{\mathfrak{S}}
+
+\newcommand{\va}{\boldsymbol{a}}
+\newcommand{\vA}{\boldsymbol{A}}
+\newcommand{\vb}{\boldsymbol{b}}
+\newcommand{\vc}{\boldsymbol{c}}
+\newcommand{\vD}{\boldsymbol{D}}
+\newcommand{\ve}{\boldsymbol{e}}
+\newcommand{\vh}{\boldsymbol{h}}
+\newcommand{\vi}{\boldsymbol{i}}
+\newcommand{\vk}{\boldsymbol{k}}
+\newcommand{\vK}{\boldsymbol{K}}
+\newcommand{\vI}{\mathbf{I}}
+\newcommand{\vL}{\boldsymbol{L}}
+\newcommand{\vP}{\boldsymbol{P}}
+\newcommand{\vp}{\boldsymbol{p}}
+\newcommand{\vr}{\boldsymbol{r}}
+\newcommand{\vu}{\boldsymbol{u}}
+\newcommand{\vV}{\boldsymbol{V}}
+\newcommand{\vx}{\boldsymbol{x}}
+\newcommand{\vX}{\boldsymbol{X}}
+\newcommand{\vy}{\boldsymbol{y}}
+\newcommand{\vY}{\boldsymbol{Y}}
+\newcommand{\vz}{\boldsymbol{z}}
+\newcommand{\vZ}{\boldsymbol{Z}}
+\newcommand{\vT}{\boldsymbol{T}}
+\newcommand{\vone}{\boldsymbol{1}}
+\newcommand{\vzero}{\boldsymbol{0}}
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\bdel}{\boldsymbol{\delta}}
+\newcommand{\bgam}{\boldsymbol{\gamma}}
+\newcommand{\bmu}{\boldsymbol{\mu}}
+\newcommand{\bth}{\boldsymbol{\theta}}
+\newcommand{\bome}{\boldsymbol{\omega}}
+\newcommand{\bphi}{\boldsymbol{\phi}}
+\newcommand{\bLam}{\boldsymbol{\Lambda}}
+\newcommand{\bSigma}{\boldsymbol{\Sigma}}
+\newcommand{\bpi}{\boldsymbol{\pi}}
+\newcommand{\beps}{\boldsymbol{\epsilon}}
+\newcommand{\bvareps}{\boldsymbol{\varepsilon}}
+
+\newcommand{\vtx}{\textbf{x}}
+\newcommand{\vty}{\textbf{y}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\vareps}{\varepsilon}
+\newcommand{\heps}{\hat{\epsilon}}
+
+\newcommand{\tbeta}{\tilde{\beta}}
+\newcommand{\tbbeta}{\tilde{\boldsymbol{\beta}}}
+
+\newcommand{\heta}{\hat{\eta}}
+\newcommand{\teta}{\tilde{\eta}}
+
+\newcommand{\tbSigma}{\tilde{\boldsymbol{\Sigma}}}
+
+\newcommand{\thickbar}[1]{\mathbf{\bar{\text{$#1$}}}}
+
+\newcommand{\blind}{0}
+\newcommand{\ignore}[1]
+
+\def\hatT{\hat{T}}
+\def\hatpi{\hat{\pi}_{0}}
+\def\hatf{\hat{f}}
+\def\hatq{\hat{q}}
+\def\hatqstar{\hat{q}^*}
+\def\hatgstar{\hat{G}^*}
+\def\bighatqstar{\hat{Q}^*}
+\def\oracleT{T_{OR}}
+\def\hatoracleT{\hat{T}_{OR}}
+\title{ Lab Assignment 1: Hello World}
+\author{Due: 11:59 PM Jan 20, Tuesday}
+\date{}
+
+\begin{document}
+
+\maketitle
+The purpose of this lab is to get you started with Python. You will learn how to write, compile and debug Python program with Spyder. Spyder is the {\bf S}cientific {\bf PY}thon {\bf D}evelopment {\bf E}nvi{\bf R}onment. You can also choose any IDE you like, e.g. PyDev with Eclipse, PyCharm, IEP and so on. While when considering Python for scientific computing, Spyder is the best according to the unofficial evaluation \href{http://xcorr.net/2013/04/17/evaluating-ides-for-scientific-python/}{here}. In Section 1, you are asked to run the sample code in Spyder. Section 2 is the actual lab assignment. You will be asked to complete a piece of code, answer questions with code and submit your scripts through blackboard. 
+
+\section{Python tutorial }
+\begin{itemize}
+	\item Go to \href{http://learnpythonthehardway.org/book/ex0.html}{Learn Python the Hard Way - Exercise 0}. Go through the set up for your favourite system. You will learn how to launch Python from command line, how to edit Python source file, how to use Google search.
+	\item Open Spyder. Or open the command line and type {\it python}. 
+	\item Download \href{hello.py}{hello.py} from the course website. In the console, run \pythoninline{runfile('hello.py',}	\pythoninline{args='YOURNAME')}. You will see output like \\
+
+	\begin{python}
+	>>runfile('hello.py',args='Shanshan')
+	Hello Shanshan
+	\end{python}
+	\item Download \href{Demo\_lab1.py}{Demo\_lab1.py} from the course website. Copy \& paste the code from {\it Sec 1} to {\it Sec 6} and see the results.
+	\item Download data set \href{beatles-diskography.csv}{beatles-diskography.csv} to the same folder with {\it Demo\_lab1.py}. 
+	\item What does the empty cell in the table mean?
+	\item Using Python to read this file line by line, and for the first 10 lines (not including the header) split each line on ``,'' and then for each line, create a dictionary where the key is the header title of the field, and the value is the value of that field in the row. Copy \& paste the code from {\it Sec 7}. You will get each line of the file printed in the console but also an IndexError. It's because the \pythoninline{parse_file()} function didn't return a list of dictionaries, each data line in the file being a single list entry. Uncomment {\it line 95} and run {\it Sec 7} again. Everything will be OK now. \\
+	
+	\begin{python}
+Please Please Me,22 March 1963,Parlophone(UK),1,-,Gold,Platinum
+...
+Let It Be,8 May 1970,"Apple(UK),United Artists(US)",1,1,...
+Traceback (most recent call last):
+  File "<ipython-input-115-840bcc8beb77>", line 25, in <module>
+    test()
+  File "<ipython-input-115-840bcc8beb77>", line 21, in test
+    assert d[0] == firstline
+IndexError: list index out of range
+	\end{python}
+	
+
+\end{itemize}
+
+\href{http://learnpythonthehardway.org/book/}{Learn Python the Hard Way} is a good start for beginners if you don't have much programming experience. For more basics of Python, go to \href{https://developers.google.com/edu/python/}{Google Python course}. Run the sample code on the website. Test yourself with their exercises.
+
+\section	{Write your own Python program}
+\subsection{Part 1}
+Download \href{Lab\_1\_1.py}{Lab\_1\_1.py}. Answer the 3 questions inside the script. Submit the script through blackboard.
+
+\subsection{Part 2}
+In this part, your task is to process the supplied file and use the csv module to extract data from it. The data comes from NREL (National Renewable Energy Laboratory) website. Each file
+contains information from one meteorological station, in particular - about amount of solar and wind energy for each hour of day. Note that the first line of the datafile is neither data entry, nor header. It is a line describing the data source. 
+
+1). You should extract the name of the station from it. The data should be returned as a list of lists (not dictionaries). You can use the csv modules "reader" method to get data in such format. Another useful method is next() - to get the next line from the iterator. You should only change the \pythoninline{parse_file()}function. Part of the code has been given in \href{Lab\_1\_2.py}{Lab\_1\_2.py}. The requested \href{745090.csv}{745090.csv} can be downloaded from the course website. Complete the \pythoninline{parse_file()} function.
+
+2). Calculate the maximum , average value of the 3\textit{rd} column. Think about what the 0 means for the ETR radiation. Then calculate the average of the nonzero values of the 3\textit{rd} column. Complete the \pythoninline{statistics()} function for this part. Don't change the function prototype. 
+
+{\color{red} Submissions}: Lab\_1\_1.py, Lab\_1\_2.py
+
+\end{document}
