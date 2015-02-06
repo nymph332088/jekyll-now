@@ -68,7 +68,7 @@ CIS 2033, Section 002}
 \paragraph*{Question 1}
 Plot the figure (Fig. 3.1, p. 29): the probability of $P(B_n)$ of no coincident birthdays for $n=1, 2, \ldots, 100$. You have to 
 \begin{enumerate}
-\item Download CompProb.m\footnote{\href{http://nymph332088.github.io/CIS2033/2033/Labs/02/Questions/CompProb.m}{}}. This function has one input parameter $n$. It outputs the probability of $P(B_n)$, denoting as the probability of no coincident birthdays for the $n$ people.
+\item Download CompProb.m\footnote{\href{http://nymph332088.github.io/CIS2033/2033/Labs/02/Questions/CompProb.m}{http://nymph332088.github.io/CIS2033/2033/Labs/02/Questions/CompProb.m}}. This function has one input parameter $n$. It outputs the probability of $P(B_n)$, denoting as the probability of no coincident birthdays for the $n$ people.
 \item Open Matlab, direct the Current Folder window to where you stored the file. 
 \item Create an array $\bf ns = 1:100$ in Matlab.
 \item For each value $n$ in $ns$ call {\it CompProb(n)}, which calculates the probability for $P(B_n)$, store all the probabilities in a new array, say $\bf P\_Bns$. (Matlab do not support variable names like $\bf P(Bns)$)
@@ -78,7 +78,7 @@ Plot the figure (Fig. 3.1, p. 29): the probability of $P(B_n)$ of no coincident 
 \paragraph*{Question 2}
 If we want to choose $k$ different objects out of an unordered list of $n$ objects, how many combinations are there for the choice? We denote the total number of combinations as $C_{n,k}$ or $\left(\begin{array}{c} n\\k\end{array} \right)$, simply means choose $k$ from $n$. The formula to calculate $\left( \begin{array}{c} n\\k \end{array} \right) = \frac{n!}{k!(n-k)!}$. For Question 2, please do the following:
 \begin{enumerate}
-\item Download nchoosek\_byTA.m\footnote{http://nymph332088.github.io/CIS2033/2033/Labs/02/Questions/nchoosek\_byTA.m}. This function has two input $n,k$. It outputs the number of combinations, calculated by  the given formula.
+\item Download nchoosek\_byTA.m\footnote{\href{http://nymph332088.github.io/CIS2033/2033/Labs/02/Questions/nchoosek\_byTA.m}{http://nymph332088.github.io/CIS2033/2033/Labs/02/Questions/nchoosek\_byTA.m}}. This function has two input $n,k$. It outputs the number of combinations, calculated by  the given formula.
 \item Open Matlab, direct the Current Folder window to where you stored the file.
 \item Create variables $\bf n = 20$ and $\bf ks = 1:20$ in Matlab.
 \item For each value $k$ in $ks$, call {\it nchoosek\_byTA(n, k)}, store all the outputs in an array $\bf combs\_byTA$.
