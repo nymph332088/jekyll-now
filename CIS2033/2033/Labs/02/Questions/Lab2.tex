@@ -5,7 +5,7 @@
 % See "book", "report", "letter" for other types of document.
 
 \documentclass[11pt]{article} % use larger type; default would be 10pt
-
+\usepackage{hyperref}
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 
 %%% Examples of Article customizations
@@ -56,47 +56,51 @@
 \title{Lab Two\\
 Computational Probability and Statistics \\
 CIS 2033, Section 002}
-\author{Due: 9:00 AM, Friday, Feb. 6, 2014}
+\author{Due: 11:59 AM, Tuesday, Feb. 10, 2015}
 \date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
 \begin{document}
 \maketitle
 
+\paragraph*{\bf Submissions} Please copy all your code in one script named as Lab2.m. Submit both of your Lab2.m script and the plotted figure. 
+
 \paragraph*{Question 1}
 Plot the figure (Fig. 3.1, p. 29): the probability of $P(B_n)$ of no coincident birthdays for $n=1, 2, \ldots, 100$. You have to 
 \begin{enumerate}
-\item implement a function (e.g., {\it CompProb(n)}) to compute the probability of no coincident birthdays in a group of $n$ arbitrarily chosen people. This function takes one input argument, $n$ and return the computed probability; 
-\item plot the figure of $P(B_n)$ for $n=1,2, \ldots, 100$. You have to call the defined function (e.g., {\it CompProb}) to compute the probability for different values of $n$ and plot a 2D figure where the x-axis denotes $n$ and the y-axis denotes the computed probability $P(B_n)$.
+\item Download CompProb.m\footnote{http://nymph332088.github.io/CIS2033/2033/Labs/02/Questions/CompProb.m}. This function has one input parameter $n$. It outputs the probability of $P(B_n)$, denoting as the probability of no coincident birthdays for the $n$ people.
+\item Open Matlab, direct the Current Folder window to where you stored the file. 
+\item Create an array $\bf ns = 1:100$ in Matlab.
+\item For each value $n$ in $ns$ call {\it CompProb(n)}, which calculates the probability for $P(B_n)$, store all the probabilities in a new array, say $\bf P\_Bns$. (Matlab do not support variable names like $\bf P(Bns)$)
+\item plot the figure of $\bf P\_Bns$ vs $\bf ns$, where the x-axis denotes $n$ and the y-axis denotes the computed probability $P(B_n)$, for $n = 1, 2, \ldots, 100$.
 \end{enumerate}
-Please submit both of your MATLAB codes and the plotted figure. 
 
 \paragraph*{Question 2}
-If we want to choose $k$ different objects out of an unordered list of $n$ objects, we denote it as $C_{n,k}$ or $\left( \begin{array}{c} n\\k \end{array} \right)$. You have to 
+If we want to choose $k$ different objects out of an unordered list of $n$ objects, how many combinations are there for the choice? We denote the total number of combinations as $C_{n,k}$ or $\left(\begin{array}{c} n\\k\end{array} \right)$, simply means choose $k$ from $n$. The formula to calculate $\left( \begin{array}{c} n\\k \end{array} \right) = \frac{n!}{k!(n-k)!}$. For Question 2, please do the following:
 \begin{enumerate}
-\item calculate $\left( \begin{array}{c} n\\k \end{array} \right)$ by 
-\begin{enumerate}
-\item using $\frac{n!}{k!(n-k)!}$ where $!$ denotes the factorial computation. You can set $n=20, k = 1, 2, \ldots, 20$;
-\item using the MATLAB function {\it nchoosek}. Similarly, you set $n= 20, k = 1, 2, \ldots, 20$. 
+\item Download nchoosek\_byTA.m\footnote{http://nymph332088.github.io/CIS2033/2033/Labs/02/Questions/nchoosek\_byTA.m}. This function has two input $n,k$. It outputs the number of combinations, calculated by  the given formula.
+\item Open Matlab, direct the Current Folder window to where you stored the file.
+\item Create variables $\bf n = 20$ and $\bf ks = 1:20$ in Matlab.
+\item For each value $k$ in $ks$, call {\it nchoosek\_byTA(n, k)}, store all the outputs in an array $\bf combs\_byTA$.
+\item For each value $k$ in $ks$, call the built-in Matlab function {\it nchoosek(n, k)}, store all the outputs in another array $\bf combs\_Matlab$. 
+\item Check whether $\bf combs\_byTA$ and $\bf combs\_Matlab$ are the same.
+\item Plot $\bf combs\_byTA$ vs $\bf ks$ and plot $\bf combs\_Matlab$ vs $\bf ks$ in two pictures, where in both pictures x-axis denotes $k$ and the y-axis denotes $\left( \begin{array}{c} 20\\k \end{array} \right)$, for $k = 1, 2, \ldots, 20$.
 \end{enumerate}
-\item plot a 2D figure, where x-axis denotes $k$ and the y-axis denotes $\left( \begin{array}{c} 20\\k \end{array} \right)$, for $k = 1, 2, \ldots, 20$.
-\end{enumerate}
-Please submit both of your MATLAB codes and figures. 
 
-\paragraph*{Question 3}
-Given a dice with six numbers (\{1, 2, 3, 4, 5, 6\}), each number comes with the same probability when you roll it. Here is the game. Suppose you have such TWO dices and you simultaneously roll both of them to get the product of the two output numbers. When the product is 1 or 36, we say that you get the magic numbers and you will be rewarded. However, each play will cost you a certain amount of money and you can only afford to play 100 times. Let the random variable $X$ denote the total number of times you will hit those magic numbers and be rewarded. You have to
-\begin{enumerate}
-\item plot the probability mass function $p_X(k) = P(X = k)$ for $k = 1, 2, \ldots, 100$;
-\item plot the distribution function $F_X(a)$ for $a \in [0, 100]$.
-\end{enumerate}
-Please submit both of your MATLAB codes and the plotted figures. 
-
-\paragraph*{Question 4}
-Given a dice with six numbers (\{1, 2, 3, 4, 5, 6\}), each number comes with the same probability when you roll it. Suppose you have such THREE dices and you simultaneously roll all of them to get the sum of those three output numbers. When the sum is 3 or 18, you win. Otherwise, you lose. You are so addicted to this game and will not stop until win it once (get 3 or 18 in one play). Let the random variable $Y$ denote the number of plays when you stop playing. You have to 
-\begin{enumerate}
-\item plot the probability mass function $p_Y(k) = P(Y = k)$ for $k = 1, 2, \ldots, 1000$; 
-\item plot the distribution function $F_Y(a)$ for $a \in [0, 1000]$. 
-\end{enumerate} 
-Please submit both of your MATLAB codes and the plotted figures. 
+%\paragraph*{Question 3}
+%Given a dice with six numbers (\{1, 2, 3, 4, 5, 6\}), each number comes with the same probability when you roll it. Here is the game. Suppose you have such TWO dices and you simultaneously roll both of them to get the product of the two output numbers. When the product is 1 or 36, we say that you get the magic numbers and you will be rewarded. However, each play will cost you a certain amount of money and you can only afford to play 100 times. Let the random variable $X$ denote the total number of times you will hit those magic numbers and be rewarded. You have to
+%\begin{enumerate}
+%\item plot the probability mass function $p_X(k) = P(X = k)$ for $k = 1, 2, \ldots, 100$;
+%\item plot the distribution function $F_X(a)$ for $a \in [0, 100]$.
+%\end{enumerate}
+%Please submit both of your MATLAB codes and the plotted figures. 
+%
+%\paragraph*{Question 4}
+%Given a dice with six numbers (\{1, 2, 3, 4, 5, 6\}), each number comes with the same probability when you roll it. Suppose you have such THREE dices and you simultaneously roll all of them to get the sum of those three output numbers. When the sum is 3 or 18, you win. Otherwise, you lose. You are so addicted to this game and will not stop until win it once (get 3 or 18 in one play). Let the random variable $Y$ denote the number of plays when you stop playing. You have to 
+%\begin{enumerate}
+%\item plot the probability mass function $p_Y(k) = P(Y = k)$ for $k = 1, 2, \ldots, 1000$; 
+%\item plot the distribution function $F_Y(a)$ for $a \in [0, 1000]$. 
+%\end{enumerate} 
+%Please submit both of your MATLAB codes and the plotted figures. 
 
 \end{document}
