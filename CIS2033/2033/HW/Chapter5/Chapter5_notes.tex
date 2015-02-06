@@ -1,0 +1,132 @@
+% TEMPLATE FOR STANDARD QUIZ
+% by laura
+
+\documentclass[11pt,epsfig]{article}
+\usepackage{amsmath} 
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{multirow}
+\def\infinity{\rotatebox{90}{8}}
+\oddsidemargin=0in
+\evensidemargin=0in
+\textwidth=6.3in
+\topmargin=-0.5in
+\textheight=9in
+\renewcommand{\arraystretch}{2}
+\parindent=0in
+\pagestyle{empty}
+
+\input{notestpoints}
+
+\begin{document}
+
+
+%%%(change to appropriate class and semester)
+\textbf{Revise(Chapter 5): CIS 2033 Sprint 2015: Computational Prob and Stat}
+
+%%%(change to appropriate quiz type and date)
+\textbf{Shanshan Zhang {(tuf14438@temple.edu)} }
+
+
+% problem
+\section{Notations}
+$X, Y, Z$: Random Variables.\\
+$k,a,b$: specific whole number (e.g. 0,1,2,...). \\
+$x,y$: specific real number (e.g. 1.2, 0.5, ...). \\
+$p(k)$: Probability mass function for discrete random variable $X$. It calculate for any specific whole number $k$, the probability of $P(X=k)$.\\
+$f(x)$: Probability density function for continuous random variable $X$.\\
+$F(x)=P(X\le x)$: Distribution function, sometimes it's called cumulative distribution function.\\
+\begin{tabular}{|l|}
+\hline
+If $X$ is discrete: $F(k) = \sum_{y\le k}p(y)$, where $y$ is any possible value for $X$ that is less or equal than $k$.\\
+If $X$ is continuous: $F(x)=\int	^x_{-\infinity}f(x)dx$\\
+\hline
+\end{tabular}
+ 
+\subsection{Important distributions}
+\begin{tabular}{ |l|l|l|p{6cm}| }
+%\caption{Important Distributions}
+\hline
+& \bf{Notation }& \bf{$p(k)$ or $f(x)$} & \bf{$F(k)$ or $F(x)$}\\ \hline
+\multirow{3}{*}{Discrete} & $X\sim Ber(p)$ & $p(1) = p;p(0)=1-p$ & $F(k)=0,(k<0);F(k)=1-p,(0\le k <1);F(k)=1,(k>1)$\\ \cline{2-4}
+ & $X\sim Bin(n,p)$ & $p(k)={n\choose k} p^k(1-p)^{n-k},k=0,1,...,n$& $F(k)=\sum_{y\le k}p(y),k=0,1,...,n$\\  \cline{2-4}
+ & $X\sim Geo(p)$ & $p(k)=(1-p)^{k-1}p,k=1,...$& $F(k)=1-(1-p)^{k},k=0,1,...$\\ \cline{2-4}
+ & $X\sim Pois(\mu)$ & $p(k)=\frac{\mu^k}{k!}{e^{-k}},k=0,1,...$ & $F(k)=\sum_{y\le k}p(y),k=0,1,...$\\ \hline
+\multirow{4}{*}{Continuous} & $X\sim Unif(\alpha,\beta)$ & $f(x)=\frac{1}{\beta-\alpha},for~x\in (\alpha,\beta)$& $F(x)=\frac{x-\alpha}{\beta-\alpha}, for~ x \in (\alpha,\beta)$\\ \cline{2-4}
+ & $X\sim Exp(\lambda)$ & $f(x)=e^{-\lambda x}, for~ x \in [0,\infinity)$& $F(x)= 1 - e^{-\lambda x},for~ x \in [0,\infinity)$\\ \cline{2-4}
+ & $X\sim Par(\alpha)$ & $f(x)=\frac{\alpha}{x^{\alpha+1}},for ~x\in [1,\infinity)$& $F(x)=1-\frac{1}{x^\alpha},for ~x\in [1,\infinity)$\\ \cline{2-4}
+& $X\sim N(\mu,\sigma^2)$&$f(x)=\frac{1}{\sqrt{(2\pi\sigma^2)}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x\in (-\infinity,+\infinity)$&NO explicit form\\ \hline
+\end{tabular}
+\newpage
+\section{Table of Basic Integrals}
+\subsection{Basic Forms}
+
+
+\begin{equation}
+\int x^n dx = \frac{1}{n+1}x^{n+1},\hspace{1ex}n\neq -1
+\end{equation}
+
+\begin{equation}
+\int \frac{1}{x}dx = \ln |x|
+\end{equation}
+
+\begin{equation}
+\int u dv = uv - \int v du
+\end{equation}
+
+\begin{equation}
+\int \frac{1}{ax+b}dx = \frac{1}{a} \ln |ax + b| 
+\end{equation}
+
+\subsection{Integrals of Rational Functions}
+
+\begin{equation}
+\int \frac{1}{(x+a)^2}dx = -\frac{1}{x+a}
+\end{equation}
+
+\begin{equation}
+\int (x+a)^n dx = \frac{(x+a)^{n+1}}{n+1}, n\ne -1
+\end{equation}
+
+\begin{equation}
+\int x(x+a)^n dx = \frac{(x+a)^{n+1} ( (n+1)x-a)}{(n+1)(n+2)}
+\end{equation}
+
+\begin{equation}
+\int \frac{1}{1+x^2}dx = \tan^{-1}x
+\end{equation}
+
+\begin{equation}
+\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\tan^{-1}\frac{x}{a}
+\end{equation}
+
+\begin{equation}
+\int \frac{x}{a^2+x^2}dx = \frac{1}{2}\ln|a^2+x^2|
+\end{equation}
+
+\begin{equation}
+\int \frac{x^2}{a^2+x^2}dx = x-a\tan^{-1}\frac{x}{a}
+\end{equation}
+
+\begin{equation}
+\int \frac{x^3}{a^2+x^2}dx = \frac{1}{2}x^2-\frac{1}{2}a^2\ln|a^2+x^2|
+\end{equation}
+
+\begin{equation}
+\int \frac{1}{ax^2+bx+c}dx = \frac{2}{\sqrt{4ac-b^2}}\tan^{-1}\frac{2ax+b}{\sqrt{4ac-b^2}}
+\end{equation}
+
+\begin{equation}
+\int \frac{1}{(x+a)(x+b)}dx = \frac{1}{b-a}\ln\frac{a+x}{b+x}, \text{ } a\ne b
+\end{equation}
+
+\begin{equation}
+\int \frac{x}{(x+a)^2}dx = \frac{a}{a+x}+\ln |a+x|
+\end{equation}
+
+
+\begin{equation}
+\int \frac{x}{ax^2+bx+c}dx = \frac{1}{2a}\ln|ax^2+bx+c| 
+-\frac{b}{a\sqrt{4ac-b^2}}\tan^{-1}\frac{2ax+b}{\sqrt{4ac-b^2}}
+\end{equation}
+\end{document}

@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  6 FEB 2015 00:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  6 FEB 2015 00:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Lab3.tex
-(./Lab3.tex
+**Homework4.tex
+(./Homework4.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 4 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -374,24 +374,84 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \sf@top=\skip52
 \sf@bottom=\skip53
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip54
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks22
+\ex@=\dimen136
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen137
 )
-Package color Info: Driver file: pdftex.def on input line 130.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
 )
+\inf@bad=\count103
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count104
+\leftroot@=\count105
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count106
+\DOTSCASE@=\count107
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen138
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count108
+\c@MaxMatrixCols=\count109
+\dotsspace@=\muskip10
+\c@parentequation=\count110
+\dspbrk@lvl=\count111
+\tag@help=\toks23
+\row@=\count112
+\column@=\count113
+\maxfields@=\count114
+\andhelp@=\toks24
+\eqnshift@=\dimen139
+\alignsep@=\dimen140
+\tagshift@=\dimen141
+\tagwidth@=\dimen142
+\totwidth@=\dimen143
+\lineht@=\dimen144
+\@envbody=\toks25
+\multlinegap=\skip55
+\multlinetaggap=\skip56
+\mathdisplay@stack=\toks26
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip54
-\f@ncyO@elh=\skip55
-\f@ncyO@erh=\skip56
-\f@ncyO@olh=\skip57
-\f@ncyO@orh=\skip58
-\f@ncyO@elf=\skip59
-\f@ncyO@erf=\skip60
-\f@ncyO@olf=\skip61
-\f@ncyO@orf=\skip62
+\fancy@headwidth=\skip57
+\f@ncyO@elh=\skip58
+\f@ncyO@erh=\skip59
+\f@ncyO@olh=\skip60
+\f@ncyO@orh=\skip61
+\f@ncyO@elf=\skip62
+\f@ncyO@erf=\skip63
+\f@ncyO@olf=\skip64
+\f@ncyO@orf=\skip65
 )
 (/usr/share/texlive/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
@@ -407,58 +467,59 @@ Package tocbibind Note: Using section or other style headings.
 ) (/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 44.
-\cftparskip=\skip63
-\cftbeforetoctitleskip=\skip64
-\cftaftertoctitleskip=\skip65
-\cftbeforepartskip=\skip66
-\cftpartnumwidth=\skip67
-\cftpartindent=\skip68
-\cftbeforesecskip=\skip69
-\cftsecindent=\skip70
-\cftsecnumwidth=\skip71
-\cftbeforesubsecskip=\skip72
-\cftsubsecindent=\skip73
-\cftsubsecnumwidth=\skip74
-\cftbeforesubsubsecskip=\skip75
-\cftsubsubsecindent=\skip76
-\cftsubsubsecnumwidth=\skip77
-\cftbeforeparaskip=\skip78
-\cftparaindent=\skip79
-\cftparanumwidth=\skip80
-\cftbeforesubparaskip=\skip81
-\cftsubparaindent=\skip82
-\cftsubparanumwidth=\skip83
-\cftbeforeloftitleskip=\skip84
-\cftafterloftitleskip=\skip85
-\cftbeforefigskip=\skip86
-\cftfigindent=\skip87
-\cftfignumwidth=\skip88
-\cftbeforelottitleskip=\skip89
-\cftafterlottitleskip=\skip90
-\cftbeforetabskip=\skip91
-\cfttabindent=\skip92
-\cfttabnumwidth=\skip93
-\cftbeforesubfigskip=\skip94
-\cftsubfigindent=\skip95
-\cftsubfignumwidth=\skip96
-\cftbeforesubtabskip=\skip97
-\cftsubtabindent=\skip98
-\cftsubtabnumwidth=\skip99
-) (./Lab3.aux)
-\openout1 = `Lab3.aux'.
+\cftparskip=\skip66
+\cftbeforetoctitleskip=\skip67
+\cftaftertoctitleskip=\skip68
+\cftbeforepartskip=\skip69
+\cftpartnumwidth=\skip70
+\cftpartindent=\skip71
+\cftbeforesecskip=\skip72
+\cftsecindent=\skip73
+\cftsecnumwidth=\skip74
+\cftbeforesubsecskip=\skip75
+\cftsubsecindent=\skip76
+\cftsubsecnumwidth=\skip77
+\cftbeforesubsubsecskip=\skip78
+\cftsubsubsecindent=\skip79
+\cftsubsubsecnumwidth=\skip80
+\cftbeforeparaskip=\skip81
+\cftparaindent=\skip82
+\cftparanumwidth=\skip83
+\cftbeforesubparaskip=\skip84
+\cftsubparaindent=\skip85
+\cftsubparanumwidth=\skip86
+\cftbeforeloftitleskip=\skip87
+\cftafterloftitleskip=\skip88
+\cftbeforefigskip=\skip89
+\cftfigindent=\skip90
+\cftfignumwidth=\skip91
+\cftbeforelottitleskip=\skip92
+\cftafterlottitleskip=\skip93
+\cftbeforetabskip=\skip94
+\cfttabindent=\skip95
+\cfttabnumwidth=\skip96
+\cftbeforesubfigskip=\skip97
+\cftsubfigindent=\skip98
+\cftsubfignumwidth=\skip99
+\cftbeforesubtabskip=\skip100
+\cftsubtabindent=\skip101
+\cftsubtabnumwidth=\skip102
+)
+(./Homework4.aux)
+\openout1 = `Homework4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -496,17 +557,17 @@ LaTeX Font Info:    ... okay on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
-\scratchdimen=\dimen136
-\scratchbox=\box26
-\nofMPsegments=\count104
-\nofMParguments=\count105
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count106
-\MPscratchDim=\dimen137
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count115
+\scratchdimen=\dimen145
+\scratchbox=\box28
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen146
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -554,46 +615,119 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 66.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 66.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 66.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 69.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
+LaTeX Font Info:    Try loading font information for U+msa on input line 65.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
- [1
+LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Lab3.aux) ) 
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+Package epstopdf Info: Source file: <ch0501a.eps>
+(epstopdf)                    date: 2014-09-17 19:03:02
+(epstopdf)                    size: 8817 bytes
+(epstopdf)             Output file: <ch0501a-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-09-17 19:04:44
+(epstopdf)                    size: 5360 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch0501a-eps-converted-to.p
+df ch0501a.eps>
+(epstopdf)             \includegraphics on input line 129.
+Package epstopdf Info: Output file is already uptodate.
+<ch0501a-eps-converted-to.pdf, id=18, 477.785pt x 375.4025pt>
+File: ch0501a-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch0501a-eps-converted-to.pdf>
+Package pdftex.def Info: ch0501a-eps-converted-to.pdf used on input line 129.
+(pdftex.def)             Requested size: 216.80928pt x 108.40567pt.
+ [3 <./ch0501a-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <ch0501b.eps>
+(epstopdf)                    date: 2014-09-17 19:03:02
+(epstopdf)                    size: 8548 bytes
+(epstopdf)             Output file: <ch0501b-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-09-17 19:04:46
+(epstopdf)                    size: 5310 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch0501b-eps-converted-to.p
+df ch0501b.eps>
+(epstopdf)             \includegraphics on input line 173.
+Package epstopdf Info: Output file is already uptodate.
+
+<ch0501b-eps-converted-to.pdf, id=31, 477.785pt x 375.4025pt>
+File: ch0501b-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch0501b-eps-converted-to.pdf>
+Package pdftex.def Info: ch0501b-eps-converted-to.pdf used on input line 173.
+(pdftex.def)             Requested size: 216.80928pt x 108.40567pt.
+ [4 <./ch0501b-eps-converted-to.pdf>]
+Overfull \hbox (80.06863pt too wide) in paragraph at lines 204--204
+[] 
+ []
+
+[5]
+Overfull \hbox (2.79376pt too wide) in paragraph at lines 250--250
+[] 
+ []
+
+
+Overfull \hbox (29.54263pt too wide) in paragraph at lines 259--259
+[] 
+ []
+
+[6]
+Package epstopdf Info: Source file: <ch0505b.eps>
+(epstopdf)                    date: 2014-09-17 19:03:04
+(epstopdf)                    size: 8947 bytes
+(epstopdf)             Output file: <ch0505b-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-09-17 19:04:58
+(epstopdf)                    size: 5623 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch0505b-eps-converted-to.p
+df ch0505b.eps>
+(epstopdf)             \includegraphics on input line 264.
+Package epstopdf Info: Output file is already uptodate.
+ <ch0505b-eps-converted-to.pdf, id=47, 477.785pt x 375.4025pt>
+File: ch0505b-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch0505b-eps-converted-to.pdf>
+Package pdftex.def Info: ch0505b-eps-converted-to.pdf used on input line 264.
+(pdftex.def)             Requested size: 216.80928pt x 108.40567pt.
+ [7 <./ch0505b-eps-converted-to.pdf>]
+(./Homework4.aux) ) 
 Here is how much of TeX's memory you used:
- 4212 strings out of 494985
- 63335 string characters out of 6180357
- 131210 words of memory out of 5000000
- 7369 multiletter control sequences out of 15000+600000
- 8498 words of font info for 30 fonts, out of 8000000 for 9000
+ 5065 strings out of 494985
+ 72915 string characters out of 6180357
+ 150221 words of memory out of 5000000
+ 8188 multiletter control sequences out of 15000+600000
+ 12245 words of font info for 46 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 44i,6n,43p,617b,182s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb>
-Output written on Lab3.pdf (1 page, 98983 bytes).
+ 44i,16n,43p,277b,283s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb>
+Output written on Homework4.pdf (7 pages, 139510 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

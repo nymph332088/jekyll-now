@@ -73,3 +73,4 @@ median1 = uds.median;
 plot(median1,0.5,'r*');
 legend('Par(2)','(q_{.5},.5)');
 saveas(fig,'D2b.eps','epsc');
+

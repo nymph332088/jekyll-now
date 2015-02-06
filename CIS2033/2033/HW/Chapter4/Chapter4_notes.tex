@@ -26,12 +26,12 @@
 \maketitle
 
 \section*{4.3-Bernoulli Distribution}
-\paragraph*{Examples} For a Bernoulli distribution, there are {\bf TWO and ONLY TWO} outcomes. 
+\paragraph*{Examples} For a random variable $X$ of a Bernoulli distribution, there are {\bf TWO and ONLY TWO} values for $X$. 
 \begin{table}[h!]
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|c|c|c|c|} \hline
-& Events & Outcomes & Success & Failure & PMF \\ \hline 
+& Experiments & Outcomes & $X$=Success & $X$=Failure & PMF \\ \hline 
 $Ber_1$ & Flip a coin & \{HEAD, TAIL\} & \{HEAD\} & \{TAIL\} & $Ber(\frac{1}{2})$ \\ \hline
 $Ber_2$ & Flip a coin & \{HEAD, TAIL\} & \{TAIL\} & \{HEAD\} & $Ber(\frac{1}{2})$ \\ \hline
 $Ber_3$ & Throw a dice & \{1, 2, 3, 4, 5, 6\} & \{3\} & \{1, 2, 4, 5, 6\} & $Ber(\frac{1}{6})$ \\ \hline
@@ -42,6 +42,7 @@ $Ber_5$ & Throw a dice & \{1, 2, 3, 4, 5, 6\} & Even \{2, 4, 6\} & Odd \{1, 3, 5
 \multirow{2}{*}{$Ber_7$} & Randomly pick & \multirow{2}{*}{\{MALE, FEMALE\}} & \multirow{2}{*}{\{FEMALE\}} & \multirow{2}{*}{\{MALE\}} & \multirow{2}{*}{$Ber(\frac{5}{24})$} \\
 & a student& & & & \\
 \hline
+$Ber_1$ & Flip 2 coin & \{HH, HT,TH,TT\} & \{HH,TH,HT\} & \{TT\} & $Ber(\frac{3}{4})$ \\ \hline
 \end{tabular}
 \caption{Bernoulli distribution examples.}
 \label{Ta:ber}
@@ -57,21 +58,23 @@ $Ber_5$ & Throw a dice & \{1, 2, 3, 4, 5, 6\} & Even \{2, 4, 6\} & Odd \{1, 3, 5
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|c|c|c|c|} \hline
-& Events & One Bernoulli Trial (success) & n & p & PMF \\ \hline
+& $X$ & One Bernoulli Trial (success) & n & p & PMF \\ \hline
 \multirow{2}{*}{$Bin_1$} & {Flip a coin 3 times} & {Flip a coin} & \multirow{2}{*}{3} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(3,\frac{1}{2})$} \\
-& with k heads & with a head & & & \\  \hline
-\multirow{2}{*}{$Bin_2$} & {Flip a coin 5 times} & {Flip a coin} & \multirow{2}{*}{5} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(5,\frac{1}{2})$} \\
-&  with k tails & with a tail & & & \\  \hline
-\multirow{2}{*}{$Bin_3$} & {Throw a dice 2 times} & {Throw a dice} & \multirow{2}{*}{2} & \multirow{2}{*}{$\frac{1}{6}$} & \multirow{2}{*}{$Bin(2,\frac{1}{6})$} \\
-&  with k threes &  with a three & & & \\ \hline
-\multirow{2}{*}{$Bin_4$} & {Throw a dice 3 times}  & {Throw a dice} & \multirow{2}{*}{3} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(3,\frac{1}{2})$} \\
-& with k odd numbers &  with an odd number  & & & \\ \hline
-\multirow{2}{*}{$Bin_5$} & {Throw a dice 4 times} & {Throw a dice with} & \multirow{2}{*}{4} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(4,\frac{1}{2})$} \\
-&  with k even numbers  & an even number & & & \\ \hline
-\multirow{2}{*}{$Bin_6$} & {Randomly pick 2 students} & {Randomly pick a student}& \multirow{2}{*}{2} & \multirow{2}{*}{$\frac{19}{24}$} & \multirow{2}{*}{$Bin(2,\frac{19}{24})$} \\
-&  from the class with k male &  from the class with a male  & & & \\ \hline
-\multirow{2}{*}{$Bin_7$} & {Randomly pick 5 students}  & {Randomly pick a student}& \multirow{2}{*}{5} & \multirow{2}{*}{$\frac{5}{24}$} & \multirow{2}{*}{$Bin(5,\frac{5}{24})$} \\
-& from the class with k female &  from the class with a female  & & & \\
+& with $k$ heads, $k$=0,1,2,3 & with a head & & & \\  \hline
+\multirow{2}{*}{$Bin_3$} & {Flip 3 coins} & {Flip a coin} & \multirow{2}{*}{3} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(3,\frac{1}{2})$} \\
+& with $k$ heads, $k$=0,1,2,3 & with a head & & & \\  \hline
+\multirow{2}{*}{$Bin_4$} & {Flip a coin 5 times} & {Flip a coin} & \multirow{2}{*}{5} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(5,\frac{1}{2})$} \\
+&  with $k$ tails,$k$=0,1,2,3,4,5 & with a tail & & & \\  \hline
+\multirow{2}{*}{$Bin_5$} & {Throw a dice 2 times} & {Throw a dice} & \multirow{2}{*}{2} & \multirow{2}{*}{$\frac{1}{6}$} & \multirow{2}{*}{$Bin(2,\frac{1}{6})$} \\
+&  with $k$ threes,$k$=0,1,2 &  with a three & & & \\ \hline
+\multirow{2}{*}{$Bin_6$} & {Throw a dice 3 times}  & {Throw a dice} & \multirow{2}{*}{3} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(3,\frac{1}{2})$} \\
+& with $k$ odd numbers,$k$=0,1,2,3 &  with an odd number  & & & \\ \hline
+\multirow{2}{*}{$Bin_7$} & {Throw a dice 4 times} & {Throw a dice with} & \multirow{2}{*}{4} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Bin(4,\frac{1}{2})$} \\
+&  with $k$ even numbers,$k$=0,1,2,3,4  & an even number & & & \\ \hline
+\multirow{2}{*}{$Bin_8$} & {Randomly pick 2 students} & {Randomly pick a student}& \multirow{2}{*}{2} & \multirow{2}{*}{$\frac{19}{24}$} & \multirow{2}{*}{$Bin(2,\frac{19}{24})$} \\
+&  from the class with $k$ male,$k$=0,1,2 &  from the class with a male  & & & \\ \hline
+\multirow{2}{*}{$Bin_9$} & {Randomly pick 5 students}  & {Randomly pick a student}& \multirow{2}{*}{5} & \multirow{2}{*}{$\frac{5}{24}$} & \multirow{2}{*}{$Bin(5,\frac{5}{24})$} \\
+& from the class with $k$ female,$k$=0,1,2,3,4,5 &  from the class with a female  & & & \\
 \hline
 \end{tabular}
 \caption{Binomial distribution examples.}
@@ -105,21 +108,21 @@ p_X(k)=P(X=k)=\left( \begin{array}{c} n \\ k \end{array} \right) (\frac{1}{18})^
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|c|c|c|c|} \hline
-& Events & One Success & p & PMF \\ \hline
-\multirow{2}{*}{$Geo_1$} & {Flip a coin multiple times} & {Flip a coin} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
-& until get a head & with a head  & & \\  \hline
-\multirow{2}{*}{$Geo_2$} & {Flip a coin multiple times} & {Flip a coin} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
-& until get a tail & with a tail &  & \\ \hline
-\multirow{2}{*}{$Geo_3$} & {Throw a dice multiple times} & {Throw a dice} & \multirow{2}{*}{$\frac{1}{6}$} & \multirow{2}{*}{$Geo(\frac{1}{6})$} \\
-&  until get a THREE &  with a THREE &  & \\ \hline
-\multirow{2}{*}{$Geo_4$} & {Throw a dice multiple times}  & {Throw a dice} &  \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
-& until get an odd number &  with an odd number  &  & \\ \hline
-\multirow{2}{*}{$Geo_5$} & {Throw a dice multiple times} & {Throw a dice with}  & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
-& until get an even number & an even number & & \\ \hline
-\multirow{2}{*}{$Geo_6$} & {Repeatedly randomly pick a student} &{Randomly pick a student}&  \multirow{2}{*}{$\frac{19}{24}$} & \multirow{2}{*}{$Geo(\frac{19}{24})$} \\
-& until get a male student &  from the class with a male  & & \\ \hline
-\multirow{2}{*}{$Geo_7$} &{Repeatedly randomly pick a student}  & {Randomly pick a student}& \multirow{2}{*}{$\frac{5}{24}$} & \multirow{2}{*}{$Geo(\frac{5}{24})$} \\
-& until get a female student &  from the class with a female  & & \\
+& $X$ & One Success & p & PMF \\ \hline
+\multirow{2}{*}{$Geo_1$} & {Flip a coin $k$ times} & {Flip a coin} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
+& until get a head,$k$=1,2,... & with a head  & & \\  \hline
+\multirow{2}{*}{$Geo_2$} & {Flip a coin $k$ times} & {Flip a coin} & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
+& until get a tail,$k$=1,2,... & with a tail &  & \\ \hline
+\multirow{2}{*}{$Geo_3$} & {Throw a dice $k$ times} & {Throw a dice} & \multirow{2}{*}{$\frac{1}{6}$} & \multirow{2}{*}{$Geo(\frac{1}{6})$} \\
+&  until get a THREE,$k$=1,2,... &  with a THREE &  & \\ \hline
+\multirow{2}{*}{$Geo_4$} & {Throw a dice $k$ times}  & {Throw a dice} &  \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
+& until get an odd number,$k$=1,2,... &  with an odd number  &  & \\ \hline
+\multirow{2}{*}{$Geo_5$} & {Throw a dice $k$ times} & {Throw a dice with}  & \multirow{2}{*}{$\frac{1}{2}$} & \multirow{2}{*}{$Geo(\frac{1}{2})$} \\
+& until get an even number,k=1,2,... & an even number & & \\ \hline
+\multirow{2}{*}{$Geo_6$} & {Randomly pick $k$ student} &{Randomly pick a student}&  \multirow{2}{*}{$\frac{19}{24}$} & \multirow{2}{*}{$Geo(\frac{19}{24})$} \\
+& until get a male student,$k$=1,2,... &  from the class with a male  & & \\ \hline
+\multirow{2}{*}{$Geo_7$} &{Randomly pick $k$ student}  & {Randomly pick a student}& \multirow{2}{*}{$\frac{5}{24}$} & \multirow{2}{*}{$Geo(\frac{5}{24})$} \\
+& until get a female student,$k$=1,2,... &  from the class with a female  & & \\
 \hline
 \end{tabular}
 \caption{Geometric distribution examples.}
@@ -182,20 +185,5 @@ Geometric & Yes & Multiple & 1 & $Geo(p)$ & $p_X(k)=P(X=k) = (1-p)^{k-1}p$\\
 \end{center}
 \end{table}
 
-
-\section*{Similarities and Dissimilaries}
-\begin{table}[h!]
-\begin{center}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{ccccc} \hline
-Distribution & \multicolumn{2}{c}{Discrete} & \multicolumn{2}{c}{Trials}  \\ \hline
-1 & 2 & 3 & 4 & 5 \\
-6 & 7 & 8 & 9 & 10 \\
-\hline
-\end{tabular}
-\caption{Summary.}
-\label{Ta:comp}
-\end{center}
-\end{table}
 
 \end{document}

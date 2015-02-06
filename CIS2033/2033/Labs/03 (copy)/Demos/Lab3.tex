@@ -58,7 +58,7 @@
 \title{Lab Three\\
 Computational Probability and Statistics \\
 CIS 2033, Section 002}
-\author{Due: 9:00 AM, Friday, Feb. 13, 2015}
+\author{Due: 9:00 AM, Friday, October 10, 2014}
 \date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
@@ -68,29 +68,59 @@ CIS 2033, Section 002}
 \paragraph*{Question 1}
 Let $X$ be a continuous random variable, plot the probability density function $f(x)$ if
 \begin{itemize}
-%\item $X$ is a uniform distribution, $X \sim U(0, \beta), \beta = 0.5, 1, 2$; 
+\item $X$ is a uniform distribution, $X \sim U(0, \beta), \beta = 0.5, 1, 2$; 
 \item $X$ is an exponential distribution, $X \sim Exp(\lambda), \lambda = 0.5, 1, 2$;
-%\item $X$ is a Pareto distribution, $X \sim Par(\alpha), \alpha = 0.5, 1, 2$;
+\item $X$ is a Pareto distribution, $X \sim Par(\alpha), \alpha = 0.5, 1, 2$;
 \item $X$ is a normal distribution, $X \sim N(\mu, \sigma^2)$, where $(\mu, \sigma^2)$ are from $\{(-1, 1), (0, 1)$, $(1, 1)$, $(0, 4), (0, 16)\}$.
 \end{itemize}
-For each of those two cases, you have to plot multiple curves, one for each of the probability density functions when the parameter is fixed. For example, for the exponential distribution, you have to plot the probability density functions for $Exp(0.5), Exp(1), Exp(2)$. Please use {\bf different colors} (e.g., {\color{red}{red}}, {\color{blue}blue}, {\color{black}black}) for those curves and put those curves in {\bf one} figure. Please analyze those curves in this figure and draw a conclusion for {\bf how does the curve changes when we increase (or decrease) the parameter value}. 
+For each of those four cases, you have to plot multiple curves, one for each of the probability density functions when the parameter is fixed. For example, for the uniform distribution, you have to plot the probability density functions for $U(0, 0.1), U(0, 1), U(0, 10)$. Please use {\bf different colors} (e.g., {\color{red}{red}}, {\color{blue}blue}, {\color{black}black}) for those curves and put those curves in {\bf one} figure. Please analyze those curves in this figure and draw a conclusion for {\bf how does the curve changes when we increase (or decrease) the parameter value}. 
 %When you plot those figures, be careful about the axis scaling. We would recommend 
 You have to submit 
 \begin{enumerate}
 \item MATLAB codes, which should be put in script files (.m); 
-\item Two figures, which should be in eps format (.eps);
-\item Two observations (conclusions), which should be in a plain text file (.txt). 
+\item Four figures, which should be in eps format (.eps);
+\item Four observations (conclusions), which should be in a plain text file (.txt). 
 \end{enumerate}
 
 \paragraph*{Question 2}
 Let $X$ be a continuous random variable, plot the distribution function $F(X)$ if 
 \begin{itemize}
-%\item $X \sim U(0, 2)$; 
+\item $X \sim U(0, 2)$; 
 \item $X \sim Exp(2)$;
-%\item $X \sim Par(2)$;
+\item $X \sim Par(2)$;
 \item $X \sim N(0, 1)$. 
 \end{itemize}
 For each of those distributions, you have to plot a figure, showing the distribution function. You also have to compute the {\bf median}, $q_{0.5}$, and add a special point $(q_{0.5}, 0.5)$ in this figure. Please use the ``Asterisk'' ($\ast$) as the marker and {\color{red}red} color for this special point. \\
+You have to submit 
+\begin{enumerate}
+\item MATLAB codes, which should be in script files (.m);
+\item Four figures, which should be in eps format (.eps).
+\end{enumerate}
+
+\paragraph*{Question 3}
+
+Let $X$ be a continuous random variable, generate $10^5$ samples if 
+\begin{itemize}
+\item $X \sim U(0, 2)$;
+\item $X \sim Exp(2)$;
+\item $X \sim Par(2)$;
+\item $X \sim N(0, 2)$. 
+\end{itemize}
+You can use the MATLAB function {\it random} to generate datapoints from a given distribution. Please check the {\it help} or {\it doc} command in order to use the {\it random} function correctly. Please plot those samples by using {\it hist} function. You can check its usage by using {\it help hist} or {\it doc hist}.  
+You have to submit 
+\begin{enumerate}
+\item MATLAB codes, which should be in script files (.m);
+\item Four figures, which should be in eps format (.eps).
+\end{enumerate}
+
+\paragraph*{Question 4}
+
+Suppose we only have a random number generator, which has a $U(0, 1)$ distribution. But we want to generate a sequence of random numbers from non-uniform distributions (e.g., $Exp(2), Par(2)$). Now, please 
+\begin{itemize}
+\item first use the random number generator to generate $10^5$ uniformly ($U(0, 1)$) distributed samples; 
+\item then transform those samples to datapoints, which should have a $Exp(2)$, or $Par(2)$ distribution;
+\item finally plot those transformed samples by using the {\it hist} function. 
+\end{itemize}
 You have to submit 
 \begin{enumerate}
 \item MATLAB codes, which should be in script files (.m);
