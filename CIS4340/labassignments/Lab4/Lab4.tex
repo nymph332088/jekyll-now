@@ -209,59 +209,61 @@ showstringspaces=false            %
 \def\bighatqstar{\hat{Q}^*}
 \def\oracleT{T_{OR}}
 \def\hatoracleT{\hat{T}_{OR}}
-\title{ Lab Assignment 1: Hello World}
-\author{Due: 11:59 PM Jan 20, Tuesday}
+\title{ Lab Assignment 5: Interactive Data Visualization}
+\author{Due: 11:59 PM Feb 18, Wednesday }
 \date{}
 
 \begin{document}
 
 \maketitle
-The purpose of this lab is to get you started with Python. You will learn how to write, compile and debug Python program with Spyder. Spyder is the {\bf S}cientific {\bf PY}thon {\bf D}evelopment {\bf E}nvi{\bf R}onment. You can also choose any IDE you like, e.g. PyDev with Eclipse, PyCharm, IEP and so on. While when considering Python for scientific computing, Spyder is the best according to the unofficial evaluation \href{http://xcorr.net/2013/04/17/evaluating-ides-for-scientific-python/}{here}. In Section 1, you are asked to run the sample code in Spyder. Section 2 is the actual lab assignment. You will be asked to complete a piece of code, answer questions with code and submit your scripts through blackboard. 
+In this lab, you will learn the basics of D3.js, another popular tools for interactive visualization. It's better if you have a background knowledge of HTML, CSS, JavaScript. An excellent 10 minutes overview of these fundamentals is on this website, \href{http://alignedleft.com/tutorials/d3/fundamentals}{alignedleft.com}, by Scott Murray. To be more proficient with D3.js, you are encouraged to go through the tutorial by the same person,\href{http://alignedleft.com/tutorials/d3}{visualization with D3.js}(time estimates: 10-15 hours).
 
-\section{Python tutorial }
-\begin{itemize}
-	\item Go to \href{http://learnpythonthehardway.org/book/ex0.html}{Learn Python the Hard Way - Exercise 0}. Go through the set up for your favourite system. You will learn how to launch Python from command line, how to edit Python source file, how to use Google search.
-	\item Open Spyder. Or open the command line and type {\it python}. 
-	\item Download \href{hello.py}{hello.py} from the course website. In the console, run \pythoninline{runfile('hello.py',}	\pythoninline{args='YOURNAME')}. You will see output like \\
+\section{D3.js Tutorial}
+This tutorial illustrates how to plot circles, bind data with the plots, plot word cloud. 
 
-	\begin{python}
-	>>runfile('hello.py',args='Shanshan')
-	Hello Shanshan
-	\end{python}
-	\item Download \href{Demo\_lab1.py}{Demo\_lab1.py} from the course website. Copy \& paste the code from {\it Sec 1} to {\it Sec 6} and see the results.
-	\item Download data set \href{beatles-diskography.csv}{beatles-diskography.csv} to the same folder with {\it Demo\_lab1.py}. 
-	\item What does the empty cell in the table mean?
-	\item Using Python to read this file line by line, and for the first 10 lines (not including the header) split each line on ``,'' and then for each line, create a dictionary where the key is the header title of the field, and the value is the value of that field in the row. Copy \& paste the code from {\it Sec 7}. You will get each line of the file printed in the console but also an IndexError. It's because the \pythoninline{parse_file()} function didn't return a list of dictionaries, each data line in the file being a single list entry. Uncomment {\it line 95} and run {\it Sec 7} again. Everything will be OK now. \\
-	
-	\begin{python}
-Please Please Me,22 March 1963,Parlophone(UK),1,-,Gold,Platinum
-...
-Let It Be,8 May 1970,"Apple(UK),United Artists(US)",1,1,...
-Traceback (most recent call last):
-  File "<ipython-input-115-840bcc8beb77>", line 25, in <module>
-    test()
-  File "<ipython-input-115-840bcc8beb77>", line 21, in test
-    assert d[0] == firstline
-IndexError: list index out of range
-	\end{python}
-	
+\textbf{A simple example of plotting circles}
+\begin{enumerate}
+\item Open a brower, e.g., Chrome, FireFox or IE. Chrome is the best.
+\item Open the web page \href{http://nymph332088.github.io/CIS4340/index.html}{main page}.
+\item Stay on the page, open \texttt{Chrome -> More tools -> Developer Tool}. Or click \texttt{F12} button on the keyboard to open \texttt{Developer Tool}. You will see the \texttt{Elements, Sources, Console, ...} tabs. Click on \texttt{Elements} tab. If you mouse hovers on any tag, the corresponding content will be highlighted on the web page with a blue background. Internal CSS styles are included within \texttt{<style></style>} tag under the \texttt{<head>}. External CSS sheets are linked in the head too.
+\item Select a DOM element using plain JavaScript. In the console, type \texttt{document.getElementById( `footer');}, you will get a DOM element returned. DOM stands for {\bf D}ocument {\bf O}bject {\bf M}odel.
+\item Select a DOM element using D3.js. First, copy all the text on \href{https://raw.githubusercontent.com/mbostock/d3/master/d3.min.js}{D3.js page} in the console. Second, type \texttt{var header = d3.select(`\#{header}');}, you will get an array of DOM nodes. Third, change the header of the page by typing \texttt{header.select(`h1').text(`Hello World!');}; change the header background color by typing \texttt{header.select(`h1').style( `background-color', `green');}
+\item Draw a dot with D3. D3 draws {\bf S}calable {\bf V}ector {\bf G}raphics, which is a text-based image format. First, define a variable called \texttt{var svg = d3.select(`\#{footer}').append(`svg');}. Second, set the width and height attributes of the SVG canvas by typing {\tt svg.attr( `width',60).attr( `height',50)}. Third, draw a circle on the canvas by typing \texttt{var circle = svg.append(`circle');}. Forth, you can also set the attributes of the circle to specify its appearance, type \texttt{circle.attr( `cx','25).attr( `cy','25').attr( `r',22)} to see the circle in the top right corner. Continue to set \texttt{circle.attr(`fill',`blue').attr(`stroke',`gray').attr(`stroke-width','2');}. (Notice the difference between \texttt{attr()} and \texttt{style()}). For more appearance of circles, here is the \href{http://alignedleft.com/tutorials/d3/an-svg-primer}{reference}.
 
-\end{itemize}
+\item D3 data binding. Suppose you need to draw 5 dots, with radius of each specified by a different value. Would you append 5 circles by typing the above codes 5 times? Is there any easier way? Yes. Let's do it. First, reload the page to clear what you did before. Then copy all the text again on \href{https://raw.githubusercontent.com/mbostock/d3/master/d3.min.js}{D3.js page} to include D3.js. Now, draw a bigger canvas by typing \texttt{var svg = d3.select(`\#{footer}').append(`svg'); svg.attr( `width',500).attr( `height',80);} 
+\item D3 data binding continued. First, define the radius array, \texttt{var radius= [10, 15,20, 25, 30];}. Then, declare 5 place holders on the canvas for the 5 circles in the future, typing \texttt{var circles = svg.selectAll(`\#{varycircle}').data(radius).enter()}. Third, for each place holder, append an circle node, type \texttt{circles = circles.append(`circle');}. Forth, binding the data with the plot appearance, type \texttt{circles.attr( `r', function(d) \{return d;\})}. Fifth, specify the x and y position so that the 5 circles are next to each other, \texttt{circles.attr(`cx',function(d,i)\{return (i*50) + 25; \}}. It's the same syntax to specify any other appearance, as if you are manipulating one circle at a time. To specify y position, \texttt{circles.attr(`cy',30)} or \texttt{circles.attr(`cy',function(d)\{return 30;\}}. 
 
-\href{http://learnpythonthehardway.org/book/}{Learn Python the Hard Way} is a good start for beginners if you don't have much programming experience. For more basics of Python, go to \href{https://developers.google.com/edu/python/}{Google Python course}. Run the sample code on the website. Test yourself with their exercises.
 
-\section	{Write your own Python program}
-\subsection{Part 1}
-Download \href{Lab\_1\_1.py}{Lab\_1\_1.py}. Answer the 3 questions inside the script. Submit the script through blackboard.
 
-\subsection{Part 2}
-In this part, your task is to process the supplied file and use the csv module to extract data from it. The data comes from NREL (National Renewable Energy Laboratory) website. Each file
-contains information from one meteorological station, in particular - about amount of solar and wind energy for each hour of day. Note that the first line of the datafile is neither data entry, nor header. It is a line describing the data source. 
+\end{enumerate}
+\textbf{More complicated word cloud example}
 
-1). You should extract the name of the station from it. The data should be returned as a list of lists (not dictionaries). You can use the csv modules "reader" method to get data in such format. Another useful method is next() - to get the next line from the iterator. You should only change the \pythoninline{parse_file()}function. Part of the code has been given in \href{Lab\_1\_2.py}{Lab\_1\_2.py}. The requested \href{745090.csv}{745090.csv} can be downloaded from the course website. Complete the \pythoninline{parse_file()} function.
+The plot in Figure \ref{fig:wordcloud} shows the word cloud of the sample \href{http://nymph332088.github.io/CIS4340/labassignments/Lab2/twitter_data.txt}{tweets data}. The size of each word is proportional to the word count of all the tweets. You can see the basketball is with the largest size, that is because the example twitter data is crawled by keyword `basketball'. The program is set to show up to 500 words. We also see kobe, LSU, and some video links be the top 500 most frequent words. 
 
-2). Calculate the maximum , average value of the 3\textit{rd} column. Think about what the 0 means for the ETR radiation. Then calculate the average of the nonzero values of the 3\textit{rd} column. Complete the \pythoninline{statistics()} function for this part. Don't change the function prototype. 
+Now, we illustrate how to plot the word cloud based on your own data.
+\begin{enumerate}
+\item Reload the page to clear what you did before. Then copy all the text again on \href{https://raw.githubusercontent.com/mbostock/d3/master/d3.min.js}{D3.js page} to include D3.js.
+\item To plot word cloud, you need to write hundreds of code, but the good news is someone already did it. Let's copy and paste all the text into the console on the page \href{https://gist.githubusercontent.com/emeeks/3361332/raw/61cf57523fe8cf314333e5f60cc266351fec2017/d3.layout.cloud.js}{word cloud auxiliary functions}. Now, let's call those functions to create a simple word cloud. 
+\item 
 
-{\color{red} Submissions}: Lab\_1\_1.py, Lab\_1\_2.py
+\end{enumerate}
+
+
+\begin{figure}[h!]
+  \centering
+      \includegraphics[width=0.5\textwidth]{word_cloud.png}
+  \caption{Word cloud for \href{http://nymph332088.github.io/CIS4340/labassignments/Lab2/twitter_data.txt}{tweets data}}
+  \label{fig:wordcloud}
+\end{figure}
+
+\section{Assignments}
+\subsection{Word Cloud}
+
+
+\section{Extra Credits}
+Now, you've get the basic ideas of D3.js, it's time to explore yourself.
+
+Three are a lot of awesome projects or applications based on 
+
 
 \end{document}
