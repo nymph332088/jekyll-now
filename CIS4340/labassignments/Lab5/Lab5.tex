@@ -216,30 +216,30 @@ showstringspaces=false            %
 \begin{document}
 
 \maketitle
-In this lab, you will learn the basics of D3.js, another popular tools for interactive visualization. It's better if you have a background knowledge of HTML, CSS, JavaScript. An excellent 10 minutes overview of these fundamentals is on this website, \href{http://alignedleft.com/tutorials/d3/fundamentals}{alignedleft.com}, by Scott Murray. To be more proficient with D3.js, you are encouraged to go through the tutorial by the same person,\href{http://alignedleft.com/tutorials/d3}{visualization with D3.js}(time estimates: 10-15 hours).
+In this lab, you will learn the basics of D3.js, another popular tool for interactive visualization. It's better if you have a background knowledge of HTML, CSS, JavaScript, but you should be able to do the lab even if you do not. An excellent 10 minutes overview of these fundamentals is on website, \href{http://alignedleft.com/tutorials/d3/fundamentals}{alignedleft.com}. To be more proficient with D3.js, you are encouraged to go through tutorial,\href{http://alignedleft.com/tutorials/d3}{visualization with D3.js} (time estimate: 10-15 hours).
 
 \paragraph*{Submission} Please submit all your writeups, figures through blackboard.
-\section{D3.js Tutorial}
+\section{A simple example of plotting circles}
 This tutorial illustrates how to plot circles, bind data with the plots, plot word cloud. 
-
-\textbf{A simple example of plotting circles}
 \begin{enumerate}
-\item Open a brower, e.g., Chrome, FireFox or IE. Chrome is used in the examples.
-\item Open the web page \href{http://nymph332088.github.io/CIS4340/index.html}{main page}.
-\item Stay on the page, open \texttt{Chrome -> More tools -> Developer Tool}. Or click \texttt{F12} button on the keyboard to open \texttt{Developer Tool}. You will see the \texttt{Elements, Sources, Console, ...} tabs. Click on \texttt{Elements} tab. If you mouse hovers on any tag, the corresponding content will be highlighted on the web page with a blue background. Internal CSS styles are included within \texttt{<style></style>} tag under the \texttt{<head>}. External CSS sheets are linked in the head too.
-\item Select a DOM element using plain JavaScript. In the console, type \texttt{document.getElementById( `footer');}, you will get a DOM element returned. DOM stands for {\bf D}ocument {\bf O}bject {\bf M}odel.
-\item Select a DOM element using D3.js. First, copy all the text on \href{https://raw.githubusercontent.com/mbostock/d3/master/d3.min.js}{D3.js page} in the console. Second, type \texttt{var header = d3.select(`\#{header}');}, you will get an array of DOM nodes. Third, change the header of the page by typing \texttt{header.select(`h1').text(`Hello World!');}; change the header background color by typing \texttt{header.select(`h1').style( `background-color', `green');}
-\item Draw a circle with D3. D3 draws {\bf S}calable {\bf V}ector {\bf G}raphics, which is a text-based image format. First, define a variable called \texttt{var svg = d3.select(`\#{footer}').append(`svg');}. Second, set the width and height attributes of the SVG canvas by typing {\tt svg.attr( `width',60).attr( `height',50)}. Third, draw a circle on the canvas by typing \texttt{var circle = svg.append(`circle');}. Forth, you can also set the attributes of the circle to specify its appearance, type \texttt{circle.attr( `cx','25).attr( `cy','25').attr( `r',22)} to see the circle in the top right corner. Continue to set \texttt{circle.attr(`fill',`blue').attr(`stroke',`gray').attr(`stroke-width','2');}. (Notice the difference between \texttt{attr()} and \texttt{style()}). For more appearance of circles, here is the \href{http://alignedleft.com/tutorials/d3/an-svg-primer}{reference}. How D3 SVG place your plots? See \href{http://alignedleft.com/tutorials/d3/an-svg-primer}{SVG primer}.
+\item Open Chrome. (You should be also able to do the same on other browsers such as firefox and IE, but the instructions are specific to Chrome).
+\item Open the web page \href{http://nymph332088.github.io/CIS4340/index.html}{http://nymph332088.github.io/CIS4340/index.html}.
+\item Stay on the page, open \texttt{Chrome -> More tools -> Developer Tool}. Or click \texttt{F12} button on the keyboard to open \texttt{Developer Tool} (depend on the version of Chrome). You will see tabs such as \texttt{Elements, Sources, Console, ...}. Click on \texttt{Elements} tab. If you mouse hovers over any tag, the corresponding content will be highlighted on the web page with a blue background. Internal CSS styles are included within \texttt{<style></style>} tag under the \texttt{<head>}. External CSS sheets are linked in the head too.
 
-\item D3 data binding. Suppose you need to draw 5 circles, with radius of each specified by a different value. Would you append 5 circles by typing the above codes 5 times? Is there any easier way? Yes. Let's do it. First, reload the page to clear what you did before. Then copy all the text again on \href{https://raw.githubusercontent.com/mbostock/d3/master/d3.min.js}{D3.js page} to include D3.js. Now, draw a bigger canvas by typing \texttt{var svg = d3.select(`\#{footer}').append(`svg'); svg.attr( `width',500).attr( `height',80);} 
-\item D3 data binding continued. First, define the radius array, \texttt{var radius= [10, 15,20, 25, 30];}. Then, declare 5 place holders on the canvas for the 5 circles in the future, typing \texttt{var circles = svg.selectAll(`\#{varycircle}').data(radius).enter()}. Third, for each place holder, append an circle node, type \texttt{circles = circles.append(`circle');}. Forth, binding the data with the plot appearance, type \texttt{circles.attr( `r', function(d) \{return d;\})}. Fifth, specify the x and y position so that the 5 circles are next to each other, \texttt{circles.attr(`cx',function(d,i)\{return (i*50) + 25; \});}. It's the same syntax to specify any other appearance, as if you are manipulating one circle at a time. To specify y position, \texttt{circles.attr(`cy',30)} or \texttt{circles.attr(`cy',function(d)\{return 30;\});}. (\href{http://alignedleft.com/tutorials/d3/data-types}{Data types} you should know in JavaScript, which are kind of similar to Python.)
+\item Copy all the text on \href{https://raw.githubusercontent.com/mbostock/d3/master/d3.min.js}{D3.js page} to the Console. This will load D3.js functionality to the Console. 
+\item Type \texttt{var header = d3.select(`\#{header}');}. This will create an array variable which contains a DOM element referring to the header in the HTML. DOM stands for {\bf D}ocument {\bf O}bject {\bf M}odel.
+\item Third, we can use D3 chainable functions to manipulate the DOM element referenced by the header variable. For example, change the header of the page by typing \texttt{header.select(`h1').text( `Hello World!');} or change the header background color by typing \texttt{header.select(`h1').style( `background-color', `green');} in the Console.
+\item Let us draw a circle with D3. D3 draws {\bf S}calable {\bf V}ector {\bf G}raphics, which is a text-based image format. Let us define a variable called \texttt{var svg = d3.select(`\#{footer}').append(`svg');}. Then, set the width and height attributes of the SVG canvas by typing {\tt svg.attr( `width',60).attr( `height',50)}. Then, draw a circle on the canvas by typing \texttt{var circle = svg.append(`circle');}. Then, you can also set the attributes of the circle to specify its appearance, type \texttt{circle.attr( `cx','25).attr( `cy','25').attr( `r',22)} to see the circle in the top right corner. Continue to set \texttt{circle.attr(`fill',`blue').attr(`stroke',`gray').attr(`stroke-width','2');}. (Notice the difference between \texttt{attr()} and \texttt{style()}). For more appearance of circles, here is the \href{http://alignedleft.com/tutorials/d3/an-svg-primer}{reference}. Where is your circle placed and why? See \href{http://alignedleft.com/tutorials/d3/an-svg-primer}{SVG primer}.
 
-
-
+\item D3 data binding. Suppose you need to draw 5 circles, with radius of each specified by a different value. Would you append 5 circles by typing the above codes 5 times? Is there any easier way? Yes. Let's do it. First, reload the page to clear what you did before. Then copy all the text again on \href{https://raw.githubusercontent.com/mbostock/d3/master/d3.min.js}{D3.js page} to include D3.js. Now, draw a bigger canvas by typing \texttt{var svg = d3.select(`\#{footer}').append(`svg'); svg.attr( `width',500).attr( `height',80);}. Let us define the radius array, \texttt{var radius= [10, 15,20, 25, 30];}. Then, declare 5 place holders on the canvas for the 5 circles in the future, typing \texttt{var circles = svg.selectAll(`\#{varycircle}').data(radius).enter()}. Then, type \texttt{circles = circles.append(`circle');}, you will append an circle node for each place holder. Then, type \texttt{circles.attr( `r', function(d) \{return d;\})}. Then, specify the x position so that the 5 circles are not overlapping, \texttt{circles.attr(`cx',function(d,i)\{return (i*50) + 25; \});}. To specify y position, \texttt{circles.attr(`cy',30)} or \texttt{circles.attr(`cy',function(d)\{return 30;\});}. (\href{http://alignedleft.com/tutorials/d3/data-types}{Data types} in JavaScript are kind of similar to Python.)
 \end{enumerate}
-\textbf{More complicated word cloud example \protect \footnote{Based on \href{http://www.jasondavies.com/wordcloud}{Jason David's code}}}
 
-The plot in Figure \ref{fig:wordcloud} shows the word cloud of the sample \href{http://nymph332088.github.io/CIS4340/labassignments/Lab2/twitter_data.txt}{tweets data}. The size of each word is proportional to the word count of all the tweets. You can see the basketball is with the largest size, that is because the example twitter data is crawled by keyword `basketball'. The program is set to show up to 500 words. We also see kobe, LSU, and some video links be the top 500 most frequent words. 
+\subsection{Assignments}
+Plot 4 squares horizontally with 4 different colors and 4 different sizes.
+
+\section{More complicated word cloud example \protect \footnote{Based on \href{http://www.jasondavies.com/wordcloud}{Jason David's code}}}
+
+Figure \ref{fig:wordcloud} shows the word cloud of the sample \href{http://nymph332088.github.io/CIS4340/labassignments/Lab2/twitter_data.txt}{tweets data}. The size of each word is proportional to the word count of all the tweets. You can see the basketball has the largest size, that is because the example twitter data is crawled by keyword `basketball'. The program is set to show up to 500 words. We also see kobe, LSU, and some video links be the top 500 most frequent words. 
 
 Now, we illustrate how to plot the word cloud based on your own data.
 \begin{enumerate}
@@ -250,19 +250,21 @@ Now, we illustrate how to plot the word cloud based on your own data.
 
 
 
-\section{Assignments}
-The word cloud generator web service for tweets data has being organized and is accessible at \href{http://nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloud.html}{word cloud generator for twitter}. By clicking the button and select a file, the web page automatically extract the \texttt{text} field of the json tweets file and show the word cloud of all tweets.
+\subsection{Assignments}
 In Lab 2, you downloaded tweets data from different locations, e.g., Philadelphia and Boston.
 \begin{enumerate}
 \item Show the word clouds of tweets respectively that you crawled from two places.
-\item Show the word cloud of the most recent two days of the two locations. Check the \texttt{created\_at} fields of the tweets to filter tweets by time. The easiest way might be: first, prepare the files that only contain the tweets from the most recent days in Python; second, use the \href{http://nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloud.html}{word cloud generator for twitter}. Or if you would like to challenge, you can try to modify the \href{file:///home/nymph/nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloud.js}{wordcloud.js} such that it can filter tweets by time.
+\item Show the word cloud of the most recent two days of the two locations. 
+%Check the \texttt{created\_at} fields of the tweets to filter tweets by time. The easiest way might be: first, prepare the files that only contain the tweets from the most recent days in Python; second, use the \href{http://nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloud.html}{word cloud generator for twitter}. Or if you would like to challenge, you can try to modify the \href{file:///home/nymph/nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloud.js}{wordcloud.js} such that it can filter tweets by time.
 \item Show any word cloud that might interest you.
 \item Write up your discoveries.
 \end{enumerate}
-For this assignment, you are also allowed to use the original \href{http://www.jasondavies.com/wordcloud/}{word cloud generator}. Still you have to preprocess the twitter data in order to use the service.
+%For this assignment, you are also allowed to use the original \href{http://www.jasondavies.com/wordcloud/}{word cloud generator}. Still you have to preprocess the twitter data in order to use the service.
+%
+%The word cloud generator web service for tweets data has being organized and is accessible at \href{http://nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloud.html}{word cloud generator for twitter}. By clicking the button and select a file, the web page automatically extract the \texttt{text} field of the json tweets file and show the word cloud of all tweets.
 
 \section{Extra Credits (30 points)}
-Now, you've get the basic ideas of D3.js, it's time to explore yourself. The tutorial by Murray is an excellent starting point, even if you have no idea of what is HTML, CSS, JavaScript. Then see whether you can do other D3 visualization with the auto car dataset, twitter data set or the household power consumption data. Some links might be insightful:
+After you got the basic ideas of D3.js, it's time to explore yourself. The extra credit is to use other D3 visualization with any data we have used before, such as the auto car dataset, twitter data set or the household power consumption data. Some links might be insightful:
 \begin{enumerate}
 \item \href{http://christopheviau.com/d3list/gallery.html}{http://christopheviau.com/d3list/gallery.html (Basic D3 gallery)}
 \item \href{http://www.gapminder.org/world/}{http://www.gapminder.org/world/ (Wealth of nations)}

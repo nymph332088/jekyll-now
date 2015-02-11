@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  11 FEB 2015 12:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  11 FEB 2015 14:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -700,28 +700,28 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 219.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (7.04428pt too wide) in paragraph at lines 230--231
-[][][]\OT1/cmr/m/n/10.95 Select a DOM el-e-ment us-ing plain JavaScript. In the
- con-sole, type \OT1/cmtt/m/n/10.95 document.getElementById(
+Overfull \hbox (30.7096pt too wide) in paragraph at lines 231--232
+\OT1/cmr/m/n/10.95 header vari-able. For ex-am-ple, change the header of the pa
+ge by typ-ing \OT1/cmtt/m/n/10.95 header.select(`h1').text(
  []
 
 
-Overfull \hbox (50.99117pt too wide) in paragraph at lines 232--233
-\OT1/cmr/m/n/10.95 Sec-ond, set the width and height at-tributes of the SVG can
--vas by typ-ing \OT1/cmtt/m/n/10.95 svg.attr( `width',60).attr(
+Overfull \hbox (31.21536pt too wide) in paragraph at lines 231--232
+\OT1/cmtt/m/n/10.95 `Hello World!'); \OT1/cmr/m/n/10.95 or change the header ba
+ck-ground color by typ-ing \OT1/cmtt/m/n/10.95 header.select(`h1').style(
  []
 
 
-Overfull \hbox (39.07271pt too wide) in paragraph at lines 232--233
-\OT1/cmtt/m/n/10.95 `height',50)\OT1/cmr/m/n/10.95 . Third, draw a cir-cle on t
-he can-vas by typ-ing \OT1/cmtt/m/n/10.95 var circle = svg.append(`circle');\OT
-1/cmr/m/n/10.95 .
+Overfull \hbox (42.47449pt too wide) in paragraph at lines 232--233
+\OT1/cmr/m/n/10.95 Then, set the width and height at-tributes of the SVG can-va
+s by typ-ing \OT1/cmtt/m/n/10.95 svg.attr( `width',60).attr(
  []
 
 
-Overfull \hbox (1.18607pt too wide) in paragraph at lines 232--233
-\OT1/cmr/m/n/10.95 Forth, you can also set the at-tributes of the cir-cle to sp
-ec-ify its ap-pear-ance, type \OT1/cmtt/m/n/10.95 circle.attr(
+Overfull \hbox (36.60895pt too wide) in paragraph at lines 232--233
+\OT1/cmtt/m/n/10.95 `height',50)\OT1/cmr/m/n/10.95 . Then, draw a cir-cle on th
+e can-vas by typ-ing \OT1/cmtt/m/n/10.95 var circle = svg.append(`circle');\OT1
+/cmr/m/n/10.95 .
  []
 
 
@@ -733,62 +733,91 @@ attr(`stroke',`gray').attr(`stroke-width','2');\OT1/cmr/m/n/10.95 .
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (6.01772pt too wide) in paragraph at lines 234--235
-\OT1/cmtt/m/n/10.95 d3.select(`#footer').append(`svg'); svg.attr( `width',500).
-attr( `height',80); 
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 235
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 234
 .
+
 (/usr/share/texmf/tex/latex/R/tex/latex/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 235.
- [2]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 234.
 
-Package hyperref Warning: Suppressing link with empty target on input line 276.
+Overfull \hbox (9.05939pt too wide) in paragraph at lines 234--235
+\OT1/cmtt/m/n/10.95 d3.select(`#footer').append(`svg'); svg.attr( `width',500).
+attr( `height',80);\OT1/cmr/m/n/10.95 .
+ []
 
 
-<word_cloud.png, id=84, 1033.8625pt x 849.1725pt>
+Overfull \hbox (194.23732pt too wide) in paragraph at lines 234--235
+\OT1/cmr/m/n/10.95 hold-ers on the can-vas for the 5 cir-cles in the fu-ture, t
+yp-ing \OT1/cmtt/m/n/10.95 var circles = svg.selectAll(`#varycircle').data(radi
+us).enter()\OT1/cmr/m/n/10.95 .
+ []
+
+
+Overfull \hbox (30.2931pt too wide) in paragraph at lines 234--235
+\OT1/cmr/m/n/10.95 the x po-si-tion so that the 5 cir-cles are not over-lap-pin
+g, \OT1/cmtt/m/n/10.95 circles.attr(`cx',function(d,i)\OMS/cmsy/m/n/10.95 f\OT1
+/cmtt/m/n/10.95 return
+ []
+
+
+Overfull \hbox (100.81693pt too wide) in paragraph at lines 234--235
+\OT1/cmtt/m/n/10.95 (i*50) + 25; \OMS/cmsy/m/n/10.95 g\OT1/cmtt/m/n/10.95 );\OT
+1/cmr/m/n/10.95 . To spec-ify y po-si-tion, \OT1/cmtt/m/n/10.95 circles.attr(`c
+y',30) \OT1/cmr/m/n/10.95 or \OT1/cmtt/m/n/10.95 circles.attr(`cy',function(d)\
+OMS/cmsy/m/n/10.95 f\OT1/cmtt/m/n/10.95 return
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 240.
+
+[2]
+
+Package hyperref Warning: Suppressing link with empty target on input line 278.
+
+
+<word_cloud.png, id=85, 1033.8625pt x 849.1725pt>
 File: word_cloud.png Graphic file (type png)
  <use word_cloud.png>
-Package pdftex.def Info: word_cloud.png used on input line 286.
+Package pdftex.def Info: word_cloud.png used on input line 288.
 (pdftex.def)             Requested size: 375.80542pt x 308.66908pt.
- [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 291.
 
-[4 <./word_cloud.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 291.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
+[3] [4 <./word_cloud.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
  (./Lab5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 291.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 291.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 293.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 293.
 Package rerunfilecheck Info: File `Lab5.out' has not changed.
-(rerunfilecheck)             Checksum: 731F3DF540FE6D82F5836EDE6D656C61;157.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
+(rerunfilecheck)             Checksum: 54F1E61A54EB03989C49EE65FAD41CE4;351.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 293.
  ) 
 Here is how much of TeX's memory you used:
- 8734 strings out of 494985
- 120838 string characters out of 6180357
- 207607 words of memory out of 5000000
- 11733 multiletter control sequences out of 15000+600000
- 19279 words of font info for 71 fonts, out of 8000000 for 9000
+ 8754 strings out of 494985
+ 121088 string characters out of 6180357
+ 206607 words of memory out of 5000000
+ 11748 multiletter control sequences out of 15000+600000
+ 22430 words of font info for 83 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 42i,18n,32p,1060b,419s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,18n,32p,1393b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmtt10.pfb>
-Output written on Lab5.pdf (4 pages, 458399 bytes).
+pe1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmtt10.pfb>
+Output written on Lab5.pdf (4 pages, 447943 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 30 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 158 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
