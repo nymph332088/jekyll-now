@@ -209,7 +209,7 @@ showstringspaces=false            %
 \def\bighatqstar{\hat{Q}^*}
 \def\oracleT{T_{OR}}
 \def\hatoracleT{\hat{T}_{OR}}
-\title{ Lab Assignment 5: Interactive Data Visualization}
+\title{ Lab Assignment 5: Data Visualization with D3.js}
 \author{Due: 11:59 PM Feb 18, Wednesday }
 \date{}
 
@@ -218,12 +218,13 @@ showstringspaces=false            %
 \maketitle
 In this lab, you will learn the basics of D3.js, another popular tools for interactive visualization. It's better if you have a background knowledge of HTML, CSS, JavaScript. An excellent 10 minutes overview of these fundamentals is on this website, \href{http://alignedleft.com/tutorials/d3/fundamentals}{alignedleft.com}, by Scott Murray. To be more proficient with D3.js, you are encouraged to go through the tutorial by the same person,\href{http://alignedleft.com/tutorials/d3}{visualization with D3.js}(time estimates: 10-15 hours).
 
+\paragraph*{Submission} Please submit all your writeups, figures through blackboard.
 \section{D3.js Tutorial}
 This tutorial illustrates how to plot circles, bind data with the plots, plot word cloud. 
 
 \textbf{A simple example of plotting circles}
 \begin{enumerate}
-\item Open a brower, e.g., Chrome, FireFox or IE. Chrome is the best.
+\item Open a brower, e.g., Chrome, FireFox or IE. Chrome is used in the examples.
 \item Open the web page \href{http://nymph332088.github.io/CIS4340/index.html}{main page}.
 \item Stay on the page, open \texttt{Chrome -> More tools -> Developer Tool}. Or click \texttt{F12} button on the keyboard to open \texttt{Developer Tool}. You will see the \texttt{Elements, Sources, Console, ...} tabs. Click on \texttt{Elements} tab. If you mouse hovers on any tag, the corresponding content will be highlighted on the web page with a blue background. Internal CSS styles are included within \texttt{<style></style>} tag under the \texttt{<head>}. External CSS sheets are linked in the head too.
 \item Select a DOM element using plain JavaScript. In the console, type \texttt{document.getElementById( `footer');}, you will get a DOM element returned. DOM stands for {\bf D}ocument {\bf O}bject {\bf M}odel.
@@ -243,27 +244,41 @@ The plot in Figure \ref{fig:wordcloud} shows the word cloud of the sample \href{
 Now, we illustrate how to plot the word cloud based on your own data.
 \begin{enumerate}
 \item Reload the page to clear what you did before. Then copy all the text again on \href{https://raw.githubusercontent.com/mbostock/d3/master/d3.min.js}{D3.js page} to include D3.js.
-\item To plot word cloud, you need to write hundreds of code, but the good news is someone already did it. Let's copy and paste all the text into the console on the page \href{http://nymph332088.github.io/CIS4340/labassignments/Lab4/auxiliary_functions.js}{word cloud auxiliary functions}. Now, let's call those functions to create a simple word cloud. 
-\item Open the link \href{http://nymph332088.github.io/CIS4340/labassignments/Lab4/wordcloudgeneration.js}{word cloud generation code}. You can copy and paste all the code directly to the console. When you press enter, you will see a word cloud for a \href{http://www.jasondavies.com/wordtree/cat-in-the-hat.txt}{sample text}. The last two lines specify a string variable \texttt{var textdata} and call the \texttt{load()} function. Try to modify the \texttt{textdata} to another string and call \texttt{load()} function again. 
+\item To plot word cloud, you need to write hundreds of code, but the good news is someone already did it. Let's copy and paste all the text into the console on the page \href{http://nymph332088.github.io/CIS4340/labassignments/Lab5/auxiliary_functions.js}{word cloud auxiliary functions}. Now, let's call those functions to create a simple word cloud. 
+\item Open the link \href{http://nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloudgeneration.js}{word cloud generation code}. You can copy and paste all the code directly to the console. When you press enter, you will see a word cloud for a \href{http://www.jasondavies.com/wordtree/cat-in-the-hat.txt}{sample text}. The last two lines specify a string variable \texttt{var textdata} and call the \texttt{load()} function. Try to modify the \texttt{textdata} to another string and call \texttt{load()} function again. 
 \end{enumerate}
 
 
 
 \section{Assignments}
-The word cloud plotting web page for tweets data has being organized and is accessible at \href{http://nymph332088.github.io/CIS4340/labassignments/Lab4/wordcloud.html}{word cloud web}. By click the button, the web page automatically 
+The word cloud plotting web page for tweets data has being organized and is accessible at \href{http://nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloud.html}{word cloud web}. By clicking the button and select a file, the web page automatically extract the \texttt{text} field of the json tweets file.
 In Lab 2, you downloaded tweets data from different locations, e.g., Philadelphia and Boston.
 \begin{enumerate}
 \item Show the word clouds of tweets respectively that you crawled from two places.
-\item Show the word cloud of the most recent two days of the two locations. Check the \texttt{created_at} fields of the tweets to filter by time. You can preprocess data in Python to create the files needed for the word cloud program. 
+\item Show the word cloud of the most recent two days of the two locations. Check the \texttt{created\_at} fields of the tweets to filter by time. You can preprocess data in Python to create the files needed for the word cloud program. Or if you are confident, you can try to modify the \href{file:///home/nymph/nymph332088.github.io/CIS4340/labassignments/Lab5/wordcloud.js}{wordcloud.js} such that it can filter tweets by time.
 \item Show any word cloud that might interest you.
 \item Write up your discoveries.
 \end{enumerate}
 
 \section{Extra Credits}
-Now, you've get the basic ideas of D3.js, it's time to explore yourself.
+Now, you've get the basic ideas of D3.js, it's time to explore yourself. The tutorial by Murphy is an excellent starting point, even you have no idea of what is HTML, CSS, JavaScript. Then see whether you can do other D3 visualization with the auto car dataset, twitter data set or the household power consumption data. Some links might be insightful:
+\begin{enumerate}
+\item \href{http://www.gapminder.org/world/}{http://www.gapminder.org/world/ (Wealth of nations)}
+\item \href{http://www.jasondavies.com/wordcloud}{ http://www.jasondavies.com/wordcloud (word cloud)}
+\item \href{http://mbostock.github.io/d3/talk/20111116/iris-splom.html}{http://mbostock.github.io/d3/talk/20111116/iris-splom.html (scatterplot)}
+\item \href{http://astro.temple.edu/~tuc17157/em_ordering/basic_v2_wave_classes_flip.html}{ ordered heatmaps}
+\item \href{http://neuralengr.com/asifr/journals/} {http://neuralengr.com/asifr/journals/ (showing 3 attributes)}
+\item \href{http://square.github.io/cubism/}{http://square.github.io/cubism/ (time series)}
+\item \href{http://bl.ocks.org/wizicer/f662a0b04425fc0f7489}{http://bl.ocks.org/wizicer/f662a0b04425fc0f7489 (CS skills in time)}
+\item \href{http://windhistory.com/map.html4.00/36.00/-95.00}{http://windhistory.com/map.html\#{4.00}/36.00/-95.00 (spatial data)}
+\item \href{}{http://www.trulia.com/vis/tru247/ http://www.trulia.com/vis/metro-movers/ (spatial temporal data)}
+\item \href{}{http://remittances.herokuapp.com/?en (spatial temporal)}
+\item \href{}{http://bost.ocks.org/mike/miserables/  (graph data)}
+\item \href{}{http://www.brightpointinc.com/interactive/political\_influence/index.html?source=d3js (circular plot)}
+\item \href{}{http://air.nullschool.net/ (amazing demo)}
+\item \href{}{http://bl.ocks.org/fhernand/9a9f93f2a6b0e83a9294 (passes in a game)}
 
-Three are a lot of awesome projects or applications based on 
-
+\end{enumerate}
 \begin{figure}[h!]
   \centering
       \includegraphics[width=0.5\textwidth]{word_cloud.png}
