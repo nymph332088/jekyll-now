@@ -38,6 +38,8 @@ var stopWords = /^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourse
     htmlTags = /(<[^>]*?>|<script.*?<\/script>|<style.*?<\/style>|<head.*?><\/head>)/g,
     matchTwitter = /^https?:\/\/([^\.]*\.)?twitter\.com/;
 
+var unicodePunctuationRe = "!#%\\*,\\/:\\;?@_{}՚";
+
 
 var textdata = "This is a very serious test test test and test!"; 
 
@@ -71,85 +73,3 @@ document.getElementById('file').onchange = function(){
   };
   reader.readAsText(file);
 };
-
-
-function load(f) {
-  console.log(f);
-  parseText(f);
-}
-
-function parseText(text) {
-  tags = {};
-  var cases = {};
-  text.split(false ? /\n/g : wordSeparators).forEach(function(word) {
-    // if (discard.test(word)) return;
-    word = word.replace(punctuation, "");
-    if (stopWords.test(word.toLowerCase())) return;
-    word = word.substr(0, maxLength);
-    cases[word.toLowerCase()] = word;
-    tags[word = word.toLowerCase()] = (tags[word] || 0) + 1;
-  });
-  tags = d3.entries(tags).sort(function(a, b) { return b.value - a.value; });
-  tags.forEach(function(d) { d.key = cases[d.key]; });
-  generate();
-}
-
-function generate() {
-  layout
-      .font("Impact")
-      .spiral("archimedean");
-  fontSize = d3.scale["sqrt"]().range([10, 100]);
-  if (tags.length) fontSize.domain([+tags[tags.length - 1].value || 1, +tags[0].value]);
-  complete = 0;
-  statusText.style("display", null);
-  words = [];
-  layout.stop().words(tags.slice(0, max = Math.min(tags.length, +500))).start();
-}
-
-function progress(d) {
-  statusText.text(++complete + "/" + max);
-}
-
-function draw(data, bounds) {
-  statusText.style("display", "none");
-  scale = bounds ? Math.min(
-      w / Math.abs(bounds[1].x - w / 2),
-      w / Math.abs(bounds[0].x - w / 2),
-      h / Math.abs(bounds[1].y - h / 2),
-      h / Math.abs(bounds[0].y - h / 2)) / 2 : 1;
-  words = data;
-  var text = vis.selectAll("text")
-      .data(words, function(d) { return d.text.toLowerCase(); });
-  text.transition()
-      .duration(1000)
-      .attr("transform", function(d) { return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")"; })
-      .style("font-size", function(d) { return d.size + "px"; });
-  text.enter().append("text")
-      .attr("text-anchor", "middle")
-      .attr("transform", function(d) { return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")"; })
-      .style("font-size", function(d) { return d.size + "px"; })
-      .on("click", function(d) {
-        load(d.text);
-      })
-      .style("opacity", 1e-6)
-    .transition()
-      .duration(1000)
-      .style("opacity", 1);
-  text.style("font-family", function(d) { return d.font; })
-      .style("fill", function(d) { return fill(d.text.toLowerCase()); })
-      .text(function(d) { return d.text; });
-  var exitGroup = background.append("g")
-      .attr("transform", vis.attr("transform"));
-  var exitGroupNode = exitGroup.node();
-  text.exit().each(function() {
-    exitGroupNode.appendChild(this);
-  });
-  exitGroup.transition()
-      .duration(1000)
-      .style("opacity", 1e-6)
-      .remove();
-  vis.transition()
-      .delay(1000)
-      .duration(750)
-      .attr("transform", "translate(" + [w >> 1, h >> 1] + ")scale(" + scale + ")");
-}
