@@ -1,4 +1,5 @@
 
+
 var fill = d3.scale.category20b();
 
 var w = 960,
@@ -38,11 +39,9 @@ var stopWords = /^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourse
     htmlTags = /(<[^>]*?>|<script.*?<\/script>|<style.*?<\/style>|<head.*?><\/head>)/g,
     matchTwitter = /^https?:\/\/([^\.]*\.)?twitter\.com/;
 
-var unicodePunctuationRe = "!#%\\*,\\/:\\;?@_{}՚";
-
 
 var textdata = "This is a very serious test test test and test!"; 
-
+load(textdata);
 console.log("this is a test again");
 
 document.getElementById('file').onchange = function(){
