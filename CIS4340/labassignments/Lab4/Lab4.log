@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  11 FEB 2015 08:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  11 FEB 2015 08:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -746,28 +746,32 @@ File: omscmtt.fd
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 234.
 
-<word_cloud.png, id=48, 1033.8625pt x 849.1725pt>
+
+Package hyperref Warning: Suppressing link with empty target on input line 247.
+
+
+<word_cloud.png, id=49, 1033.8625pt x 849.1725pt>
 File: word_cloud.png Graphic file (type png)
  <use word_cloud.png>
-Package pdftex.def Info: word_cloud.png used on input line 253.
+Package pdftex.def Info: word_cloud.png used on input line 254.
 (pdftex.def)             Requested size: 234.87749pt x 192.90846pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 268.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
 [2] [3 <./word_cloud.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 268.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
  (./Lab4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 268.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 268.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 269.
 Package rerunfilecheck Info: File `Lab4.out' has not changed.
 (rerunfilecheck)             Checksum: 780A366F5251B480C458181FCEC226DD;202.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 268.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
  ) 
 Here is how much of TeX's memory you used:
- 8679 strings out of 494985
- 120321 string characters out of 6180357
+ 8680 strings out of 494985
+ 120328 string characters out of 6180357
  205608 words of memory out of 5000000
  11712 multiletter control sequences out of 15000+600000
  13648 words of font info for 50 fonts, out of 8000000 for 9000
@@ -780,10 +784,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Lab4.pdf (3 pages, 427211 bytes).
+Output written on Lab4.pdf (3 pages, 427317 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
+ 97 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
