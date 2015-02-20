@@ -1,0 +1,89 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+\usepackage{amsmath}
+\usepackage{amssymb}
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Homework based on Chapter 7\\
+Computational Probability and Statistics \\
+CIS 2033, Section 002}
+\author{Due: 9:00 AM, Friday, Feb. 27, 2015}
+\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\paragraph*{Question 1} For random variable $X$ follows $Bin(3, 0.5)$. 
+\subparagraph*{a).} Calculate E[X].
+\subparagraph*{b).} Calculate Var[X].
+
+\paragraph*{Exercise 7.2} The probability distribution of a discrete random variable $X$ is given 
+\begin{align*}
+P(X = -1) = \frac{1}{5}, P(X= 0) = \frac{2}{5}, P(X = 1) = \frac{2}{5}.
+\end{align*}
+
+\subparagraph*{a.} Compute $E[X]$
+\subparagraph*{b.} Given the probability distribution of $Y=X^2$ and compute $E[Y]$ using distribution of $Y$. 
+
+\paragraph*{Question 2} For random variable $X$ follows $Unif(a, b)$.
+\subparagraph*{a).} Proof that $E[X] = \frac{a+b}{2}$ and $Var[X] = \frac{(b-a)^2}{12}$.
+\subparagraph*{b).} Based on the results from a), calculate the expectation and variance of $Unif(3, 5)$.
+
+
+\paragraph*{Exercise 7.15} Let $X$ be a random variable and $r$ and $s$ any real numbers. Use the change-of-units rule $E[rX + s] = rE[X ] + s$ for the expectation to obtain a and b.
+\subparagraph*{a.} Show that $Var(rX) = r^2Var(X)$.
+\subparagraph*{b.} Show that $Var(X + s) = Var(X)$.
+\subparagraph*{c.} Combine parts a and b to show that $Var( r X + s ) = r^2 Var(X)$.
+
+\end{document}

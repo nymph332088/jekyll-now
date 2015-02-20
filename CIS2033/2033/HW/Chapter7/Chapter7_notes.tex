@@ -1,0 +1,65 @@
+% TEMPLATE FOR STANDARD QUIZ
+% by laura
+
+\documentclass[11pt,epsfig]{article}
+\usepackage{amsmath} 
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{multirow}
+\def\infinity{\rotatebox{90}{8}}
+\oddsidemargin=0in
+\evensidemargin=0in
+\textwidth=6.3in
+\topmargin=-0.5in
+\textheight=9in
+\renewcommand{\arraystretch}{2}
+\parindent=0in
+\pagestyle{empty}
+
+\input{notestpoints}
+
+\begin{document}
+
+
+%%%(change to appropriate class and semester)
+\textbf{Notes for Chapter 7: CIS 2033 Fall 2015 Computational Prob and Stat}
+
+%%%(change to appropriate quiz type and date)
+\textbf{Shanshan Zhang {(tuf14438@temple.edu)} }
+
+
+% problem
+\section{Chapter 7: Expectation and Variance}
+\subsection{Definition}
+\begin{tabular}{|l|}
+\hline
+\textbf{Definition:}\\
+$E[X]= \begin{cases} \sum_xxP(x), & X~ \text{is discrete}\\
+\int_x xf(x)dx, &X～ \text{is continuous} \end{cases},Var[X]= E[(X-E[X])^2]$\\
+\hline
+\end{tabular}
+
+\subsubsection{Important expectation and variance}
+\begin{tabular}{ |l|l|l|l| }
+%\caption{Important Expectation and Variance}
+\hline
+& \bf{Notation }& \bf{$E[X]$} & \bf{$Var[X]$}\\ \hline
+\multirow{3}{*}{Discrete} & $X\sim Ber(p)$ & $p$ & $p(1-p)$\\ \cline{2-4}
+ & $X\sim Bin(n,p)$ & $np$& $np(1-p)$\\  \cline{2-4}
+ & $X\sim Geo(p)$ & $\frac{1}{p}$& $\frac{1-p}{p^2}$\\ \cline{2-4}
+ & $X\sim Pois(\mu)$ & $\mu$ & $\mu$\\ \hline
+\multirow{4}{*}{Continuous} & $X\sim Unif(a,b)$ & $\frac{a+b}{2}$& $\frac{(b-a)^2}{12}$\\ \cline{2-4}
+ & $X\sim Exp(\lambda)$ & $\lambda^{-1}$& $\lambda^{-2}$\\ \cline{2-4}
+ & $X\sim Par(\alpha)$ & $\frac{\alpha}{\alpha-1}$& $\frac{\alpha}{(\alpha-1)^2(\alpha-2)},for ~\alpha >2$\\ \cline{2-4}
+& $X\sim N(\mu,\sigma^2)$&$\mu$&$\sigma^2$\\ \hline
+\end{tabular}
+
+\subsection{Change of variables}
+Exercise 7.3, 7.4 \\
+\begin{tabular}{|l|}
+\hline
+\textbf{Definition:} $E[g(X)] =\begin{cases} \sum_xg(x)P(X=x), & X~ \text{is discrete}\\ \int_x g(x)f(x)dx, &X～ \text{is continuous} \end{cases};Var[g(X)]= E[(g(X)-E[g(X)])^2]$\\
+\textbf{Useful formulas:}: $Var[X]=E[X^2]-(E[X])^2;E[aX+b] = aE[X]+b; Var[aX+b] = a^2Var[X] $\\
+\hline
+\end{tabular}
+\end{document}
