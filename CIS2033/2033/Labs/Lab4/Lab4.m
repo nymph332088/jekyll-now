@@ -109,7 +109,17 @@ ylabel('Ratio');
 
 
 %% Assignments
-% Question. Generate 10000 random numbers for $X \sim Par(3)$ distribution.
+% *Question1* . Generate 100000 random numbers for $X \sim Geo(0.5)$
+% distribution.
+%%
+% a). Generate using Matlab built-in function
+% <http://www.mathworks.com/help/stats/geornd.html geornd()>.
+%%
+% b). Generate by simulation using $U \sim U(0,1)$ distribution.
+%%
+% c). Draw the empirical distribution for the numbers generated from a) or b). Do they look similar?
+%%
+% *Extra Credits(5 points)* . Generate 100000 random numbers for $X \sim Par(3)$ distribution.
 %%
 % a). Generate using Matlab built-in function <http://www.mathworks.com/help/stats/gprnd.html gprnd()> . (Hint: To get
 % Par(3), with $\alpha = 3$. You need to set the $k = 1/\alpha, sigma= 1/\alpha, theta = 1$.)
