@@ -1,4 +1,4 @@
-%% Lab 4, Chapter 6 - Simulation. (Due on 09:00 PM, Feb 27, 2015)
+%% Lab 4, Chapter 6 - Simulation. (Due on 09:00 PM, Mar 13, 2015)
 % Random number generator is based on the simulation theory.
 % Simulation is to accosiate two distributions, specifically speaking,
 % associate the probability of two events defined on two random variables X and Y.
@@ -119,7 +119,7 @@ ylabel('Ratio');
 %%
 % c). Draw the empirical distribution for the numbers generated from a) or b). Do they look similar?
 %%
-% *Extra Credits(5 points)* . Generate 100000 random numbers for $X \sim Par(3)$ distribution.
+% *Question2* . Generate 100000 random numbers for $X \sim Par(3)$ distribution.
 %%
 % a). Generate using Matlab built-in function <http://www.mathworks.com/help/stats/gprnd.html gprnd()> . (Hint: To get
 % Par(3), with $\alpha = 3$. You need to set the $k = 1/\alpha, sigma= 1/\alpha, theta = 1$.)

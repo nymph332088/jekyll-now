@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Lab 4, Chapter 6 - Simulation. (Due on 09:00 PM, Feb 27, 2015)</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-02-23"><meta name="DC.source" content="Lab4.m"><style type="text/css">
+      --><title>Lab 4, Chapter 6 - Simulation. (Due on 09:00 PM, Mar 13, 2015)</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-02-24"><meta name="DC.source" content="Lab4.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Lab 4, Chapter 6 - Simulation. (Due on 09:00 PM, Feb 27, 2015)</h1><!--introduction--><p>Random number generator is based on the simulation theory. Simulation is to accosiate two distributions, specifically speaking, associate the probability of two events defined on two random variables X and Y. X, Y can be either discrete, or continuouse.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Generate random numbers for random variable <img src="Lab4_eq39131.png" alt="$X\sim Bin(3, 0.5)$"></a></li><li><a href="#12">Generate random numbers for random variable <img src="Lab4_eq44384.png" alt="$X \sim Exp(2)$"></a></li><li><a href="#17">Assignments</a></li></ul></div><h2>Generate random numbers for random variable <img src="Lab4_eq39131.png" alt="$X\sim Bin(3, 0.5)$"><a name="1"></a></h2><p><b>A. Generate 10000 numbers directly from binornd() function</b></p><pre class="codeinput">numOfPoints = 10^5;
+  </style></head><body><div class="content"><h1>Lab 4, Chapter 6 - Simulation. (Due on 09:00 PM, Mar 13, 2015)</h1><!--introduction--><p>Random number generator is based on the simulation theory. Simulation is to accosiate two distributions, specifically speaking, associate the probability of two events defined on two random variables X and Y. X, Y can be either discrete, or continuouse.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Generate random numbers for random variable <img src="Lab4_eq39131.png" alt="$X\sim Bin(3, 0.5)$"></a></li><li><a href="#12">Generate random numbers for random variable <img src="Lab4_eq44384.png" alt="$X \sim Exp(2)$"></a></li><li><a href="#17">Assignments</a></li></ul></div><h2>Generate random numbers for random variable <img src="Lab4_eq39131.png" alt="$X\sim Bin(3, 0.5)$"><a name="1"></a></h2><p><b>A. Generate 10000 numbers directly from binornd() function</b></p><pre class="codeinput">numOfPoints = 10^5;
 n = 3;
 p = 0.5;
 xs = binornd(n, 0.5, [1, numOfPoints]);
@@ -125,9 +125,9 @@ plot(0:0.1:26, valueRatios,<span class="string">'r-'</span>,<span class="string"
 title(<span class="string">'Empirical Distribution simulated from $U(0,1)$'</span>);
 xlabel(<span class="string">'X'</span>);
 ylabel(<span class="string">'Ratio'</span>);
-</pre><img vspace="5" hspace="5" src="Lab4_04.png" alt=""> <h2>Assignments<a name="17"></a></h2><p><b>Question1</b> . Generate 100000 random numbers for <img src="Lab4_eq78005.png" alt="$X \sim Geo(0.5)$"> distribution.</p><p>a). Generate using Matlab built-in function <a href="http://www.mathworks.com/help/stats/geornd.html">geornd()</a>.</p><p>b). Generate by simulation using <img src="Lab4_eq05253.png" alt="$U \sim U(0,1)$"> distribution.</p><p>c). Draw the empirical distribution for the numbers generated from a) or b). Do they look similar?</p><p><b>Extra Credits(5 points)</b> . Generate 100000 random numbers for <img src="Lab4_eq38333.png" alt="$X \sim Par(3)$"> distribution.</p><p>a). Generate using Matlab built-in function <a href="http://www.mathworks.com/help/stats/gprnd.html">gprnd()</a> . (Hint: To get Par(3), with <img src="Lab4_eq88171.png" alt="$\alpha = 3$">. You need to set the <img src="Lab4_eq74360.png" alt="$k = 1/\alpha, sigma= 1/\alpha, theta = 1$">.)</p><p>b). Generate by simulation using <img src="Lab4_eq05253.png" alt="$U \sim U(0,1)$"> distribution.</p><p>c). Draw the empirical distribution for the numbers generated from a) or b). Do they look similar?</p><p>Submission: Put all of your code, figures, writeups in a single document with .doc or .docx or .pdf format. Submit the document through blackboard. Attention, .txt format is not acceptable.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="Lab4_04.png" alt=""> <h2>Assignments<a name="17"></a></h2><p><b>Question1</b> . Generate 100000 random numbers for <img src="Lab4_eq78005.png" alt="$X \sim Geo(0.5)$"> distribution.</p><p>a). Generate using Matlab built-in function <a href="http://www.mathworks.com/help/stats/geornd.html">geornd()</a>.</p><p>b). Generate by simulation using <img src="Lab4_eq05253.png" alt="$U \sim U(0,1)$"> distribution.</p><p>c). Draw the empirical distribution for the numbers generated from a) or b). Do they look similar?</p><p><b>Question2</b> . Generate 100000 random numbers for <img src="Lab4_eq38333.png" alt="$X \sim Par(3)$"> distribution.</p><p>a). Generate using Matlab built-in function <a href="http://www.mathworks.com/help/stats/gprnd.html">gprnd()</a> . (Hint: To get Par(3), with <img src="Lab4_eq88171.png" alt="$\alpha = 3$">. You need to set the <img src="Lab4_eq74360.png" alt="$k = 1/\alpha, sigma= 1/\alpha, theta = 1$">.)</p><p>b). Generate by simulation using <img src="Lab4_eq05253.png" alt="$U \sim U(0,1)$"> distribution.</p><p>c). Draw the empirical distribution for the numbers generated from a) or b). Do they look similar?</p><p>Submission: Put all of your code, figures, writeups in a single document with .doc or .docx or .pdf format. Submit the document through blackboard. Attention, .txt format is not acceptable.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%% Lab 4, Chapter 6 - Simulation. (Due on 09:00 PM, Feb 27, 2015)
+%% Lab 4, Chapter 6 - Simulation. (Due on 09:00 PM, Mar 13, 2015)
 % Random number generator is based on the simulation theory.
 % Simulation is to accosiate two distributions, specifically speaking,
 % associate the probability of two events defined on two random variables X and Y.
@@ -248,7 +248,7 @@ ylabel('Ratio');
 %%
 % c). Draw the empirical distribution for the numbers generated from a) or b). Do they look similar?
 %%
-% *Extra Credits(5 points)* . Generate 100000 random numbers for $X \sim Par(3)$ distribution.
+% *Question2* . Generate 100000 random numbers for $X \sim Par(3)$ distribution.
 %%
 % a). Generate using Matlab built-in function <http://www.mathworks.com/help/stats/gprnd.html gprnd()> . (Hint: To get
 % Par(3), with $\alpha = 3$. You need to set the $k = 1/\alpha, sigma= 1/\alpha, theta = 1$.)
