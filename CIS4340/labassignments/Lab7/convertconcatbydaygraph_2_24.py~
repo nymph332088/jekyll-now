@@ -1,0 +1,703 @@
+from __future__ import division
+import codecs
+import collections
+from collections import defaultdict
+from datetime import date
+from matplotlib import pyplot as plt
+from datetime import timedelta
+import gensim, logging, os
+import codecs
+from collections import defaultdict
+
+import numpy as np
+from scipy import spatial
+import scipy.cluster.hierarchy as hac
+
+
+
+
+def f7(seq):
+    seen = set()
+    seen_add = seen.add
+    return [ x for x in seq if not (x in seen or seen_add(x))]
+
+
+def dis(item):
+    ####################################
+    newitem=""
+    if (item[0:4]=="main"):
+        icutted=item[4:len(item)]
+    else:
+        icutted=item
+    test=0
+    if (icutted[0]=="d"):
+        for jj in range(5,len(icutted)+1):
+            newa=icutted[0:jj]
+                  
+            if (mydisdic[newa]!=''):
+                test=1   # i can find description
+                
+    elif (item[0]=='p'):
+        for jj in range(4,len(item)+1):
+            newa=item[0:jj]
+            if (mydisdic[newa]!=''):
+                test=1
+                
+    if (test==0):
+        mynew1=icutted[0:2]+"0"+icutted[2:len(icutted)]
+                        
+    else:
+        mynew1=icutted
+
+    if (icutted[0]=="d"):
+        for jj in range(5,len(mynew1)+1):
+            newa=mynew1[0:jj]
+            newitem=newitem+" "+mydisdic[newa]
+            
+    elif (icutted[0]=="p"):
+        for jj in range(4,len(mynew1)+1):
+            newa=mynew1[0:jj]
+            newitem=newitem+" "+mydisdic[newa]
+    return newitem
+###################
+
+
+#myid=8825076361
+display=0
+cutoffline=0.5
+knumber=5
+mydisdic=defaultdict(str)
+bdisdic=defaultdict(str)
+hdisdic=defaultdict(str)
+cdisdic=defaultdict(str)
+meddic=defaultdict(int)
+nchdic=defaultdict(int)
+outdic=defaultdict(int)
+possible=["E","V","0","1","2","3","4","5","6","7","8","9"]
+def label(seq):
+    if seq[0] not in possible:
+        return "X"
+    else:
+        if seq[0]=="E" or seq[0]=="V":
+            return "18"
+        else:
+            a=int(seq[0:3])
+            if a<=139:
+                return"0"
+            elif 140<=a<=239:
+                return "1"
+            elif 240<=a<=279:
+                return "2"
+            elif 280<=a<=289:
+                return "3"
+            elif 290<=a<=319:
+                return "4"
+            elif 320<=a<=359:
+                return "5"
+            elif 360<=a<=389:
+                return "6"
+            elif 390<=a<=459:
+                return "7"
+            elif 460<=a<=519:
+                return "8"
+            elif 520<=a<=579:
+                return "9"
+            elif 580<=a<=629:
+                return "10"
+            elif 630<=a<=679:
+                return "11"
+            elif 680<=a<=709:
+                return "12"
+            elif 710<=a<=739:
+                return "13"
+            elif 740<=a<=759:
+                return "14"
+            elif 760<=a<=779:
+                return "15"
+            elif 780<=a<=799:
+                return "16"
+            elif 800<=a<=999:
+                return "17"
+        
+    seen_add = seen.add
+    return [ x for x in seq if not (x in seen or seen_add(x))]
+
+
+###########################load desciption
+
+file11=codecs.open('p.csv','r','utf-8')
+file22=codecs.open('d.csv','r','utf-8')
+
+bfile=codecs.open('betos.txt','r','utf-8')
+hfile=codecs.open('HCFASPEC.txt','r','utf-8')
+cfile=codecs.open('CENTER.txt','r')
+#file3=codecs.open('concat_countlist.txt','w','utf-8')
+mydisdic=defaultdict(str)
+bdisdic=defaultdict(str)
+hdisdic=defaultdict(str)
+cdisdic=defaultdict(str)
+
+bline=bfile.readline()
+while bline:
+    bline=bline.strip('\n').split("=")
+    if len(bline)==2:
+        bdisdic[bline[0][:-1]]=bline[1][:-2]
+    #print mydisdic[bline[0][:-1]], bline[0][:-1]
+    #print bline
+    bline=bfile.readline()
+    
+hline=hfile.readline()
+while hline:
+    hline=hline.strip('\n').split("=")
+    #print hline
+    if len(hline)==2:
+        hdisdic[hline[0][:-1]]=hline[1][:-2]
+    #print mydisdic[hline[0][:-1]], hline[0][:-1]
+    #print hline
+    hline=hfile.readline()
+
+cline=cfile.readline()
+while cline:
+    cline=cline.strip('\n').split("=")
+    #print cline
+    if len(cline)==2:
+        cdisdic[cline[0][:-1]]=cline[1][:-1]
+    #print cdisdic[cline[0][:-1]], cline[0][:-1]
+    #print cline
+    cline=cfile.readline()
+
+
+line=file11.readline()
+while line:
+    line=line.strip('\n')
+    line=line.split(",",1)
+    #print line
+    
+    mydisdic["p_"+line[0].replace('.','')]=line[1]
+            #file2.write("p_"+line[i]+" ")
+    #file2.close()
+    #print len(line)
+    line=file11.readline()
+    #jj=jj+1
+
+line2=file22.readline()
+while line2:
+    line2=line2.strip('\n')
+    line2=line2.split(",",1)
+    #print line
+    a="d_"+line2[0].replace('.','')
+    b=a[0:len(a)-1]
+    #print b
+    mydisdic[b]=line2[1]
+            #file2.write("p_"+line[i]+" ")
+    #file2.close()
+    #print len(line)
+    line2=file22.readline()
+    #jj=jj+1
+
+for ii in mydisdic.keys():
+    if mydisdic[ii][-1]=="\r":
+        mydisdic[ii]=mydisdic[ii][0:len(mydisdic[ii])-1]
+
+###########################end of loading
+
+
+jjj=0
+#cancerdia=["maind_1749","d_1749","maind_1740","d_1740","maind_1741","d_1741","maind_1742","d_1742","maind_1743","d_1743","maind_1744","d_1744","maind_1745","d_1745","maind_1746","d_1746","maind_1748","d_1748","maind_61172","d_61172","maind_V103","d_V103"]
+cancerdia=["maind_1749","maind_1740","maind_1741","maind_1742","maind_1743","maind_1744","maind_1745","maind_1746","maind_1748","maind_61172","maind_V103"]
+#model = gensim.models.Word2Vec.load_word2vec_format(r'E:\word2vec\seerwhole\1224\whole_Seer_concatbyday.bin', binary=True)
+model = gensim.models.Word2Vec.load_word2vec_format(r'E:\word2vec\seerwhole\2_17_20dimension.bin', binary=True)
+
+
+print "the length of the list"
+print len(cancerdia)
+count1=0
+count2=0
+for i in cancerdia:
+    if i[0]=='m' or i[0]=='p' or i[0]=='d':
+        count2=count2+1
+        count1=count1+model.vocab[i].count
+
+count3=0
+count4=0
+for i in model.vocab.keys():
+    if i[0]=='m' or i[0]=='p' or i[0]=='d':
+        #print i
+        count3=count3+model.vocab[i].count
+        count4=count4+1
+print count3,  count1
+print count2, count4
+
+
+'''
+word2index={}
+j=0
+mydata=np.array([model.syn0[0]])
+for wordid in range(0,len(model.syn0)):
+    #if model.index2word[wordid][0]=="p" or model.index2word[wordid][0]=="d" or model.index2word[wordid][0]=="m":
+    if model.index2word[wordid][0]=="m":
+        if j==0:
+            j=1
+            mydata=np.array([model.syn0[wordid]])
+            word2index[model.index2word[wordid]]=len(mydata)-1
+        else:
+            #print myfeature
+            mydata=np.append(mydata, [model.syn0[wordid]], axis=0)
+            word2index[model.index2word[wordid]]=len(mydata)-1
+print len(mydata)
+mywhitened = whiten(mydata)
+
+#book=np.array((whitened[0],whitened[2]))
+mykresult=kmeans2(mywhitened,knumber)
+
+print "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+'''
+
+
+
+mindate=date(2000,1,1)
+maxdate=date(2002,1,1)
+twoyears=timedelta(730)
+
+for i in range (1,2):
+    
+    
+    file1=codecs.open("med_%d.csv"%i,'r')
+    line=file1.readline()
+    line=file1.readline()
+    mydic=defaultdict(lambda:defaultdict(int))
+    mydicout=defaultdict(lambda:defaultdict(int))
+    mydicmed=defaultdict(lambda:defaultdict(int))
+    mydicnch=defaultdict(lambda:defaultdict(int))
+    while line:
+        #print line
+        line=line.split(",")
+        #print line
+        line[0]=int(line[0])
+        date1=date(int(line[4]),int(line[2]),int(line[3]))
+        #print date
+        #myed.append(line)
+        if mydic[line[0]][date1]!=0:
+            mydic[line[0]][date1].append(line)
+        else:
+            mydic[line[0]][date1]=[]
+            mydic[line[0]][date1].append(line)
+        
+        line=file1.readline()
+    #myed.sort(lambda x,y:cmp(x[0],y[0]))
+    
+    file1.close()
+    print i
+    file1=codecs.open("nch_%d.csv"%i,'r')
+    line=file1.readline()
+    line=file1.readline()
+    #mych={}
+    while line:
+        #print line
+        line=line.split(",")
+        
+        line[0]=int(line[0])
+        #print line
+        date1=date(int(line[3][1:len(line[3])-1]),int(line[1][1:len(line[1])-1]),int(line[2][1:len(line[2])-1]))
+        #print date
+        #mych.append(line)
+        if mydic[line[0]][date1]!=0:
+            mydic[line[0]][date1].append(line)
+        else:
+            mydic[line[0]][date1]=[]
+            mydic[line[0]][date1].append(line)
+
+        
+        line=file1.readline()
+    #mych.sort(lambda x,y:cmp(x[0],y[0]))
+    file1.close()
+    print i
+    file1=codecs.open("out_%d.csv"%i,'r')
+    line=file1.readline()
+    line=file1.readline()
+    #myout={}
+    while line:
+        #print line
+        line=line.split(",")
+        
+        line[0]=int(line[0])
+        date1=date(int(line[3][1:len(line[3])-1]),int(line[1][1:len(line[1])-1]),int(line[2][1:len(line[2])-1]))
+        #myout.append(line)
+        #print line
+        #print date
+        if mydic[line[0]][date1]!=0:
+            mydic[line[0]][date1].append(line)
+        else:
+            mydic[line[0]][date1]=[]
+            mydic[line[0]][date1].append(line)
+        line=file1.readline()
+    #myout.sort(lambda x,y:cmp(x[0],y[0]))
+    file1.close()
+    print i
+
+
+
+for iii in range(1,2):
+    mydiscription=defaultdict(str)   # this is to save the description of visits
+
+
+    cid=iii
+    
+    for mydate in mydic[cid]:
+        for myrecord in mydic[cid][mydate]:
+            if (len(myrecord)==13):
+                if mydicnch[cid][mydate]!=0:
+                    mydicnch[cid][mydate].append(myrecord)
+                else:
+                    mydicnch[cid][mydate]=[]
+                    mydicnch[cid][mydate].append(myrecord)
+            if (len(myrecord)==19):
+                if mydicout[cid][mydate]!=0:
+                    mydicout[cid][mydate].append(myrecord)
+                else:
+                    mydicout[cid][mydate]=[]
+                    mydicout[cid][mydate].append(myrecord)
+            if (len(myrecord)==26):
+                if mydicmed[cid][mydate]!=0:
+                    mydicmed[cid][mydate].append(myrecord)
+                else:
+                    mydicmed[cid][mydate]=[]
+                    mydicmed[cid][mydate].append(myrecord)
+    itemnch=mydicnch[cid].keys()
+    itemnch.sort()
+    itemout=mydicout[cid].keys()
+    itemout.sort()
+    itemmed=mydicmed[cid].keys()
+    itemmed.sort()
+    
+
+
+
+    for mydate in itemnch:
+        samerecord={}
+        for myrecord in mydic[cid][mydate]:
+            if (len(myrecord)==13):
+                if samerecord.has_key(str(myrecord[6:12])):
+                    samerecord[str(myrecord[6:12])].append(myrecord)
+                else:
+                    samerecord[str(myrecord[6:12])]=[]
+                    samerecord[str(myrecord[6:12])].append(myrecord)
+        for visit in samerecord.keys():
+            
+            codelength=0.0   ########
+            if nchdic.has_key(mydate):   #wrong
+                newdate=mydate
+            else:
+                newdate=mydate
+
+
+            
+            
+            HCFASPEC=[]
+            HCPCS=[]
+            DGN=[]
+            BETOS=[]
+
+            for myrecord in samerecord[visit]:
+                if (len(myrecord)==13):
+                    HCFASPEC.append(myrecord[4])
+                    HCPCS.append(myrecord[5])
+                    for i in range(6,12):
+                        DGN.append(myrecord[i])
+                    BETOS.append(myrecord[12])
+            HCFASPEC=f7(HCFASPEC)
+            HCPCS=f7(HCPCS)
+            DGN=f7(DGN)
+            BETOS=f7(BETOS)
+            
+            for i in HCFASPEC:
+                nchdic[newdate]=nchdic[newdate]+model["h_"+i[1:-1]]
+                codelength=codelength+1
+                mydiscription[mydate]=mydiscription[mydate]+hdisdic[i[1:-1]]+" "
+            
+                
+            for i in HCPCS:
+                nchdic[newdate]=nchdic[newdate]+model["s_"+i[1:-1]]
+                codelength=codelength+1
+                
+                
+            for i in DGN:
+                nchdic[newdate]=nchdic[newdate]+model["maind_"+i[1:-1]]
+                codelength=codelength+1
+                mydiscription[mydate]=mydiscription[mydate]+dis("d_"+i[1:-1])+" "
+                
+            for i in BETOS:
+                nchdic[newdate]=nchdic[newdate]+model["b_"+i[1:-2]]
+                codelength=codelength+1
+                mydiscription[mydate]=mydiscription[mydate]+bdisdic[i[1:-2]]+" "
+                
+            nchdic[newdate]=nchdic[newdate]/codelength
+            
+
+    for mydate in itemout:
+        
+        CENTER=[]
+        HCPCS=[]
+        DGN=[]
+        P=[]
+        for myrecord in mydic[cid][mydate]:
+            if (len(myrecord)==19):
+                CENTER.append(myrecord[4])
+                HCPCS.append(myrecord[5])
+                for i in range(6,13):
+                    DGN.append(myrecord[i])
+                for i in range(13,18):
+                    if myrecord[i]!='':
+                        P.append(myrecord[i])
+                #print myrecord[18]
+                if myrecord[18][:-1]!='':
+                    P.append(myrecord[18][:-1])
+        CENTER=f7(CENTER)
+        #print CENTER
+        HCPCS=f7(HCPCS)
+        DGN=f7(DGN)
+        
+
+    for mydate in itemmed:
+        DGN=[]
+        P=[]
+        for myrecord in mydic[cid][mydate]:
+            if (len(myrecord)==26):
+                for i in range(11,20):
+                    if myrecord[i]!='':
+                        DGN.append(myrecord[i])
+                for i in range(20,25):
+                    if myrecord[1]!='':
+                        P.append(myrecord[i])
+                if myrecord[25][:-1]!='':
+                    P.append(myrecord[25][:-1])
+                
+     
+
+
+
+
+'''fig = plt.figure(figsize=(40,8))
+for myid in mydic.keys():
+    
+    maxdate=date(1950,1,1)
+    mindate=date(2020,1,1)
+    for mydate in mydic[myid]:
+            
+                if mydate<mindate:
+                    mindate=mydate
+                if mydate>maxdate:
+                    maxdate=mydate 
+                myoutputmed=[]
+                myoutputnch=[]
+                myoutputout=[]
+                for myrecord in (mydic[myid][mydate]):
+                    
+                    if (len(myrecord)==26):
+                        if (myrecord[11]!=""):
+                            myoutputmed.append("maind_"+myrecord[11])
+                        
+                    
+                        
+
+                    elif (len(myrecord)==13):
+                        
+                            if (myrecord[6]!=""):
+                                myrecord[6]=myrecord[6][1:len(myrecord[6])-1]
+
+                                while (myrecord[6][0]=="0" and len(myrecord[6])!=1):
+                                    myrecord[6]=myrecord[6][1:]
+                                    
+                                myoutputnch.append("maind_"+myrecord[6])
+                            
+                   
+                    elif (len(myrecord)==19):
+                        
+                            if (myrecord[6]!=""):
+                               
+                                myrecord[6]=myrecord[6][1:len(myrecord[6])-1]
+     
+                                while (myrecord[6][0]=="0" and len(myrecord[6])!=1):
+                                    myrecord[6]=myrecord[6][1:]
+                                
+                                myoutputout.append("maind_"+myrecord[6])
+                                
+
+                                    
+                                    
+                                    #outfile.write("p_"+myrecord[18]+" ")
+                        #else:
+                         #   if (myrecord[6:12]!=mylast[6:12]):
+                          #      print myrecord
+                    #outfile.write("\n")
+                    
+                    
+                #mynewoutput=list(set(myoutput))
+                #mynewoutput.sort(key=myoutput.index)
+
+                mynewoutputmed=myoutputmed+myoutputnch+myoutputout
+                mynewoutputmed=f7(mynewoutputmed)
+                #print mynewoutputmed
+             
+                k1=0
+                k2=0
+                k3=0
+                
+                for item in mynewoutputmed:
+                    
+                    ####################################
+                    
+            
+                    
+                    ###################################
+                    #print item
+
+                    
+                    if word2index.has_key(item):
+                        plt.plot(mydate,mykresult[1][word2index[item]]+1, 'o', markersize=5, color='blue', alpha=0.5)
+                        plt.annotate(label(item[6:]),(mydate,mykresult[1][word2index[item]]+1),size=10)
+                    else:
+                        print item
+
+
+    plt.xlabel('date')
+    plt.ylabel('tmpmed                   tmpnch                  tmpout')
+    plt.xlim([mindate-timedelta(15),maxdate+timedelta(15)])
+    plt.ylim([0.9,11])
+    plt.legend()
+
+    plt.title('time series (blue is possibly related to cancer, yellow is otherwise)')
+    if (maxdate-mindate)>=twoyears:   #only larger than two years
+        plt.savefig(r"F:\patienttimeseries2_11\%d.png"%myid)
+    #print maxdate-mindate
+    plt.clf()
+    #plt.show()'''
+
+
+word2index={}
+j=0
+
+for date in nchdic.keys():
+    #if model.index2word[wordid][0]=="p" or model.index2word[wordid][0]=="d" or model.index2word[wordid][0]=="m":
+    if j==0:
+        j=1
+        mydata=np.array([nchdic[date][0:20]])
+        word2index[date]=len(mydata)-1
+    else:
+        #print myfeature
+        mydata=np.append(mydata, [nchdic[date][0:20]], axis=0)
+        word2index[date]=len(mydata)-1    
+print len(mydata)
+
+z = hac.linkage(mydata,method= 'single', metric='cosine')
+#mykresult=hac.fcluster(z, 7, criterion='maxclust')
+mykresult=hac.fcluster(z,0.135,criterion='distance')
+#mykresult=hac.fclusterdata(mydata, t=1.01, metric='cosine',method='single')
+
+
+#book=np.array((whitened[0],whitened[2]))
+
+
+hac.dendrogram(z, color_threshold=1,show_leaf_counts=True)
+
+
+
+fig = plt.figure(figsize=(30,8))
+wordcluster=defaultdict(str)  #### this is to save discription for every cluster
+
+for date in mydiscription.keys():
+    wordcluster[mykresult[word2index[date]]]=wordcluster[mykresult[word2index[date]]]+mydiscription[date]
+
+filtermetric=defaultdict(lambda:defaultdict(float))
+sumall=0
+for i in wordcluster.keys():
+    wordcluster[i]=wordcluster[i].lower().split(" ")
+    counter=collections.Counter(wordcluster[i])
+    sum11=0
+    for i1 in counter.keys():
+        sum11=sum11+counter[i1]
+    sumall=sumall+sum11
+    for i1 in counter.keys():
+        filtermetric[i][i1]=counter[i1]
+
+globaldistribution=defaultdict(float)
+for i in filtermetric.keys():
+    counter=collections.Counter(wordcluster[i])
+    for j in filtermetric[i].keys():
+        globaldistribution[j]=globaldistribution[j]+counter[j]
+
+#for i in globaldistribution.keys():
+#    globaldistribution[i]=globaldistribution[i]/sumall
+
+
+for i in wordcluster.keys():
+    counter=collections.Counter(wordcluster[i])
+    sum11=0
+    for i1 in counter.keys():
+        sum11=sum11+counter[i1]
+    #print (counter.most_common())[0:10]
+    aaa=''
+    distributiondifference={}
+    for iii in filtermetric[i].keys():
+        distributiondifference[iii]=filtermetric[i][iii]/sum11-(globaldistribution[iii]-filtermetric[i][iii])/(sumall-sum11)
+                
+    newdd=sorted(distributiondifference.items(), lambda x, y: cmp(x[1], y[1]), reverse=True) 
+    for ii in newdd:
+        aaa=aaa+ii[0]+" "
+    plt.annotate(aaa,(mindate-timedelta(15),i+0.5),size=10)
+
+
+
+for date in nchdic.keys():
+    #print i[0], i[1]
+    #if i[1]>0.85:
+        plt.plot(date,mykresult[word2index[date]], 'o', markersize=5, color='blue', alpha=0.5)
+        #plt.annotate(label(item[6:]),(date,mykresult[1][word2index[date]]+1),size=10)
+        #print mykresult
+    #elif 0.70<i[1]:
+        #plt.plot(i[0],0.6, 'o', markersize=5, color='blue', alpha=0.5)
+    #else:
+        #plt.plot(i[0],0.4, 'o', markersize=5, color='blue', alpha=0.5)
+plt.xlabel('date')
+plt.ylabel('tmpmed                   tmpnch                  tmpout')
+plt.xlim([mindate-timedelta(15),maxdate+timedelta(15)])
+plt.ylim([0,8])
+plt.legend()
+plt.show()
+'''
+target=date(2000,12,11)
+def similarity(w1, w2):
+    return 1 - spatial.distance.cosine(w1, w2)
+def similarcodes(target):
+    listdis={}
+    for i in nchdic.keys():
+        
+        listdis[i]=similarity(nchdic[target],nchdic[i])
+    a1=sorted(listdis.items(), lambda x, y: cmp(x[1], y[1]), reverse=True)
+    fig = plt.figure(figsize=(10,8))
+    plt.plot(target,1, 'o', markersize=5, color='red', alpha=0.5)
+    for i in a1:
+        print i[0], i[1]
+        if i[1]>0.85:
+            plt.plot(i[0],0.8, 'o', markersize=5, color='blue', alpha=0.5)
+        elif 0.70<i[1]:
+            plt.plot(i[0],0.6, 'o', markersize=5, color='blue', alpha=0.5)
+        else:
+            plt.plot(i[0],0.4, 'o', markersize=5, color='blue', alpha=0.5)
+    plt.xlabel('date')
+    plt.ylabel('tmpmed                   tmpnch                  tmpout')
+    plt.xlim([mindate-timedelta(15),maxdate+timedelta(15)])
+    plt.ylim([0,1.2])
+    plt.legend()
+    
+    
+    
+    #print maxdate-mindate
+    #plt.clf()
+    plt.show()
+similarcodes(target)
+'''
+
+
+    
