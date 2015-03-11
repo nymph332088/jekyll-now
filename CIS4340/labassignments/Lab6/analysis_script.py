@@ -42,7 +42,7 @@ monthly_maxave_mtx = matrix_generation.monthly_ave_mtx(years, 'Max')
     
     # Hierarchical Clustering
 from scipy.spatial.distance import pdist, squareform
-from scipy.cluster.hierarchy import linkage, dendrogram
+from scipy.cluster.hierarchy import linkage, dendrogram, fcluster
 data_dist_flat = pdist(monthly_maxave_mtx, 'euclidean') # computing the distance
 data_linkage = linkage(data_dist_flat, method='average')
     # Plot dendrogram and the heatmap of temperatures.
