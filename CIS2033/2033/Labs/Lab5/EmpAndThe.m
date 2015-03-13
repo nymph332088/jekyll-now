@@ -17,24 +17,15 @@ beta1 = 1;
 mean1 = (beta1 - alpha1) / 2;  
 %%
 % Compute empirical values;
-rep = 100; % Repeat 100 times;
 sizes = [5,10,50,100,500,1000,5000]; % For different sampling sizes;
 nS = length(sizes);
 mean2 = zeros(nS,1);
 variance2 = zeros(nS,1);
 for sizeIndex = 1:nS
     aSize = sizes(sizeIndex);
-    aMean = 0;
-    aVariance = 0;
-    for aRep = 1:rep
-        ys = unifrnd(alpha1, beta1,[aSize,1]);
-        aMean = aMean + mean(ys);
-        aVariance = aVariance + var(ys);
-    end
-    aMean = aMean/rep;         
-    aVariance = aVariance/rep;
-    mean2(sizeIndex) = aMean;
-    variance2(sizeIndex) = aVariance;
+    ys = unifrnd(alpha1, beta1,[aSize,1]);
+    mean2(sizeIndex) = mean(ys);
+    variance2(sizeIndex) = var(ys);
 end
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
@@ -63,13 +54,9 @@ mean2 = zeros(nS,1);
 for sizeIndex = 1:nS
     aSize = sizes(sizeIndex);
     aMean = 0;
-    for aRep = 1:rep
-        ys = gprnd(k1,sigma1,theta1,[aSize,1]);
-        aMean = aMean + mean(ys);
-    end
-    aMean = aMean/rep;         
-    aVariance = aVariance/rep;
-    mean2(sizeIndex) = aMean;
+    ys = gprnd(k1,sigma1,theta1,[aSize,1]);
+    mean2(sizeIndex) = mean(ys);
+    variance2(sizeIndex) = var(ys);
 end
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
@@ -78,3 +65,4 @@ hold on;
 plot(sizes,repmat(mean1,1,nS),'-b');
 legend('EMPIRICAL','TRUE');
 title('Mean');
+

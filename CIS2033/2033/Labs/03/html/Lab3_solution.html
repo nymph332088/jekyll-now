@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Lab 3, Discrete, continouse distribution. SOLUTION (Due on  11:59 PM, Feb 17, 2015)</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-03-12"><meta name="DC.source" content="Lab3_solution.m"><style type="text/css">
+      --><title>Lab 3, Discrete, continouse distribution. SOLUTION (Due on  11:59 PM, Feb 17, 2015)</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-03-13"><meta name="DC.source" content="Lab3_solution.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -91,7 +91,7 @@ title(<span class="string">'The CDF of a normal distribution'</span>);
 xlabel(<span class="string">'x'</span>);ylabel(<span class="string">'F(x)'</span>);ylim([-0.02 1.02]);
 legend(<span class="string">'sigma=0.5'</span>,<span class="string">'sigma=1'</span>,<span class="string">'sigma=2'</span>,<span class="string">'location'</span>,<span class="string">'best'</span>);
 legend(<span class="string">'boxoff'</span>)
-</pre><img vspace="5" hspace="5" src="Lab3_solution_02.png" alt=""> <p>Question 2. Plot the PMF and CDF for geometric distribution with varying <img src="Lab3_solution_eq22937.png" alt="$p=[0.1, 0.5, 0.9]$">.</p><pre class="codeinput">p=[0.1 0.5 0.9];
+</pre><img vspace="5" hspace="5" src="Lab3_solution_02.png" alt=""> <p><b>Observations: PDF: All three plots have the same median (mu, in this case 3). The smaller sigma is, the higher and narrower the peak in the middle of the plot (around x=3). CDF: The smaller sigma is, the steeper and closer to vertical the corresponding plot is. All three plots go through the same point at F(x) = 0.5 (which is the median).</b></p><p>Question 2. Plot the PMF and CDF for geometric distribution with varying <img src="Lab3_solution_eq22937.png" alt="$p=[0.1, 0.5, 0.9]$">.</p><pre class="codeinput">p=[0.1 0.5 0.9];
 ks=0:50;
 </pre><p>plot the PMF of a geometric distribution</p><pre class="codeinput">fig3=figure;
 linestyle={<span class="string">'r.'</span>,<span class="string">'b.'</span>,<span class="string">'k.'</span>};
@@ -116,7 +116,7 @@ title(<span class="string">'The CDF of a geometric distribution'</span>);
 xlabel(<span class="string">'x'</span>);ylabel(<span class="string">'F(x)'</span>);ylim([-0.02 1.02]);
 legend(<span class="string">'p=0.1'</span>,<span class="string">'p=0.5'</span>,<span class="string">'p=0.9'</span>,<span class="string">'location'</span>,<span class="string">'best'</span>);
 legend(<span class="string">'boxoff'</span>);
-</pre><img vspace="5" hspace="5" src="Lab3_solution_04.png" alt=""> <p>Submission. Put all of your code,  figures, writeups in a single document with .doc or .docx or .pdf format. Submit the document through blackboard. Attention, .txt format is not acceptable.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="Lab3_solution_04.png" alt=""> <p><b>Observations: PMF: The larger p is, the more quickly f(x) approaches 0. CDF: The larger p is, the more quickly F(x) approaches 1.</b></p><p>Submission. Put all of your code,  figures, writeups in a single document with .doc or .docx or .pdf format. Submit the document through blackboard. Attention, .txt format is not acceptable.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Lab 3, Discrete, continouse distribution. SOLUTION (Due on  11:59 PM, Feb 17, 2015)
 
@@ -155,6 +155,16 @@ title('The CDF of a normal distribution');
 xlabel('x');ylabel('F(x)');ylim([-0.02 1.02]);
 legend('sigma=0.5','sigma=1','sigma=2','location','best');
 legend('boxoff')
+
+%%
+% *Observations:
+% PDF: All three plots have the same median (mu, in this case 3).
+% The smaller sigma is, the higher and narrower the peak in the
+% middle of the plot (around x=3).
+% CDF: The smaller sigma is, the steeper and closer to vertical
+% the corresponding plot is. All three plots go through the same
+% point at F(x) = 0.5 (which is the median).*
+
 %%
 % Question 2. Plot the PMF and CDF for geometric distribution with varying
 % $p=[0.1, 0.5, 0.9]$. 
@@ -186,6 +196,11 @@ title('The CDF of a geometric distribution');
 xlabel('x');ylabel('F(x)');ylim([-0.02 1.02]);
 legend('p=0.1','p=0.5','p=0.9','location','best');
 legend('boxoff');
+
+%%
+% *Observations:
+% PMF: The larger p is, the more quickly f(x) approaches 0.
+% CDF: The larger p is, the more quickly F(x) approaches 1.*
 
 %%
 % Submission. Put all of your code,  figures, writeups in a single document with .doc or .docx or .pdf format.

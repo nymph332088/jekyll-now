@@ -35,6 +35,16 @@ title('The CDF of a normal distribution');
 xlabel('x');ylabel('F(x)');ylim([-0.02 1.02]);
 legend('sigma=0.5','sigma=1','sigma=2','location','best');
 legend('boxoff')
+
+%%
+% *Observations:
+% PDF: All three plots have the same median (mu, in this case 3).
+% The smaller sigma is, the higher and narrower the peak in the
+% middle of the plot (around x=3).
+% CDF: The smaller sigma is, the steeper and closer to vertical
+% the corresponding plot is. All three plots go through the same
+% point at F(x) = 0.5 (which is the median).*
+
 %%
 % Question 2. Plot the PMF and CDF for geometric distribution with varying
 % $p=[0.1, 0.5, 0.9]$. 
@@ -66,6 +76,11 @@ title('The CDF of a geometric distribution');
 xlabel('x');ylabel('F(x)');ylim([-0.02 1.02]);
 legend('p=0.1','p=0.5','p=0.9','location','best');
 legend('boxoff');
+
+%%
+% *Observations:
+% PMF: The larger p is, the more quickly f(x) approaches 0.
+% CDF: The larger p is, the more quickly F(x) approaches 1.*
 
 %%
 % Submission. Put all of your code,  figures, writeups in a single document with .doc or .docx or .pdf format.

@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Expectation and Sample Mean</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-02-27"><meta name="DC.source" content="EmpAndThe.m"><style type="text/css">
+      --><title>Expectation and Sample Mean</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-03-13"><meta name="DC.source" content="EmpAndThe.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -69,24 +69,15 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
   </style></head><body><div class="content"><h1>Expectation and Sample Mean</h1><!--introduction--><p>For a certain distribution <img src="EmpAndThe_eq03598.png" alt="$X$">, we know the expectation. If we get a sample of <img src="EmpAndThe_eq03598.png" alt="$X$">, which we call it <img src="EmpAndThe_eq55334.png" alt="$\hat{X}$">, we are also able to calculate the empirical average or mean of the sample, <img src="EmpAndThe_eq64875.png" alt="$mean = \frac{1}{N} \sum x_i$">.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">Uniform distribution example</a></li><li><a href="#5">Pareto distribution example</a></li></ul></div><p>What's the relationship between empirical mean and theoretical expectation?</p><h2>Uniform distribution example<a name="2"></a></h2><p><img src="EmpAndThe_eq21587.png" alt="$X \sim U(0, 1)$">;</p><pre class="codeinput">alpha1 = 0;
 beta1 = 1;
 </pre><p>Compute THEORETICAL values;</p><pre class="codeinput">mean1 = (beta1 - alpha1) / 2;
-</pre><p>Compute empirical values;</p><pre class="codeinput">rep = 100; <span class="comment">% Repeat 100 times;</span>
-sizes = [5,10,50,100,500,1000,5000]; <span class="comment">% For different sampling sizes;</span>
+</pre><p>Compute empirical values;</p><pre class="codeinput">sizes = [5,10,50,100,500,1000,5000]; <span class="comment">% For different sampling sizes;</span>
 nS = length(sizes);
 mean2 = zeros(nS,1);
 variance2 = zeros(nS,1);
 <span class="keyword">for</span> sizeIndex = 1:nS
     aSize = sizes(sizeIndex);
-    aMean = 0;
-    aVariance = 0;
-    <span class="keyword">for</span> aRep = 1:rep
-        ys = unifrnd(alpha1, beta1,[aSize,1]);
-        aMean = aMean + mean(ys);
-        aVariance = aVariance + var(ys);
-    <span class="keyword">end</span>
-    aMean = aMean/rep;
-    aVariance = aVariance/rep;
-    mean2(sizeIndex) = aMean;
-    variance2(sizeIndex) = aVariance;
+    ys = unifrnd(alpha1, beta1,[aSize,1]);
+    mean2(sizeIndex) = mean(ys);
+    variance2(sizeIndex) = var(ys);
 <span class="keyword">end</span>
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
@@ -107,13 +98,9 @@ mean2 = zeros(nS,1);
 <span class="keyword">for</span> sizeIndex = 1:nS
     aSize = sizes(sizeIndex);
     aMean = 0;
-    <span class="keyword">for</span> aRep = 1:rep
-        ys = gprnd(k1,sigma1,theta1,[aSize,1]);
-        aMean = aMean + mean(ys);
-    <span class="keyword">end</span>
-    aMean = aMean/rep;
-    aVariance = aVariance/rep;
-    mean2(sizeIndex) = aMean;
+    ys = gprnd(k1,sigma1,theta1,[aSize,1]);
+    mean2(sizeIndex) = mean(ys);
+    variance2(sizeIndex) = var(ys);
 <span class="keyword">end</span>
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
@@ -143,24 +130,15 @@ beta1 = 1;
 mean1 = (beta1 - alpha1) / 2;  
 %%
 % Compute empirical values;
-rep = 100; % Repeat 100 times;
 sizes = [5,10,50,100,500,1000,5000]; % For different sampling sizes;
 nS = length(sizes);
 mean2 = zeros(nS,1);
 variance2 = zeros(nS,1);
 for sizeIndex = 1:nS
     aSize = sizes(sizeIndex);
-    aMean = 0;
-    aVariance = 0;
-    for aRep = 1:rep
-        ys = unifrnd(alpha1, beta1,[aSize,1]);
-        aMean = aMean + mean(ys);
-        aVariance = aVariance + var(ys);
-    end
-    aMean = aMean/rep;         
-    aVariance = aVariance/rep;
-    mean2(sizeIndex) = aMean;
-    variance2(sizeIndex) = aVariance;
+    ys = unifrnd(alpha1, beta1,[aSize,1]);
+    mean2(sizeIndex) = mean(ys);
+    variance2(sizeIndex) = var(ys);
 end
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
@@ -189,13 +167,9 @@ mean2 = zeros(nS,1);
 for sizeIndex = 1:nS
     aSize = sizes(sizeIndex);
     aMean = 0;
-    for aRep = 1:rep
-        ys = gprnd(k1,sigma1,theta1,[aSize,1]);
-        aMean = aMean + mean(ys);
-    end
-    aMean = aMean/rep;         
-    aVariance = aVariance/rep;
-    mean2(sizeIndex) = aMean;
+    ys = gprnd(k1,sigma1,theta1,[aSize,1]);
+    mean2(sizeIndex) = mean(ys);
+    variance2(sizeIndex) = var(ys);
 end
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
@@ -204,5 +178,7 @@ hold on;
 plot(sizes,repmat(mean1,1,nS),'-b');
 legend('EMPIRICAL','TRUE');
 title('Mean');
+
+
 ##### SOURCE END #####
 --></body></html>
