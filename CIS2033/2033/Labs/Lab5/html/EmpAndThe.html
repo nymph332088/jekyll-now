@@ -81,6 +81,7 @@ variance2 = zeros(nS,1);
 <span class="keyword">end</span>
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
+ylim([0, max(mean2)]);
 plot(sizes,mean2, <span class="string">'-r'</span>);
 hold <span class="string">on</span>;
 plot(sizes,repmat(mean1,1,nS),<span class="string">'-b'</span>);
@@ -104,6 +105,7 @@ mean2 = zeros(nS,1);
 <span class="keyword">end</span>
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
+ylim([0, max(mean2)]);
 plot(sizes,mean2, <span class="string">'-r'</span>);
 hold <span class="string">on</span>;
 plot(sizes,repmat(mean1,1,nS),<span class="string">'-b'</span>);
@@ -142,6 +144,7 @@ for sizeIndex = 1:nS
 end
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
+ylim([0, max(mean2)]);
 plot(sizes,mean2, '-r');
 hold on;
 plot(sizes,repmat(mean1,1,nS),'-b');
@@ -173,6 +176,7 @@ for sizeIndex = 1:nS
 end
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
+ylim([0, max(mean2)]);
 plot(sizes,mean2, '-r');
 hold on;
 plot(sizes,repmat(mean1,1,nS),'-b');

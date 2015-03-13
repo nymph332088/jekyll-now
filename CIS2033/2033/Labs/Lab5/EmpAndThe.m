@@ -29,6 +29,7 @@ for sizeIndex = 1:nS
 end
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
+ylim([0, max(mean2)]);
 plot(sizes,mean2, '-r');
 hold on;
 plot(sizes,repmat(mean1,1,nS),'-b');
@@ -60,6 +61,7 @@ for sizeIndex = 1:nS
 end
 fig1a = figure;
 xlim([min(sizes) max(sizes)]);
+ylim([0, max(mean2)]);
 plot(sizes,mean2, '-r');
 hold on;
 plot(sizes,repmat(mean1,1,nS),'-b');
