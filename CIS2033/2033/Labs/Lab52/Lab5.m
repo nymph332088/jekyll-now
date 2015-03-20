@@ -30,10 +30,10 @@ title('Scatter between crimes and education');
 
 %% Sample covariance and sample correlation
 % The scatterplot shows there might be a correlation between . To measure
-% how correlated they are, use the <http://www.mathworks.com/help/matlab/ref/cov.html cov()> and corr() Matlab function.
+% how correlated they are, use the <http://www.mathworks.com/help/matlab/ref/cov.html cov()> and corrcoef() Matlab function.
 format short
 sCov = cov(X_hat, Y_hat)
-sCor = corr(X_hat, Y_hat)
+sCor = corrcoef(X_hat, Y_hat)
 
 %%
 % The sample correlation is very large, which confirm the ratings of the
@@ -45,4 +45,4 @@ sCor = corr(X_hat, Y_hat)
 % Summarize your observation in one paragraph.
 %%
 %
-% *Question 2.* Which two categories are least correlated? (Hint, corr(ratings) gives you pairwise correlations)
+% *Question 2.* Which two categories are least correlated? (Hint, corrcoef(ratings) gives you pairwise correlations)
