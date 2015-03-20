@@ -1,0 +1,157 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Lab 5, Correlations and covariances in real-world. (Due on  09:00 AM, Mar 28, 2015)</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-03-20"><meta name="DC.source" content="Lab5.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Lab 5, Correlations and covariances in real-world. (Due on  09:00 AM, Mar 28, 2015)</h1><!--introduction--><p>From the previous <a href="http://nymph332088.github.io/CIS2033/2033/Labs/Lab5/html/EmpAndThe.html">example,</a> for a certain distribution <img src="Lab5_eq03598.png" alt="$X$">, if we get a sample of <img src="Lab5_eq03598.png" alt="$X$">, denoting as <img src="Lab5_eq55334.png" alt="$\hat{X}$">, we are able to calculate the empirical average or mean of the sample, <img src="Lab5_eq92825.png" alt="$sample\_mean = \frac{1}{N} \sum x_i$">, for <img src="Lab5_eq01017.png" alt="$x_i$"> in <img src="Lab5_eq55334.png" alt="$\hat{X}$">. If we are given samples for two random variables <img src="Lab5_eq53177.png" alt="$X, Y$"> respectively, we can evaluate their relationship by calculating the sample correlation, <img src="Lab5_eq37752.png" alt="$sample\_cor = 1/N\sum(x_i - mean(\hat{X}) (y_i - mean(\hat{Y}))$">.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Load real-world data</a></li><li><a href="#4">Scatter plot</a></li><li><a href="#5">Sample covariance and sample correlation</a></li><li><a href="#7">Assignments</a></li></ul></div><h2>Load real-world data<a name="1"></a></h2><p>The Matlab sample data sets &#8221;cities&#8221; contains the average ratings from 329 cities for 9 categories. The higher the ratings are, the more satisfied the citizens are. You can load the data by using &#8217;load cities&#8217; in Matlab.</p><pre class="codeinput">load <span class="string">cities</span>
+</pre><p>Now you can see in the Workspace panel, 'categories', 'names', 'ratings' show up. Print the 'categories', there are 9 values,</p><pre class="codeinput">categories
+</pre><pre class="codeoutput">
+categories =
+
+climate       
+housing       
+health        
+crime         
+transportation
+education     
+arts          
+recreation    
+economics     
+
+</pre><p>The 'ratings' is a matrix with 329 rows and 9 columns. Each column is a sample of size 329 for the corresponding category. Scatter plot (also see Figure 10.1) is way to visualize the sample pairs of the two random variables.</p><h2>Scatter plot<a name="4"></a></h2><pre class="codeinput">X_hat = ratings(:,3); <span class="comment">% Ratings for crimes</span>
+Y_hat = ratings(:,7); <span class="comment">% Ratings for education</span>
+plot(X_hat,Y_hat,<span class="string">'b*'</span>);
+xlabel(categories(3, :), <span class="string">'FontSize'</span>,12,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>);
+ylabel(categories(7, :), <span class="string">'FontSize'</span>,12,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>);
+title(<span class="string">'Scatter between crimes and education'</span>);
+</pre><img vspace="5" hspace="5" src="Lab5_01.png" alt=""> <h2>Sample covariance and sample correlation<a name="5"></a></h2><p>The scatterplot shows there might be a correlation between . To measure how correlated they are, use the <a href="http://www.mathworks.com/help/matlab/ref/cov.html">cov()</a> and corr() Matlab function.</p><pre class="codeinput">format <span class="string">short</span>
+sCov = cov(X_hat, Y_hat)
+sCor = corr(X_hat, Y_hat)
+</pre><pre class="codeoutput">
+sCov =
+
+   1.0e+07 *
+
+    0.1006    0.4031
+    0.4031    2.1551
+
+
+sCor =
+
+    0.8658
+
+</pre><p>The sample correlation is very large, which confirm the ratings of the two categories are positive correlated. We expect 0.8 unit of rating increasing for 'arts' by increasing one unit of rating for 'health'.</p><h2>Assignments<a name="7"></a></h2><p><b>Question 1.</b> Choose 3 pairs of categories of your interest, e.g. education vs crime, recreation vs arts, economics vs education. Plot the scatter plots for the ratings of each pair respectively. Summarize your observation in one paragraph.</p><p><b>Question 2.</b> Which two categories are least correlated? (Hint, corr(ratings) gives you pairwise correlations)</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Lab 5, Correlations and covariances in real-world. (Due on  09:00 AM, Mar 28, 2015)
+% From the previous <http://nymph332088.github.io/CIS2033/2033/Labs/Lab5/html/EmpAndThe.html example,> for a certain distribution $X$, if we get a
+% sample of $X$, denoting as $\hat{X}$, we are able to calculate the empirical average or mean of the sample, $sample\_mean = \frac{1}{N} \sum
+% x_i$, for $x_i$ in $\hat{X}$.  
+% If we are given samples for two random variables $X, Y$ respectively, we can evaluate their relationship by calculating the sample correlation, 
+% $sample\_cor = 1/N\sum(x_i - mean(\hat{X}) (y_i - mean(\hat{Y}))$. 
+
+%% Load real-world data
+% The Matlab sample data sets ”cities” contains the average ratings from 329 
+% cities for 9 categories. The higher the ratings are, the more satisfied the citizens are. 
+% You can load the data by using ’load cities’ in Matlab.
+load cities
+
+%%
+% Now you can see in the Workspace panel, 'categories', 'names', 'ratings'
+% show up. Print the 'categories', there are 9 values, 
+categories
+
+%%
+% The 'ratings' is a matrix with 329 rows and 9 columns. Each column is a
+% sample of size 329 for the corresponding category. Scatter plot (also see
+% Figure 10.1) is way to visualize the sample pairs of the two random variables.
+%% Scatter plot
+X_hat = ratings(:,3); % Ratings for crimes
+Y_hat = ratings(:,7); % Ratings for education
+plot(X_hat,Y_hat,'b*');
+xlabel(categories(3, :), 'FontSize',12,'FontWeight','bold');
+ylabel(categories(7, :), 'FontSize',12,'FontWeight','bold');
+title('Scatter between crimes and education');
+
+%% Sample covariance and sample correlation
+% The scatterplot shows there might be a correlation between . To measure
+% how correlated they are, use the <http://www.mathworks.com/help/matlab/ref/cov.html cov()> and corr() Matlab function.
+format short
+sCov = cov(X_hat, Y_hat)
+sCor = corr(X_hat, Y_hat)
+
+%%
+% The sample correlation is very large, which confirm the ratings of the
+% two categories are positive correlated. We expect 0.8 unit of rating increasing for 'arts' by increasing one unit of rating for
+% 'health'.
+%% Assignments
+% *Question 1.* Choose 3 pairs of categories of your interest, e.g. education vs crime, recreation vs
+% arts, economics vs education. Plot the scatter plots for the ratings of each pair respectively.
+% Summarize your observation in one paragraph.
+%%
+%
+% *Question 2.* Which two categories are least correlated? (Hint, corr(ratings) gives you pairwise correlations)
+##### SOURCE END #####
+--></body></html>

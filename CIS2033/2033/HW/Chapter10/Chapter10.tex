@@ -1,0 +1,65 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips12submit_e,times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+%\documentstyle[nips12submit_09,times,art10]{article} % For LaTeX 2.09
+
+
+\title{Sample Questions \\
+Chapter 10}
+
+
+\author{}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Question 1} The probability distribution of a discrete random variable $X$ is given by $P(X = −1)= 1/4$, $P(X = 0) = 2/4$,$P(X = -1) = 1/4$. $Y = X^2$.\\
+
+a. Create the joint distribution table for $X$ and $Y$.\\
+b. Calculate the $Cov(X,Y)$.\\
+c. Calculate the $\rho(X,Y)$.\\
+d. Does X and Y independent or not?
+
+
+\paragraph*{Question 2} Let $P(X=a,Y=b)$ is given by the following table.\\
+\centerline{\begin{tabular}{ llll }
+%\caption{Important Expectation and Variance}
+\hline \hline 
+ & \multicolumn{3}{c}{a} \\ \cline{2-4}
+b& -1 & 0 & 1\\  \cline{2-4}
+4 & $\lambda -\frac{1}{16}$ & $-\lambda$& $\frac{1}{4}$\\ 
+5 & $\frac{1}{8}$ & $\frac{1}{16}$ & $\frac{1}{4}$\\ 
+6 & $\lambda$ & $\frac{1}{8}$& $\frac{1}{4} - \lambda$\\ \hline
+\hline
+\end{tabular}}\\
+
+a. Which are the values $\lambda$ can attain?\\
+b. Calculate the marginal distribution $p(x)$ and $p(y)$.\\
+c. Calculate $E[X]$ and $E[Y]$.\\
+d. Calculate $Var[X]$ and $Var[Y]$.\\
+e. Calculate $E[X+Y]$ and $Var[X+Y]$.\\
+f. Calculate $E[XY]$. \\
+g. Check whether $E[X+Y] = E[X] + E[Y]$. \\
+h. Check whether $Var[X+Y] = Var[X] + Var[Y]$.\\
+i. Check whether $E[XY] = E[X]E[Y]$
+j. Is there a value of η for which X and Y are independent?
+
+
+\end{document}
