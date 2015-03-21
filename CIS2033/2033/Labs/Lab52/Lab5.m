@@ -19,7 +19,7 @@ categories
 %%
 % The 'ratings' is a matrix with 329 rows and 9 columns. Each column is a
 % sample of size 329 for the corresponding category. Scatter plot (also see
-% Figure 10.1) is way to visualize the sample pairs of the two random variables.
+% Figure 10.1) is a way to visualize the sample pairs of the two random variables.
 %% Scatter plot
 X_hat = ratings(:,3); % Ratings for crimes
 Y_hat = ratings(:,7); % Ratings for education
@@ -29,11 +29,11 @@ ylabel(categories(7, :), 'FontSize',12,'FontWeight','bold');
 title('Scatter between crimes and education');
 
 %% Sample covariance and sample correlation
-% The scatterplot shows there might be a correlation between . To measure
-% how correlated they are, use the <http://www.mathworks.com/help/matlab/ref/cov.html cov()> and corrcoef() Matlab function.
+% The scatterplot shows there might be a correlation between the two ratins, because one increases, the other one also increases. To measure
+% how correlated they are, use the <http://www.mathworks.com/help/matlab/ref/cov.html cov()> and corr() Matlab function.
 format short
 sCov = cov(X_hat, Y_hat)
-sCor = corrcoef(X_hat, Y_hat)
+sCor = corr(X_hat, Y_hat)
 
 %%
 % The sample correlation is very large, which confirm the ratings of the
@@ -41,8 +41,9 @@ sCor = corrcoef(X_hat, Y_hat)
 % 'health'.
 %% Assignments
 % *Question 1.* Choose 3 pairs of categories of your interest, e.g. education vs crime, recreation vs
-% arts, economics vs education. Plot the scatter plots for the ratings of each pair respectively.
+% arts, economics vs education. Plot the scatter plots for the ratings of
+% each pair respectively. Calculate their sample covariance and correlation.
 % Summarize your observation in one paragraph.
 %%
 %
-% *Question 2.* Which two categories are least correlated? (Hint, corrcoef(ratings) gives you pairwise correlations)
+% *Question 2.* Which two categories are least correlated? (Hint, corr(ratings) gives you pairwise correlations. Least correlated means the correlation is closest to 0, not -1.)
