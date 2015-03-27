@@ -1,5 +1,5 @@
 %% Graphical and Numerical Summaries of a dataset
-% EG 1: Draw histograms for a sample with discrete numbers: [12, 15, 34, 24, 35, 67,
+% EG 1: Draw histograms for a sample with numbers: [12, 15, 34, 24, 35, 67,
 % 89, 13, 45, 36, 89, 46, 97, 34, 56, 78, 65, 83, 59, 74]
 % Question 1.1) Let the bin width be 10, the first bin starts at 10;
 X = [12, 15, 34, 24, 35, 67, 89, 13, 45, 36, 89, 46, 97, 34, 56, 78, 65, 83, 59, 74];
@@ -7,7 +7,11 @@ N = length(X);
 %[..., a(i), a(i+1), ...] a(i)<=Bi<a(i+1);
 %[10,20),[20,30),...,[90,100];
 fig1 = figure;
-bin1 = [10,20,30,40,50,60,70,80,90,100.1];
+bin1 = [10,20,30,40,50,60,70,80,90,100];
+
+%%
+%% Alternatively, you can use
+bin1 = 10:10:100
 width1 = ones(1,10)*10;
 bincount1 = histc(X,bin1);
 height1 = bincount1./(N*width1);
@@ -21,7 +25,7 @@ N = length(X);
 %[..., a(i), a(i+1), ...] a(i)<=Bi<a(i+1);
 %[10,40),[40,70),[70,100];
 fig2 = figure;
-bin2 = [10,40,70,100.1];
+bin2 = [10,40,70,100];
 width2 = ones(1,4)*30;
 bincount2 = histc(X,bin2);
 height2 = bincount2./(N*width2);
@@ -35,7 +39,7 @@ N = length(X);
 %[..., a(i), a(i+1), ...] a(i)<=Bi<a(i+1);
 %[10,60),[60,110];
 fig3 = figure;
-bin3 = [10,60,110.1];
+bin3 = [10,60,110];
 width3 = ones(1,3)*50;
 bincount3 = histc(X,bin3);
 height3 = bincount3./(N*width3);
