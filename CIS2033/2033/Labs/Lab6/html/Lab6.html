@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Lab 6, Histogram</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-03-27"><meta name="DC.source" content="Lab6.m"><style type="text/css">
+      --><title>Lab 6, Histogram (Due Apr. 11, 11:59 PM, 2015)</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-04-07"><meta name="DC.source" content="Lab6.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Lab 6, Histogram</h1><!--introduction--><p><i>Shanshan Zhang, <a href="mailto:tuf14438@temple.edu">tuf14438@temple.edu</a></i> Learn to plot a histogram according to the definition in the textbook.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Data</a></li><li><a href="#2">Histogram with bin width 10</a></li><li><a href="#3">Histogram with bin width 30</a></li><li><a href="#4">Histogram with bin width 50</a></li><li><a href="#5">Assignments</a></li></ul></div><h2>Data<a name="1"></a></h2><p>Draw histograms for a sample with discrete numbers: [12, 15, 34, 24, 35, 67, 89, 13, 45, 36, 89, 46, 97, 34, 56, 78, 65, 83, 59, 74]</p><pre class="codeinput">X = [12, 15, 34, 24, 35, 67, 89, 13, 45, 36, 89, 46, 97, 34, 56, 78, 65, 83, 59, 74];
+  </style></head><body><div class="content"><h1>Lab 6, Histogram (Due Apr. 11, 11:59 PM, 2015)</h1><!--introduction--><p><i>Shanshan Zhang, <a href="mailto:tuf14438@temple.edu">tuf14438@temple.edu</a></i> Learn to plot a histogram according to the definition in the textbook.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Data</a></li><li><a href="#2">Histogram with bin width 10</a></li><li><a href="#3">Histogram with bin width 30</a></li><li><a href="#4">Histogram with bin width 50</a></li><li><a href="#5">Assignments</a></li></ul></div><h2>Data<a name="1"></a></h2><p>Draw histograms for a sample with discrete numbers: [12, 15, 34, 24, 35, 67, 89, 13, 45, 36, 89, 46, 97, 34, 56, 78, 65, 83, 59, 74]</p><pre class="codeinput">X = [12, 15, 34, 24, 35, 67, 89, 13, 45, 36, 89, 46, 97, 34, 56, 78, 65, 83, 59, 74];
 N = length(X);
 </pre><h2>Histogram with bin width 10<a name="2"></a></h2><p>Let the bin width be 10, the first bin starts at 10;</p><pre class="codeinput"><span class="comment">%[..., a(i), a(i+1), ...] a(i)&lt;=Bi&lt;a(i+1);</span>
 <span class="comment">%[10,20),[20,30),...,[90,100];</span>
@@ -93,9 +93,9 @@ bincount3 = histc(X,bin3);
 height3 = bincount3./(N*width3);
 bar(bin3,height3,<span class="string">'histc'</span>);
 xlim([10,110]);
-</pre><img vspace="5" hspace="5" src="Lab6_03.png" alt=""> <h2>Assignments<a name="5"></a></h2><p><b>Question</b>. Plot the histogram in Matlab for Homework Q3, with different bin width [10, 20, 30]</p><p><b>Question</b>. Plot the histogram in Matlab for the ratings of 'education' in the 'cities' data, choose different bin width. (Hint, please refer to Lab5 for the way to load cities data)</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="Lab6_03.png" alt=""> <h2>Assignments<a name="5"></a></h2><p><b>Question</b>. Plot the histogram in Matlab for Homework Q4, with different bin width [10, 20, 30]</p><p><b>Question</b>. Plot the histogram in Matlab for the ratings of 'education' in the 'cities' data, choose different bin width. (Hint, please refer to Lab5 for the way to load cities data)</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%% Lab 6, Histogram
+%% Lab 6, Histogram (Due Apr. 11, 11:59 PM, 2015)
 % _Shanshan Zhang, tuf14438@temple.edu_
 % Learn to plot a histogram according to the definition in the textbook.
 
@@ -141,7 +141,7 @@ xlim([10,110]);
 
 
 %% Assignments
-% *Question*. Plot the histogram in Matlab for Homework Q3, with different bin width [10, 20, 30]
+% *Question*. Plot the histogram in Matlab for Homework Q4, with different bin width [10, 20, 30]
 %%
 % *Question*. Plot the histogram in Matlab for the ratings of 'education' in the 'cities' data, choose different bin width. (Hint, please refer to Lab5 for the way to load cities data) 
 ##### SOURCE END #####

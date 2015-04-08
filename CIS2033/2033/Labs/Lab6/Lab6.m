@@ -1,4 +1,4 @@
-%% Lab 6, Histogram
+%% Lab 6, Histogram (Due Apr. 11, 11:59 PM, 2015)
 % _Shanshan Zhang, tuf14438@temple.edu_
 % Learn to plot a histogram according to the definition in the textbook.
 
@@ -44,6 +44,6 @@ xlim([10,110]);
 
 
 %% Assignments
-% *Question*. Plot the histogram in Matlab for Homework Q3, with different bin width [10, 20, 30]
+% *Question*. Plot the histogram in Matlab for Homework Q4, with different bin width [10, 20, 30]
 %%
 % *Question*. Plot the histogram in Matlab for the ratings of 'education' in the 'cities' data, choose different bin width. (Hint, please refer to Lab5 for the way to load cities data) 
