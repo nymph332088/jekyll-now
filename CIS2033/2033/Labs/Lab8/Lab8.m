@@ -3,7 +3,7 @@
 % Illustration of unbiased estimator.
 
 %% Question 1: load poiss.mat, download link 
-% <http://nymph332088.github.io/CIS2033/2033/Labs/Lab8/poss.mat> .
+% <http://nymph332088.github.io/CIS2033/2033/Labs/Lab8/poiss.mat> .
 % Let the discrete random variable $X$ be the number of customers visiting
 % ABC Bank in a hour. We know that $X ~ Poiss(lambda). 
 % The poiss.mat stores such information: 1000 records. 
