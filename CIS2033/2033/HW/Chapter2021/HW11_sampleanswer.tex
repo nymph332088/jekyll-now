@@ -1,0 +1,64 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips12submit_e,times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+%\documentstyle[nips12submit_09,times,art10]{article} % For LaTeX 2.09
+
+\usepackage{graphicx}
+\graphicspath{{./figures/}}
+\title{Homework based on Chapter 20, 21\\
+Computational Probability and Statistics \\
+CIS 2033, Section 002}
+\author{Due: 9:00 AM, Friday, April 24, 2015}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{20.1 (5 points)} Given a random sample $X_1, X_2, \ldots, X_n$ from a distribution with finite variance $\sigma^2$. We estimate the expectation of the distribution with the sample mean $\overline{X}_n$. Argue that the larger our sample, the more efficient our estimator. What is the relative efficiency $Var(\overline{X}_n)/Var(\overline{X}_{2n})$ of $\overline{X}_{2n}$ with respect to $\overline{X}_n$ ? 
+
+{\bf Answer:}  Since, $X_i$ and $X_j$  are independent, then $Cov(X_i, X_j) = 0$ for $i\neq j$. 
+Let $Var(X_i) = \sigma^2, i=1, 2, \ldots, n$, $Cov(X_i, X_j) = \gamma = 0, i\neq j$. Then
+$Var(\overline{X}_n) = Var(\frac{X_1+X_2+\ldots + X_n}{n}) = \frac{1}{n^2} \left( n\sigma^2 + n(n-1)\gamma \right) = \frac{\sigma^2}{n}$. 
+Then, the larger $n$ is, the smaller $Var(\overline{X}_n)$ is, the more efficient the estimator is. 
+(Also means that the smaller MSE is). 
+
+$\frac{Var(\overline{X}_n)}{Var(\overline{X}_{2n})} = \frac{\frac{\sigma^2}{n}}{\frac{\sigma^2}{2n}}=2$, which means that $\overline{X}_{2n}$ is twice as efficient as $\overline{X}_n$.
+
+\paragraph*{20.7 (5 points)}
+In Exercise 19.7 you showed that both $T_1$ and $T_2$ are unbiased estimators for $\theta$. Which estimator would you prefer ? Motivate your answer. 
+
+{\bf Answer:}  $Var(T_1) = \frac{16}{n^2}Var(N_1) = \frac{16}{n^2}np_1(1-p_1)= \frac{16}{n}\frac{1}{4}(\theta+2)\frac{1}{4}(2-\theta) = \frac{4-\theta^2}{n}$ \\
+$Var(T_2) = \frac{16}{n^2}Var(N_2) = \frac{16}{n^2}np_2(1-p_2)= \frac{16}{n}\frac{\theta}{4}(1-\frac{\theta}{4}) = \frac{4\theta-\theta^2}{n}$ \\
+Since $0 < \theta < 1$, then $\frac{4\theta-\theta^2}{n} < \frac{4-\theta^2}{n}$. $T_2$ is more efficient. 
+
+\paragraph*{21.9 (5 points)} Tossing a coin is a Bernoulli trial, the random variable $X$ denoting the results of a toss follows a Bernoulli distribution $\sim Ber(p)$, where $p$ is the probability of getting a head. 
+\subparagraph*{a).} Suppose you observed 10 tosses of a coin which are H,T,T,T,T,H,H,T,T,T. Determine the maximum likelihood estimates for $p$. 
+
+
+{\bf Answer:}  For $X\sim Ber(p)$ if $P(X=H) = p, P(X=T) = 1-p$ 
+Then, the likelihood for the observation is a function in terms of $p$, $L(p) = p^3*(1-p)^7$. To achieve the maximum of $L(p)$, we have to set $\frac{dL(p)}{dp} = \frac{d(p^3)}{dp}*(1-p)^7 + p^3*\frac{d(1-p)^7}{dp} = 3*p^2 - 7p^3(1-p)^6 = 0$, which we get the maximum likelihood estimator for $p = \frac{3}{10} = 0.3$. 
+
+\paragraph*{21.10 (5 points)} Let $x_1, x_2, \ldots, x_n$ be a dataset that are observations of a random variable from a $Par(\alpha)$ distribution. What is the maximum likelihood estimate for $\alpha$. 
+
+{\bf Answer:} For $Par(\alpha)$, $p(x_i) = \frac{\alpha}{x_i^{\alpha+1}}$, then 
+$L(\alpha) = \prod_{i=1}^n \frac{\alpha}{x_i^{\alpha+1}} = \frac{\alpha^n}{\prod x_i^{\alpha+1}}$, then 
+$\ell(\alpha) = n\log(\alpha) - (\alpha+1)\sum_{i=1}^n \log(x_i)$, let the derivative to be zero, then 
+$\frac{n}{\alpha} - \sum_{i=1}^n \log x_i = 0$, then $\alpha = \frac{n}{\sum_{i=1}^n \log x_i}$
+
+\end{document}

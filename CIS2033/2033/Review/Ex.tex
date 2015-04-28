@@ -82,23 +82,42 @@ CIS 2033, Section 002}
 \textbf{Keywords:} sample space, events, probability, conditional probability, multiplication rule, law of total probability, Bayes' rule
 \paragraph*{2.1} If a coin is tossed three times, what is the probability for each of the following events to happen?\\
 (\textit{Hint}. sample space $\Leftrightarrow$ set, events $\Leftrightarrow$ subset, probability of events $\Leftrightarrow$ area.)
-\subparagraph*{a).} You get 3 heads.
-\subparagraph*{b).} You get 2 heads.
-\subparagraph*{c).} The first toss is head, the second toss is tail.
-\subparagraph*{d).} The first two toss are heads.
+\subparagraph*{a).} You get 3 heads.\\
+The sample space is: $\Omega	=\{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\}$ \\
+\textbf{Answer}: $P(A) = \frac{1}{8}$
+\subparagraph*{b).} You get 2 heads. \\
+\textbf{Answer}: $P(B) = \frac{3}{8}$
+\subparagraph*{c).} The first toss is head, the second toss is tail.\\
+\textbf{Answer}: $P(C) = \frac{2}{8}$
+\subparagraph*{d).} The first two toss are heads.\\
+\textbf{Answer}: $P(D) = \frac{2}{8}$
 
 \paragraph*{3.1} Two cards are arbitrarily drawn (without replacement) from a standard 52-card deck (with 13 heart cards). Let $S1$ be the event "the first one is a heart," and $S2$ "the second one is a heart."\\
 (\textit{Hint}. conditional probability, multiplication rule, law of total probability.)
-\subparagraph*{a).} Decide $P(S1), P(S2 | S1)$, and $P(S2 | S1^c)$ using the division rule.
-\subparagraph*{b).} Compute $P(S2)$ using $P(S2 | S1),  P(S2 | S1^c), P(S1)$, and $P(S1^c)$.
-\subparagraph*{c).} Are $S1$ and $S2$ independent of each other? How do you know that?
+\subparagraph*{a).} Decide $P(S1), P(S2 | S1)$, and $P(S2 | S1^c)$ using the division rule.\\
+\textbf{Answer}: $P(S1) = \frac{13}{52}$, $P(S1 \cap S2) = \frac{13 * 12}{52*51}$, $P(S1^c \cap S2) = \frac{39*13}{52 * 51}$, \\
+$ \Rightarrow P(S2 | S1)=\frac{P(S1 \cap S2)}{P(S1)} = \frac{12}{51}$, $P(S2 | S1^c) = \frac{P(S1^c \cap S2)}{S1^c} = \frac{13}{51}$
+\subparagraph*{b).} Compute $P(S2)$ using $P(S2 | S1),  P(S2 | S1^c), P(S1)$, and $P(S1^c)$.\\
+\textbf{Answer}: $P(S2) = P(S2 | S1)* P(S1) + P(S2 | S1^c) *P(S1) = \frac{13}{52}$
+
+\subparagraph*{c).} Are $S1$ and $S2$ independent of each other? How do you know that?\\
+\textbf{Answer}: $P(S2) \neq P(S2|S1) \Rightarrow$ S1 and S2 are not independent of each other.
 
 \paragraph*{3.2} There are two bags, each of which contains a mixture of red and blue balls. Let $A$ be the event you select Bag 1 and $B$ that you select Bag 2.
 Suppose $P(A) = 1/3, P (B) = 2/3$. Let $C$ is the event that you get a red ball. 
-\subparagraph*{a).} Describe in words what is $P(C|A)$, $P(C^c|A), P(C), P(C^c)$.
-\subparagraph*{b).} Suppose you know $P(C|A) = 1/4, P(C|B) = 1/3$. Now you get a red ball, which bag does this ball most probably come from?
+\subparagraph*{a).} Describe in words what is $P(C|A)$, $P(C^c|A), P(C), P(C^c)$.\\
+\textbf{Answer}: $C|A $: get a red ball from bag A. $C^c|A$: get a blue ball from bag A. $C$: get a red ball. $C^c$: get a blue ball.
+\subparagraph*{b).} Suppose you know $P(C|A) = 1/4, P(C|B) = 1/3$. Now you get a red ball, which bag does this ball most probably come from?\\
 (\textit{Hint}. Bayes' rule.)
-
+\textbf{Answer}: Known $P(C|A), P(C|B), P(A), P(B)$. The problem asks for $P(A|C)$ and $P(B|C)$. Using Bayes's rule to flip the probabilities:
+\begin{align*}
+P(A|C) & = \frac{P(A\cap C)}{P(A)} & \\
+& = \frac{P(C|A) *P(A)}{ P(C|A)*P(A) + P(C|B)*P(B)} & \\
+& = \frac{1/4 * 1/3}{1/4 * 1/3 + 1/3 * 2/3}&  \\
+& =\frac{3}{11} & 
+\end{align*}
+Since, A and B are complementary events, (i.e. the ball can be only taken either from A or B), we have $P(B|C) = 1 - P(A|C) = \frac{8}{11}$.
+So, it's more probably coming from bag B.
 
 \section{Chapter 4}
 \textbf{Keywords: } Bernoulli, Binomial, Geometric distribution, Probability Mass Function and Distribution Function
@@ -151,13 +170,49 @@ x^3, & 0 \leq x \leq 1 \\
 \right.
 \end{align*}
 
-\subparagraph*{a).} Compute $P(1/4 < X \leq 1/2)$
-\subparagraph*{b).} What's the probability density function $f(x)$?
+\subparagraph*{a).} Compute $P(1/4 < X \leq 1/2)$ \\
+\textbf{Answer:} $P(1/4 < X \leq 1/2) = P(X \leq 1/2) - P(X \leq 1/4) = (1/2)^3 - (1/4)^3 = 7/64$
+\subparagraph*{b).} What's the probability density function $f(x)$?\\
+\textbf{Answer:} Deriving the derivative of the distribution function $F(x)$, we get the PDF $f(x)$:
+\begin{align*}
+f(x) = \left\lbrace
+\begin{array}{ll} 
+0, & x < 0 \\
+& \\
+3x^2, & 0 \leq x \leq 1 \\ 
+& \\
+0, & x > 1
+\end{array}
+\right.
+\end{align*}
 
 \section{Chapter 6}
 \paragraph*{6.1} Let U have a U (0, 1) distribution.
-\subparagraph*{a).} Describe the pseudo code to simulate the outcome of tossing a coin using U.
-\subparagraph*{b).} Describe the pseudo code to simulate $Bin(4,0.5)$ 
+\subparagraph*{a).} Describe the pseudo code to simulate the outcome of tossing a coin using U.\\
+\textbf{Answer:} Suppose $X$ is the outcome of tossing a fair coin. $P(X = 1) = 0.5, P(X = 0) = 0.5$. Because $P(0 \leq U\leq 0.5)= 0.5, P(0.5 < U \leq 1) = 0.5$, so the pseudo code is :
+$++++++++++++++++++++++++++++++++$ \\
+if $u\in[0, 0.5]$ : x = 0 \\
+else $u\in(0.5, 1]$: x = 1 \\
+$++++++++++++++++++++++++++++++++$ \\
+\subparagraph*{b).} Describe the pseudo code to simulate $Bin(4,0.5)$ \\
+\textbf{Answer:} 
+
+\begin{table}[h!]
+\renewcommand{\arraystretch}{1.5}
+\centering
+\caption{Y.}
+\label{Ta:6.1b}
+\begin{tabular}{|c|c|c|c|c|c|c|c|} \hline
+$Events of U$ & $0\leq U \leq \frac{1}{16}$ & $\frac{1}{16} < U \leq \frac{1}{16} + \frac{4}{16}$ & 
+$\frac{5}{16} < U \leq \frac{5}{16}+\frac{6}{16}$ & $\frac{11}{16} < U \leq \frac{11}{16}+\frac{4}{16}$ & 
+$\frac{15}{16} < U \leq 1$ \\ \hline 
+$Events of X$ & $0$ & $1$ & 
+$2$ & $3$ & 
+$4$ \\ \hline 
+Same probs & $\frac{1}{16}$ & $\frac{4}{16}$ & $\frac{6}{16}$ & $\frac{4}{16}$ & $\frac{1}{16}$ \\ \hline 
+\end{tabular}
+\end{table}
+
 
 \paragraph*{6.2}
 Both the Exponential and Uniform generators are broken on Tom's computer. He gets a random number $p=2$ from $Par(2)$ distribution.\\
@@ -187,9 +242,9 @@ P(U=u) & $\frac{1}{3}$ &  & $\frac{1}{3}$ & 1 \\ \hline \hline
 \subparagraph*{a} Complete the table. 
 \subparagraph*{b} Compute $E[U], E[V], Var[U], Var[V]$. \\(\textit{Hint}, $E[U] = \sum_a a*P(U=a), Var[U]=E[U^2] - E[U]^2, E[U^2]=\sum_a a^2*P(U=a)$)
 \subparagraph*{c} Compute $E[U + V], E[UV]$. \\(\textit{Hint}, $E[g(U, V)] = \sum_{a,b}g(a,b) *P(U=a, V=b)$ )
-\subparagraph*{c} Compute $Cov(U, V)$. \\(\textit{Hint}, $Cov(U,V) = E[UV] - E[U]E[V]$)
-\subparagraph*{d} Compute $\rho(U, V)$. \\(\textit{Hint}, $\rho(U, V) = \frac{Cov(U,V)}{\sqrt{Var[U]Var[V]}}$)
-\subparagraph*{e} How is $U,V$ correlated? Are they independent? 
+\subparagraph*{d} Compute $Cov(U, V)$. \\(\textit{Hint}, $Cov(U,V) = E[UV] - E[U]E[V]$)
+\subparagraph*{e} Compute $\rho(U, V)$. \\(\textit{Hint}, $\rho(U, V) = \frac{Cov(U,V)}{\sqrt{Var[U]Var[V]}}$)
+\subparagraph*{f} How is $U,V$ correlated? Are they independent? 
 
 {\bf For a)}\\
 \begin{table}[h!]
@@ -206,31 +261,36 @@ P(U=u) & $\frac{1}{3}$ & $\frac{1}{3}$ & $\frac{1}{3}$ & 1 \\ \hline \hline
 \end{tabular}
 \end{table}
 
-{\bf For b)} \\
+{\bf For b, c)} \\
 \begin{align*}
-Cov(U, V) = &  E[UV] - E[U]E[V] \\
+E[U] = & 1\times \frac{1}{3} + 3\times \frac{1}{3} + 5\times{1}{3} = 3 \\
+E[V] = & 2\times \frac{1}{6} + 4\times \frac{1}{2} + 6\times{1}{3} = \frac{13}{3} \\
+E[U^2] = & 1^2\times \frac{1}{3} + 3^2\times \frac{1}{3} + 5^2\times{1}{3} = \frac{35}{3}  \\
+E[V^2] = & 2^2\times \frac{1}{6} + 4^2\times \frac{1}{2} + 6^2\times{1}{3} = \frac{62}{3} \\
+Var(U) = & E[U^2] - (E[U])^2 = \frac{35}{3} - 3^2 = \frac{8}{3} \\
+Var(V) = & E[V^2] - (E[V])^2 = \frac{62}{3}- \left(\frac{13}{3}\right)^2 = \frac{17}{9}\\
+E[U + V] = & (1+2) \times \frac{1}{18} + (1 + 4) \times \frac{1}{6} + (1+ 6) \times \frac{1}{9} \\
+& (3+2) \times \frac{1}{18} + (3+4) \times \frac{1}{6} + (3+6) \times \frac{1}{9}  \\
+& (5+2) \times \frac{1}{18} + (5+4) \times \frac{1}{6} + (5+6) \times \frac{1}{9}  \\
+= & \frac{22}{3} \\
 E[UV] = & 1\times 2 \times \frac{1}{18} + 1\times 4 \times \frac{1}{6} + 1\times 6 \times \frac{1}{9} \\
 & 3\times 2 \times \frac{1}{18} + 3\times 4 \times \frac{1}{6} + 3\times 6 \times \frac{1}{9}  \\
 & 5\times 2 \times \frac{1}{18} + 5\times 4 \times \frac{1}{6} + 5 \times 6 \times \frac{1}{9}  \\
-= & 13 \\
-E[U] = & 1\times \frac{1}{3} + 3\times \frac{1}{3} + 5\times \frac{1}{3} \\
-= & 3 \\
-E[V] = &  2\times \frac{1}{6} + 4\times \frac{1}{2} + 6\times \frac{1}{3} \\
-= & \frac{13}{3} \\
+= & 13 
+\end{align*}
+
+
+{\bf For d,e)} \\
+\begin{align*}
 Cov(U, V) = & E[UV] - E[U]E[V] \\
 = & 13 - 3\times \frac{13}{3} \\
-= & 0
-\end{align*}
-
-
-{\bf For c)} \\
-\begin{align*}
+= & 0 \\
 \rho(U, V) = & \frac{Cov(U, V)}{\sqrt{Var(U)Var(V)}}\\
-Var(U) = & E[U^2] - (E[U])^2 =  \left( 1^2\times \frac{1}{3} + 3^2\times \frac{1}{3} + 5^2\times \frac{1}{3} \right) - 3^2 = \frac{8}{3} \\
-Var(V) = & E[V^2] - (E[V])^2 = \left(  2^2\times \frac{1}{6} + 4^2\times \frac{1}{2} + 6^2\times \frac{1}{3}\right) - \left(\frac{13}{3}\right)^2 = \frac{17}{9}
 \end{align*}
 Since $Cov(U, V) = 0$, then $\rho(U, V) = 0$.
- 
+
+{\bf For f)} \\
+Since for each cell in the table, we have $P(U = a, V = b) = P(U = a) * P(V = b)$, U and V are independent.
 \section{Chapter 12}
 
 \paragraph*{12.1} The number of errors on a hard disk is modeled as a Poisson random variable with expectation one error in every Mb, that is, in every $2^{20}$ bytes.
