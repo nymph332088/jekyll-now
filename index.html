@@ -2,6 +2,7 @@
 layout: default
 ---
 
+<<<<<<< HEAD
 <div class="home">
 
   <h1 class="page-heading">Posts</h1>
@@ -21,3 +22,19 @@ layout: default
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
+=======
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
+
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
+>>>>>>> c18f70d13451671440543959bd59f3174a96b965

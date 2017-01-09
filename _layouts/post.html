@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<<<<<<< HEAD
 <div class="post">
 
   <header class="post-header">
@@ -13,3 +14,19 @@ layout: default
   </article>
 
 </div>
+=======
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+
+  <div class="date">
+    Written on {{ page.date | date: "%B %e, %Y" }}
+  </div>
+
+  {% include disqus.html %}
+</article>
+>>>>>>> c18f70d13451671440543959bd59f3174a96b965
