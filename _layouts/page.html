@@ -1,26 +1,19 @@
 ---
-layout: default
+layout: base
 ---
-<<<<<<< HEAD
-<div class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-  </header>
+{% include header.html type="page" %}
 
-  <article class="post-content">
-    {{ content }}
-  </article>
-
-</div>
-=======
-
-<article class="page">
-
-  <h1>{{ page.title }}</h1>
-
-  <div class="entry">
-    {{ content }}
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      {{ content }}
+	    {% if page.comments %}
+        <div class="disqus-comments">
+	        {% include disqus.html %}
+        </div>
+	        {% include fb-comment.html %}
+	    {% endif %}
+    </div>
   </div>
-</article>
->>>>>>> c18f70d13451671440543959bd59f3174a96b965
+</div>
